@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="49db6206-aa9b-4c2c-9b1c-6001ad8458de">
+  <descriptionCdata><![CDATA[49db6206-aa9b-4c2c-9b1c-6001ad8458de.9f0bde74-e977-4017-b0fd-6eefc1744a04.description=This operation iterates through a string that contains an array in the JavaScript Object Notation format (JSON).  Each time  this operation is called, it places the value of the current array element into the "returnResult" output and advances the iterator to the next array element.\n\nThe JSON format is used to encode arrays and other values using JavaScript notation.  For arrays, this means that the values need to be enclosed by square brackets, and each element in the array can be a string (enclosed by quotes), a number, true, false, null, or  nested array or object.  Commas are always used as delimiters between array elements, and they can also appear within string elements. \n\nThe benefits of JavaScript arrays are that delimiters are fixed and cannot be confused with data, and that complex nesting of arrays and objects are supported.  The description of the enclosing folder, /Library/Utility Operations/Container/JavaScript Objects has more examples, and the JSON format is described completely at http\://www.json.org.\n\nInputs\:\n    array - The JavaScript array that will be iterated through. A normal OO list is NOT a JavaScript array.\nExamples\:\n    For example, the following is a simple JSON array\:\n        [ "cat", "dog", "horse" ]\n    The equivalent OO list (that is not a JavaScript array) is\:\n        cat,dog,horse\n\n Results\:\n    returnResult - This is the primary output and contains the current array element or an exception message if something went wrong.  When incorporating this operation into a flow, you should assign a meaningful result value from this field.\n\nResponses\:\n   has more - The iterator has not yet reached the end of the array. The "returnResult" output will be populated with the value of the current element in the array, and the iterator will advance to the next element in the array.\n   no more - The iterator has reached the end of the array, and there is no more data to return.  The iterator will become undefined after this call, which basically will reset it so that if called again, this operation will begin another iteration at the beginning of the array.\n   failure - There was some error in iterating through the list, and the "returnResult" output will contain information about the error. This will occur if the input array is not a valid JavaScript array. You may wish to use a tool such as http\://www.jsonlint.com/ to help diagnose problems with JavaScript Object Notation.\n\nNotes\:\n1. Modifying the contents of the array during iteration is not supported unless the iteration has finished.\n2. The operation supports iterating through nested arrays.\n
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Json Array</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="ac67b787-e471-45ee-b236-2f036f983640">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="fd89dca6-dcd9-472b-b083-21c1fc21751e">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="14216757-1cf9-4458-83c4-2ea5fcfb77c5">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="3e8d6414-a919-4e27-875c-e5c4a6b53909">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="9f0bde74-e977-4017-b0fd-6eefc1744a04">
+      <annotation>49db6206-aa9b-4c2c-9b1c-6001ad8458de.9f0bde74-e977-4017-b0fd-6eefc1744a04.description</annotation>
+      <name>Array Iterator</name>
+      <bounds>
+        <x>270.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="cb6345ee-4c4d-424a-93c0-83e83ef2ae9d">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>array</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{
+    &quot;clients&quot;: [
+        {
+            &quot;aliases&quot;: [
+                &quot;Server1&quot;,
+                &quot;Server2&quot;
+            ],
+            &quot;applicationInformation&quot;: [
+                &quot;NSR_PS_DEBUG_LEVEL=0&quot;,
+                &quot;NSR_SKIP_SIMPLE_DB=FALSE&quot;,
+                &quot;NSR_CONSISTENCY_CHECKS=FALSE&quot;
+            ],
+            &quot;backupCommand&quot;: &quot;nsrsqlsv&quot;,
+            &quot;backupType&quot;: &quot;SQL Server&quot;,
+            &quot;blockBasedBackup&quot;: false,
+            &quot;checkpointEnabled&quot;: false,
+            &quot;clientId&quot;: &quot;e64a92ce-00000004-5afc88af-5afc88ae-00015000-3e708a56&quot;,
+            &quot;comment&quot;: &quot;Intigua SQL Testing &quot;,
+            &quot;hostname&quot;: &quot;Server1.ds.dev.dummy.com&quot;,
+            &quot;indexBackupContent&quot;: false,
+            &quot;links&quot;: [
+                {
+                    &quot;href&quot;: &quot;https://dummynetworkerserver.ds.dev.dummy.com:9090/nwrestapi/v3/global/clients/52.0.172.13.0.0.0.0.78.72.252.90.10.13.130.90&quot;,
+                    &quot;rel&quot;: &quot;item&quot;
+                }
+            ],
+            &quot;nasDevice&quot;: false,
+            &quot;ndmp&quot;: false,
+            &quot;ndmpMultiStreamsEnabled&quot;: false,
+            &quot;ndmpVendorInformation&quot;: [],
+            &quot;parallelSaveStreamsPerSaveSet&quot;: false,
+            &quot;parallelism&quot;: 4,
+            &quot;password&quot;: &quot;*******&quot;,
+            &quot;protectionGroups&quot;: [
+                &quot;Bronze-Application&quot;
+            ],
+            &quot;remoteAccessUsers&quot;: [],
+            &quot;remoteUser&quot;: &quot;sqlbkupadmin&quot;,
+            &quot;resourceId&quot;: {
+                &quot;id&quot;: &quot;52.0.172.13.0.0.0.0.78.72.252.90.10.13.130.90&quot;,
+                &quot;sequence&quot;: 10
+            },
+            &quot;saveSets&quot;: [
+                &quot;MSSQL:&quot;
+            ],
+            &quot;scheduledBackup&quot;: true,
+            &quot;storageNodes&quot;: [],
+            &quot;tags&quot;: [
+                &quot;Bronze-Application&quot;
+            ]
+        },
+        {
+            &quot;aliases&quot;: [
+                &quot;server3&quot;,
+                &quot;server3.ds.dev.dummy.com&quot;
+            ],
+            &quot;applicationInformation&quot;: [
+                &quot;NSR_PS_DEBUG_LEVEL=0&quot;
+            ],
+            &quot;backupType&quot;: &quot;Filesystem&quot;,
+            &quot;blockBasedBackup&quot;: false,
+            &quot;checkpointEnabled&quot;: false,
+            &quot;clientId&quot;: &quot;e64a92ce-00000004-5afc88af-5afc88ae-00015000-3e708a56&quot;,
+            &quot;comment&quot;: &quot;Intigua testing\t&quot;,
+            &quot;hostname&quot;: &quot;server3.ds.dev.dummy.com&quot;,
+            &quot;indexBackupContent&quot;: false,
+            &quot;links&quot;: [
+                {
+                    &quot;href&quot;: &quot;https://dummynetworkerserver.ds.dev.dummy.com:9090/nwrestapi/v3/global/clients/42.0.172.13.0.0.0.0.78.72.252.90.10.13.130.90&quot;,
+                    &quot;rel&quot;: &quot;item&quot;
+                }
+            ],
+            &quot;nasDevice&quot;: false,
+            &quot;ndmp&quot;: false,
+            &quot;ndmpMultiStreamsEnabled&quot;: false,
+            &quot;ndmpVendorInformation&quot;: [],
+            &quot;parallelSaveStreamsPerSaveSet&quot;: false,
+            &quot;parallelism&quot;: 4,
+            &quot;protectionGroups&quot;: [
+                &quot;Bronze-Filesystem&quot;,
+                &quot;Gold-Hyper-V&quot;,
+                &quot;NMC server&quot;,
+                &quot;Platinum-Filesystem&quot;,
+                &quot;Server Protection&quot;,
+                &quot;Silver-Application&quot;,
+                &quot;Silver-Filesystem&quot;
+            ],
+            &quot;remoteAccessUsers&quot;: [],
+            &quot;resourceId&quot;: {
+                &quot;id&quot;: &quot;42.0.172.13.0.0.0.0.78.72.252.90.10.13.130.90&quot;,
+                &quot;sequence&quot;: 35
+            },
+            &quot;saveSets&quot;: [
+                &quot;All&quot;
+            ],
+            &quot;scheduledBackup&quot;: true,
+            &quot;storageNodes&quot;: [],
+            &quot;tags&quot;: []
+        },
+        {
+            &quot;aliases&quot;: [
+                &quot;server2&quot;,
+                &quot;server2.dir.svc.dummy.com&quot;
+            ],
+            &quot;applicationInformation&quot;: [
+                &quot;NSR_PS_DEBUG_LEVEL=0&quot;
+            ],
+            &quot;backupType&quot;: &quot;Filesystem&quot;,
+            &quot;blockBasedBackup&quot;: false,
+            &quot;checkpointEnabled&quot;: false,
+            &quot;clientId&quot;: &quot;3a1a20d9-00000004-5ac733af-5ac733ae-00025000-3e708a56&quot;,
+            &quot;hostname&quot;: &quot;server2&quot;,
+            &quot;indexBackupContent&quot;: false,
+            &quot;links&quot;: [
+                {
+                    &quot;href&quot;: &quot;https://dummynetworkerserver.ds.dev.dummy.com:9090/nwrestapi/v3/global/clients/83.0.100.12.0.0.0.0.198.137.190.90.10.13.130.90&quot;,
+                    &quot;rel&quot;: &quot;item&quot;
+                }
+            ],
+            &quot;nasDevice&quot;: false,
+            &quot;ndmp&quot;: false,
+            &quot;ndmpMultiStreamsEnabled&quot;: false,
+            &quot;ndmpVendorInformation&quot;: [],
+            &quot;parallelSaveStreamsPerSaveSet&quot;: false,
+            &quot;parallelism&quot;: 4,
+            &quot;protectionGroups&quot;: [
+                &quot;AD-HOC 2_AD-HOC-1_1H_AON_W_FULL_1&quot;,
+                &quot;PIC-CTCL-1_24H_OS_W_FULL_1&quot;,
+                &quot;PIC-CTCL-1_24H_OS_D_DIFF_1&quot;
+            ],
+            &quot;remoteAccessUsers&quot;: [],
+            &quot;resourceId&quot;: {
+                &quot;id&quot;: &quot;83.0.100.12.0.0.0.0.198.137.190.90.10.13.130.90&quot;,
+                &quot;sequence&quot;: 60
+            },
+            &quot;saveSets&quot;: [
+                &quot;All&quot;
+            ],
+            &quot;scheduledBackup&quot;: true,
+            &quot;storageNodes&quot;: [],
+            &quot;tags&quot;: [
+                &quot;PIC-CTCL-1_24H_OS_1&quot;,
+                &quot;AD-HOC&quot;
+            ]
+        },
+        {
+            &quot;aliases&quot;: [
+                &quot;dummynetworkerserver&quot;,
+                &quot;dummynetworkerserver.ds.dev.dummy.com&quot;
+            ],
+            &quot;applicationInformation&quot;: [
+                &quot;NSR_PS_DEBUG_LEVEL=0&quot;
+            ],
+            &quot;backupType&quot;: &quot;Filesystem&quot;,
+            &quot;blockBasedBackup&quot;: false,
+            &quot;checkpointEnabled&quot;: false,
+            &quot;clientId&quot;: &quot;ff323f8a-00000004-5abe8980-5abe897f-00015000-3e708a56&quot;,
+            &quot;hostname&quot;: &quot;dummynetworkerserver.ds.dev.dummy.com&quot;,
+            &quot;indexBackupContent&quot;: false,
+            &quot;links&quot;: [
+                {
+                    &quot;href&quot;: &quot;https://dummynetworkerserver.ds.dev.dummy.com:9090/nwrestapi/v3/global/clients/82.0.44.15.0.0.0.0.43.137.190.90.10.13.130.90&quot;,
+                    &quot;rel&quot;: &quot;item&quot;
+                }
+            ],
+            &quot;nasDevice&quot;: false,
+            &quot;ndmp&quot;: false,
+            &quot;ndmpMultiStreamsEnabled&quot;: false,
+            &quot;ndmpVendorInformation&quot;: [],
+            &quot;parallelSaveStreamsPerSaveSet&quot;: false,
+            &quot;parallelism&quot;: 12,
+            &quot;protectionGroups&quot;: [],
+            &quot;remoteAccessUsers&quot;: [],
+            &quot;resourceId&quot;: {
+                &quot;id&quot;: &quot;82.0.44.15.0.0.0.0.43.137.190.90.10.13.130.90&quot;,
+                &quot;sequence&quot;: 5
+            },
+            &quot;saveSets&quot;: [
+                &quot;C:\\&quot;,
+                &quot;D:\\&quot;
+            ],
+            &quot;scheduledBackup&quot;: true,
+            &quot;storageNodes&quot;: [
+                &quot;nsrserverhost&quot;
+            ],
+            &quot;tags&quot;: []
+        }
+    ],
+    &quot;count&quot;: 4
+}</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="b971b476-d4ed-4d5d-91ed-bd6594111289">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>bcbb8925-1247-4241-853f-bba350e2673d</refId>
+          </destination>
+          <source>
+            <refId>9f0bde74-e977-4017-b0fd-6eefc1744a04</refId>
+          </source>
+          <positions>
+            <point>
+              <x>320.0</x>
+              <y>184.0</y>
+            </point>
+            <point>
+              <x>470.0</x>
+              <y>364.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="a9a86450-b571-4521-af2a-f4b61e867ac1">
+          <annotation></annotation>
+          <name>has more</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>has more</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>2e800c1f-51e3-459a-ac22-5f5871804b88</refId>
+          </destination>
+          <source>
+            <refId>9f0bde74-e977-4017-b0fd-6eefc1744a04</refId>
+          </source>
+          <positions>
+            <point>
+              <x>320.0</x>
+              <y>184.0</y>
+            </point>
+            <point>
+              <x>500.0</x>
+              <y>184.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="70f1024b-b60d-41f0-90c1-8ea74ac9cbbc">
+          <annotation></annotation>
+          <name>no more</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>no more</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>2e800c1f-51e3-459a-ac22-5f5871804b88</refId>
+          </destination>
+          <source>
+            <refId>9f0bde74-e977-4017-b0fd-6eefc1744a04</refId>
+          </source>
+          <positions>
+            <point>
+              <x>320.0</x>
+              <y>184.0</y>
+            </point>
+            <point>
+              <x>380.0</x>
+              <y>209.0</y>
+            </point>
+            <point>
+              <x>440.0</x>
+              <y>209.0</y>
+            </point>
+            <point>
+              <x>500.0</x>
+              <y>184.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>50efc8cb-f1e7-4123-984c-979039f22f2c</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="2e800c1f-51e3-459a-ac22-5f5871804b88">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>450.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="fe6484f2-cd5a-4f70-a742-6c707ba6ab6b">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>2e800c1f-51e3-459a-ac22-5f5871804b88</refId>
+          </destination>
+          <source>
+            <refId>2e800c1f-51e3-459a-ac22-5f5871804b88</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="bcbb8925-1247-4241-853f-bba350e2673d">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>420.0</x>
+        <y>330.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="14510d93-a5b5-446d-b94b-4ae755055e81">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>bcbb8925-1247-4241-853f-bba350e2673d</refId>
+          </destination>
+          <source>
+            <refId>bcbb8925-1247-4241-853f-bba350e2673d</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>9f0bde74-e977-4017-b0fd-6eefc1744a04</startSteps>
+</flow>

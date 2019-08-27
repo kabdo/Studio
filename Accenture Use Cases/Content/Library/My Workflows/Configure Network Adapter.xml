@@ -1,0 +1,1394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="41f3ceee-e18a-43d0-87aa-9df70dd1a44e">
+  <descriptionCdata><![CDATA[41f3ceee-e18a-43d0-87aa-9df70dd1a44e.562eccef-f694-4135-a1ff-e8a506a1ef5b.description=<pre>Gets the network adapter configuration of the target Windows computer.\n\nInputs\:\nhost \t- The hostname or IP address of the target computer.\nusername \t- Username to use for WMI impersonation on the host for this operation (can be left blank).\npassword \t- Password of the user.\nadapterName- Name of the network adapter. This can be a partial name. If no name is provided, all the available adapter configurations are retrieved.\n\nResponses\:\nsuccess\t- Operation completed successfully.\nfailure\t- Something went wrong.\n\nResult\:\nThe result of the operation.\n\nExtra Results\:\nreturnCode\t- The return code of the operation.\nexception \t- The error messate if the operation failed during execution.\n</pre>
+41f3ceee-e18a-43d0-87aa-9df70dd1a44e.572de965-446a-4069-9d47-85748a920c09.description=<pre>\nGets the execution policies for the current session. The execution policy is determined by execution policies that is set using Set Execution Policy and the Group Policy settings for the Windows PowerShell execution policy. The default execution policy is "Restricted" and must be changed before any PowerShell scripts can be executed.\n\nThe execution policy is part of the security strategy of Windows PowerShell. It determines whether configuration files (including Windows PowerShell profile) can be loaded, and whether scripts can be executed. It also determines which scripts, if any, must be digitally signed before they will execute.\n\nRemoting must be enabled on the target computer to run this operation remotely. Go to http\://technet.microsoft.com/en-us/magazine/ff700227.aspx for instructions on how to enable remoting on a Windows computer.\n\nFor more on execution policies, go to http\://technet.microsoft.com/en-us/library/dd347641.aspx\n\nInputs\: \nhost\t- The host name or the IP address of the target Windows computer.\nusername\t- Username to use for thread impersonation on the RAS host for this operation (can be left blank). The user to execute the PowerShell script as.\npassword\t- Password of the user.\nscope\t- Takes the value "All","Current","LocalMachine","CurrentUser","Process","MachinePolicy","UserPolicy". The default scope "All", gets all execution policy values for the session, listed in order of precedence. The "Current" scope gets the effective execution policy. When executed in a PowerShell v1.0 context, this input is ignored and the operation returns the effective execution policy for the current session. "MachinePolicy" gets the execution policy set by a Group Policy for all users of the computer.  "UserPolicy" gets the execution policy set by a Group Policy for the current user of the computer. "Process" gets the execution policy that is set for the current Windows Powershell process. "CurrentUser" gets the execution policy that is set for the current user. "LocalMachine" gets the execution policy that is set for all users of the computer.\nssl         \t- Whether SSL should be used while invoking the script remotely. This input defaults to false, and is ignored for local script execution. If SSL is not available on the port used for the operation, the operation will fail.\n\nResponses\:\nsuccess\t- The command ran successfully.\nfailure\t- The command failed to run.\n\nResult\:\nThe return code of the operation.\n\nExtra Results\:\nreturnResult\t- The result of the script execution.\n\nNote\: \n1. This operation does not support Remoting on PowerShell 1.0.\n\n2. If the target computer is not present in the list of Trusted Hosts in WS-Management of the RAS host, the operation may fail when using the target computer's system account as user credentials.\n</pre>
+41f3ceee-e18a-43d0-87aa-9df70dd1a44e.5d26d1e5-9fc4-479c-ab67-f24a7dc121e7.description=<pre>\nThis operation executes PowerShell scripts on a given host.\n\nInputs\:\n    host - The hostname or IP address of the PowerShell host. If you specify this input then you should not specify URI and shellURI.\nDefault value\: localhost\n    URI - Specifies a Uniform Resource Identifier (URI) that defines the connection endpoint for the interactive session. \nValue format\: <Transport>\://<ComputerName>\:<Port>/<ApplicationName>\nExample\: http\://exch2010CAS1/Powershell?serializationLevel\=Full\n    shellURI - Gets the Uniform Resource Identifier (URI) of the shell that is launched when the connection is made.\nExample\: http\://schemas.microsoft.com/powershell/Microsoft.Exchange\n    username - The username to use when connecting to the server.\nValue format\: username@domain or domain\\username.\n    password - The password to use when connecting to the server.\n    configurationName - Specifies the session configuration that is used for the new PSSession. If you specify only the configuration name, the following schema URI is prepended\: http\://schemas.microsoft.com/powershell. Use Microsoft.PowerShell32 to force x32 PowerShell version on x64 machines.\n    authType - Specifies the mechanism that is used to authenticate the user's credentials. \nValid values\: Default, Basic, Negotiate, NegotiateWithImplicitCredential, Credssp, Digest and Kerberos. (case-insensitive)\nDefault value\: Default\n    connectionTimeout - Determines how long the client computer waits for the remote session connection to be established. When the interval expires, the command to establish the connection fails. Enter a positive value in milliseconds.\nDefault value\: 180000 (3 minutes).\n    scriptTimeout - Determines how long the client computer waits for the PowerShell script to be executed. When the interval expires, the operation fails. Enter a positive value in milliseconds. An empty value means no time-out; the script execution continues indefinitely.\n    useSSL - If true, the operation uses the Secure Sockets Layer (SSL) protocol to establish a connection to the remote computer. By default, SSL is not used. WS-Management encrypts all Windows PowerShell content transmitted over the network. UseSSL is an additional protection that sends the data across an HTTPS connection instead of an HTTP connection. Default port for SSL is 5986.\nDefault value\: false\n    skipCACheck - Indicates whether, when connecting over HTTPS, the client does not validate that the server certificate is signed by a trusted certificate authority (CA).\nDefault value\: true\n    skipCNCheck - Indicates whether the certificate common name (CN) of the server and the hostname of the server are not checked for being the same.\nDefault value\: true\n    port - Specifies the network port on the remote computer that is used for this connection. To connect to a remote computer, the remote computer must be listening on the port that the connection uses. The default ports are 5985 (the WinRM port for HTTP) and 5986 (the WinRM port for HTTPS).\n    keepSessionAlive - If true, the operation will not close the PowerShell runspace (i.e. the PSSession in case of remote connections ) created during the execution and returns the runspaceID as the result of the operation. Actually the PowerShell runspace is saved in the OO session and can be used in other operations using the runspaceID result of previous operation.\nDefault value\: false\n    enablePiping - If true the operation enables piping the way PowerShell does. This input should be used only when keepSessionAlive input is true. First time the piped objects are null and the scope is to save the objects resulted from the PowerShell script execution. Next time the piped objects can be refered in the script as "$_" objects.\nDefault value\: false\nExample\: First, run "Get-Service" script with enablePiping\=true and keepSessionAlive\=true, then run the script  "Select-Object -property name,displayname,status|where-object {$_.Name -lt "C"}" with enablePiping\=true keepSessionAlive\=true. Observe the use of "$_".\n    runspaceID - If not empty, the operation will search the OO session for keys which equal the runspaceID. If the operation finds the runspace specified by the runspaceID it tries to use it and does not create another PowerShell runspace with provided inputs. If the runspace exists but is broken or unavailable the operation uses its authentication parameters and tries to reconnect and recreate the PowerShell runspace. Please note that the operation will use the connection parameters of the runspace identified by runspaceID, not the values provided as user inputs. The operation will take into consideration the connection inputs (i.e. host, username, password, authType, useSSL, etc.) provided by user only if the runspaceID does not exist in the OO session.\n    modules - A list of PowerShell modules to load after the PowerShell connection is established. Each value from the list specifies the name of the module to import. Enter the name of the module or the name of a file in the module, such as a .psd1, .psm1, .dll, or ps1 file. File paths are optional. Wildcards are not permitted. Specify only the module name whenever possible. When you specify a file name, only the members that are implemented in that file are imported. If the module contains other files, they are not imported, and you might be missing important members of the module. The list of modules should be separated by comma "," delimiter.\nExample\: FailoverClusters\n    snapins - A list of PowerShell snapins to load after the PowerShell connection is established. Each value from the list specifies the name of a registered snapin (i.e. the Name, not the AssemblyName or ModuleName).\nExample\: Microsoft.Exchange.Management.PowerShell.E2010\n    script - The script to execute on the PowerShell host. If you want to execute a script from file just provide the file path. Check the notes section for security implications of using this input.\nExample\:c\:\\PowerShellScripts\\GetHost.ps1\n    cmdlet - The name of the PowerShell cmdlet to invoke. If the cmdlet has additional parameters, please provide them as inputs to the operation. If the parameter has the same name as one of the operation's inputs just prefix it with "_". This input is intended to be used together with the PowerShell wizard so please use the script input whenever it's possible.\n    returnTable - If true, the operation will return a table containing a row for each PSObject that the script emits. The table's columns represent the properties of these PSObjects, in the propertyName<delimiter>propertyValue format. If false the operation returns a string representation of the result similar to the output from the PowerShell console.\nDefault value\: false\n    delimiter - The delimiter used to separate each property name from the property value in the output table.\nDefault value\: "\:".\n    colDelimiter - The delimiter used to separate columns in the output table.\nDefault value\: ",".\n    rowDelimiter - The delimiter used to separate rows in the output table.\nDefault value\: newline.\n    hideResults - If this input is added and set to true, the "script", "stdout" and "warnings" results will be hidden. In case of operation failure the "returnResult" will no longer contain the Powershell exception stack-trace details, but the generic message\: "Could not execute powershell command". To use this input you need to manually add it from Studio Inputs tab of the operation, by clicking on the \u201CAdd Input\u201D button.\nValid values\: true, false\nDefault value\: false\n    localPSRemoting - If this input is added and set to \u2018true\u2019 the operation will use remote impersonation on the local IP address (localhost/loopback) and PowerShell remoting on the same address to execute the script. In this case the credentials under which the script will run must be provided through the \u201Cusername\u201D and \u201Cpassword\u201D inputs. The \u201Chostname\u201D input should be the local ip address or the localhost/loopback address. In case the \u201Chostname\u201D it is left empty the \u2018localhost\u2019 address will be used by default. To use this input you need to manually add it from Studio Inputs tab of the operation, by clicking on the \u201CAdd Input\u201D button.\nValid values\: true, false\nDefault value\: false\n\nResults\:\n    returnResult - The result of the script execution formatted as table or string depending on the returnTable input value as described above. In case of operation failure and "hideResults" is set to true, then this output will no longer contain the powershell exception stacktrace details.\n    script - The actual PowerShell script that was run. This result might be useful when piping is enabled or you want to know exactly the script that was sent to be run on the PowerShell host. Please note that the operation adds "Out-String" command to the end of your script if returnTable input is set to false. This output will be hidden if "hideResults" input is set to true.\n    objectsCount - The number of the PowerShell objects resulted from script execution (e.g. Get-Service will return the number of services found on the target host). This input is relevant only when returnTable is set to true. Otherwise, the value of this result will always be one, because the script returns a string message.\n    warnings - A list of warnings that the cmdlets emit. If the cmdlets were executed without warnings, then this result will be an empty string. This output will be hidden if "hideResults" input is set to true.\n    runspaceID - The runspace ID of the PowerShell runspace created during the execution of the operation.\n    stdout - The result of the commands that succeeded in case the operation fails. In case of operation failure this output will be hidden if "hideResults" input is set to true.\n\nResponses\:\n    success - The Powershell script or cmdlet was executed successfully.\n    failure - The command could not be executed.\n\nNotes\:\n1. In order to enable PowerShell scripts execution, run the following command\: Set-ExecutionPolicy RemoteSigned\n2. When interacting with a Microsoft Exchange server, please use the generic Powershell operation available in the Business Application content pack, under /Library/Operations/Exchange/<version specific> folder, instead of loading the Exchange snap-in to this Powershell Script operation. This is a Microsoft Exchange design (http\://www.get-exchange.info/2012/12/30/powershell-scripting-for-exchange-server-some-tips/)\n3. If the "hideResults" is set to false the "script" output will be added to the operation's output in which case the exact script that was executed will be displayed. Displaying the script could be a security risk when encrypted variables (which could be the sensitive data) are passed and referenced in the script, as they will be displayed unobfuscated. Also in case of operation failure the "stdout", "warnings" and "returnResults" outputs could contain the script with unobfuscated sensitive variables in it.\n4. The \u201ClocalPSRemoting\u201D input provides a workaround/alternative to PowerShell impersonation on localhost. It enables the operation to run the script under different users on the local machine.\n5. Use the 'script' input with caution as it can expose the target system to security risks. By exposing the script input as a prompt to the user, it will enable the user to execute any powershell script on the target system taking into account the permissions of the credentials given as inputs.\n6. When keepSessionAlive is set to true and the operation is left to run for many a long time (e.g. hours), the RAS/worker service can crash with an OutOfMemory error. This is expected because while the session is kept open, data accumulates in memory which is released only after the operation completes. To address this issue check HPE OO Administrator Guide on how to increase RAS/worker memory.\n</pre>
+41f3ceee-e18a-43d0-87aa-9df70dd1a44e.60446425-9e78-405e-8630-d70ca268c898.prompt=Specify new IP Address
+41f3ceee-e18a-43d0-87aa-9df70dd1a44e.6171f2df-5815-41cd-87a4-1b8c12b4d2a1.description=<pre>Configures  the network adapter using a powershell script. For IPv6 settings it uses the Powershell 3 NETTCPIP module.\n\nInputs\:\n    interfaceIndex - The interface index. You can find this number  for ipv6 interfaces by running 'netsh interface ipv6 show interfaces' (from cmd) or 'get-netadapter'(from powershell 3). For ipv4 interfaces on systems previous to Windows Server 2012 you may run 'netsh interface ipv4 show interfaces'(from cmd) or 'Get-WmiObject -Class Win32_NetworkAdapterConfiguration|ft -property Description,IPAddress,InterfaceIndex'(from powershell). Either this input or 'interfaceAlias' must be provided.\n    interfaceAlias - The interface name. If interfaceIndex is empty it will be computed using this input. If interfaceIndex is not empty this input will be ignored.\nExamples\: Ethernet, Local Area Connection\n    ipVersion - specify if your settings are for IPv4 or IPv6. For IPv6 the NETTCPIP module from Powershell 3 for Windows 8 / Server 2012 will be used. For IPv4 the Win32_NetworkAdapterConfiguration class will be used and this works on Windows versions starting with Server 2003.\nValues\: 4, 6\nDefault\: 4\n    enableDhcp - If true DHCP will be enabled and previously set dns servers will be removed. If false DHCP will be disabled for IPv6. For IPv4 you also need to specify the 'ip' and prefix length.\nValues\: true, false, [empty]\nDefault\:[empty]\n    ip - The ip literal. For ipVersion\=6 all IPv6 ips will be removed from the specified adapter from both the ActiveStore or the PersistentStore. For IPv4 you also need to specify subnetPrefixMask.\nExamples\: 169.254.41.138, fe80\:\:2\n    subnetPrefixMask - The subnet prefix length in CIDR format.\nExamples\: 24, 64\n    gateway - The default gateway ip.\n    dns - A comma separated list of IPs representing DNS servers. All the other dns servers set up for the specified address family will be removed.\nExample\: 8.8.8.8,8.8.4.4\n    host - The hostname or ip address of the PowerShell host. This input is mutual exclusive with the hidden inputs URI and shellURI.\nDefault value\: localhost\n    username - The username to use when connecting to the server.\nValue format\: username@domain or domain\\username.\n    password - The password to use when connecting to the server.\n    script - The script that actually sets the network adapter. Will be executed on the PowerShell host. \n\nResponses\:\n    Success - The Powershell script or cmdlet was executed successfully.\n    Failure - Something went wrong.\n\nReturns\:\n    returnCode - This is the primary output. A code used to determine the operation response, specifying whether the operation is successful or not.\n    returnResult - The result of the script execution formatted as table or string depending on the returnTable input value as described above.\n    script - The actual PowerShell script that was run. This result might be useful when piping is enabled or you want to know exactly the script that was sent to be run on the PowerShell host. Please note that the operation adds "Out-String" command to the end of your script if returnTable input  is set to false. \n    objectsCount - The number of the PowerShell objects resulted from script execution (e.g. Get-Service will return the number of services found on the target host). This input is relevant only when returnTable is set to true. Otherwise, the value of this result will always be one, because the script returns a string message.\n    warnings - A list of warnings that the cmdlets emit. If the cmdlets were executed without warnings, then this result will be an empty string.\n    runspaceID - The runspace ID of the PowerShell runspace created during the execution of the operation.\n\nNotes\:\n    1. This operation is a soft copy of the "PowerShell Script" operation (linked in the 'Advanced' tab).\n- The host, username, password and script inputs are generic inputs defined by the linked hard copy. \n- All the returns are generic returns specified by "PowerShell Script" operation. You may add these inputs \n- You may add these inputs (described in the linked hard copy)\: URI, shellURI, authType, configurationName, connectionTimeout, scriptTimeout, useSSL, skipCACheck, skipCNCheck, port, keepSessionAlive, enablePiping, runspaceID, modules, snapins, cmdlet , returnTable, delimiter, colDelimiter, rowDelimiter, newline.\n    2. Remotely setting the adapter you are connected to and on the same addressFamily (ipv6/ ipv4) you are connected to will result in disconnecting the powershell session. (i.e. you connect to host\=169.254.173.123 and set the default 'Ethernet' ipv4 interface to  ip\=169.254.173.124) The adapter will be set according to the specified inputs but the response will be 'failure' and the 'exception' output will contain the string 'System.Management.Automation.Remoting.PSRemotingTransportException\: Processing data from remote server failed with the following error message\: The WinRM client cannot complete the operation within the time specified. Check if the machine name is valid and is reachable over the network and firewall exception for Windows Remote Management service is enabled.' \n</pre>
+41f3ceee-e18a-43d0-87aa-9df70dd1a44e.e4faf017-9bad-4398-b209-0016b5ab8194.description=<pre>\nAdds a list of flow variables to the local context. The variables are available in the current flow and its child flows.\n\nInputs\:\n    keyNames - The names of the flow variables to add, separated by "delimiter".\n    myValues - The values to assign to the flow variables, separated by "delimiter".\n    delimiter - The delimiter that separates the key names and the values from the "keyNames" and "myValues" input strings.\n\nResults\:\n    returnResult - This is the primary output. It contains the value of "myValue" input field.\n\nResponses\:\n    success - The operation completed as stated in the description.\n\nNotes\:\n1. If the number of variable names is greater than the number of variable values, the value of each variable will be the value of "myValues" input field.\n2. If the number of variable names is less than the number of variable values, the additional variable values will be discarded.\n</pre>
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Configure Network Adapter</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="1d7d790f-2935-4bda-b605-21d6400bc40d">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="2bca494f-f164-4396-9907-6aaf016168d8">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="ed15733a-a4de-4508-b27f-99a073d276c0">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="bd0eef60-521a-48d2-894a-fa38d015c377">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="e4faf017-9bad-4398-b209-0016b5ab8194">
+      <annotation>41f3ceee-e18a-43d0-87aa-9df70dd1a44e.e4faf017-9bad-4398-b209-0016b5ab8194.description</annotation>
+      <name>Set Flow Variables</name>
+      <bounds>
+        <x>0.0</x>
+        <y>273.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="453443a8-0cb2-4af3-8bcd-a748bf12446a">
+        <baseIcon>jar.png</baseIcon>
+        <basePath>Others/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="9b606aac-d958-4bd8-b2dc-86a4357305b9">
+            <baseIcon>edit.png</baseIcon>
+            <basePath>Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="3b512df8-2e9c-45a1-8d97-7cd704280c48">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keyNames</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>overrideJRAS,overrideNRAS</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a3214e8d-f75d-4c98-ade4-5b5f2a088411">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>myValues</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>RAS_NA</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="de87b38b-b4b9-4a17-964d-56550cd7f254">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>delimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>,</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="7eda0259-2585-4b9e-8488-531f2fc570e7">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>5d26d1e5-9fc4-479c-ab67-f24a7dc121e7</refId>
+          </destination>
+          <source>
+            <refId>e4faf017-9bad-4398-b209-0016b5ab8194</refId>
+          </source>
+          <positions>
+            <point>
+              <x>50.0</x>
+              <y>307.0</y>
+            </point>
+            <point>
+              <x>142.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>3a06f909-df15-40f6-b76d-62fd669ee5b4</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="1768eddf-7651-4765-a842-c37739167f39">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>1007.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="f17b0515-7670-434b-b226-43f60c53699e">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>1768eddf-7651-4765-a842-c37739167f39</refId>
+          </destination>
+          <source>
+            <refId>1768eddf-7651-4765-a842-c37739167f39</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="8877838c-c3d3-46bd-9c42-91e9b4c211cb">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>473.0</x>
+        <y>274.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="b9bb853b-1780-40df-939a-0fd9b510d932">
+        <baseIcon>return_failure.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="5a1d84f1-4d81-4c62-8f0f-c8b3ddba1b59">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>8877838c-c3d3-46bd-9c42-91e9b4c211cb</refId>
+          </destination>
+          <source>
+            <refId>8877838c-c3d3-46bd-9c42-91e9b4c211cb</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="572de965-446a-4069-9d47-85748a920c09">
+      <annotation>41f3ceee-e18a-43d0-87aa-9df70dd1a44e.572de965-446a-4069-9d47-85748a920c09.description</annotation>
+      <name>Get Execution Policy</name>
+      <bounds>
+        <x>307.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="d1dc2ff3-a676-4513-88d0-3406b8d9d468">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>192.168.1.42</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4b02b88f-a075-4525-83e1-7073818d3cd8">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>administrator</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="907b2719-1b48-40e3-9c03-4a7b4120b5a9">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}nnfuPcMjqIE3+07tT5UJTA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c8bfab6d-3f11-4e72-bbc2-26d17e5ba74f">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>scope</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>All</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ce31b309-4654-457e-99df-da862997b77f">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ssl</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="e60948f1-29b5-40c8-85a9-246a9796394c">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>8877838c-c3d3-46bd-9c42-91e9b4c211cb</refId>
+          </destination>
+          <source>
+            <refId>572de965-446a-4069-9d47-85748a920c09</refId>
+          </source>
+          <positions>
+            <point>
+              <x>89.0</x>
+              <y>34.0</y>
+            </point>
+            <point>
+              <x>415.0</x>
+              <y>163.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="2447b309-b2a1-4101-b707-9ab5c006209c">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>6171f2df-5815-41cd-87a4-1b8c12b4d2a1</refId>
+          </destination>
+          <source>
+            <refId>572de965-446a-4069-9d47-85748a920c09</refId>
+          </source>
+          <positions>
+            <point>
+              <x>50.0</x>
+              <y>34.0</y>
+            </point>
+            <point>
+              <x>275.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>c714d277-89b0-4c75-b741-bbac9374e4ef</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="6171f2df-5815-41cd-87a4-1b8c12b4d2a1">
+      <annotation>41f3ceee-e18a-43d0-87aa-9df70dd1a44e.6171f2df-5815-41cd-87a4-1b8c12b4d2a1.description</annotation>
+      <name>Configure Network Adapter</name>
+      <bounds>
+        <x>577.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="53280a2f-66b7-44ab-8132-1d77db7c4040">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="53fc5f66-089d-417f-b72d-a311b2267c21">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7508dadf-b96e-46a7-afb1-7c4c7ab9ba08">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="348b6fb3-6b25-4e08-a80f-7392ac834cbe">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>script</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>function New-CidrToBin ($cidr){
+	if($cidr -le 32){
+	[Int[]]$array = (1..32)
+	for($i=0;$i -lt $array.length;$i++){
+	if($array[$i] -gt $cidr){$array[$i]=&quot;0&quot;}else{$array[$i]=&quot;1&quot;}
+	}
+	$cidr =$array -join &quot;&quot;
+	}
+	return $cidr
+}
+
+function New-IPv4fromBin($addressInBin){
+	[string[]]$addressInInt32 = @()
+	$addressInBin = $addressInBin.ToCharArray()
+	for ($i = 0;$i -lt $addressInBin.length;$i++) {
+		$partAddressInBin += $addressInBin[$i] 
+		if(($i+1)%8 -eq 0){
+			$partAddressInBin = $partAddressInBin -join &quot;&quot;
+			$addressInInt32 += [Convert]::ToInt32($partAddressInBin -join &quot;&quot;,2)
+			$partAddressInBin = &quot;&quot;
+		}
+	}
+	$addressInInt32 = $addressInInt32 -join &quot;.&quot;
+	return $addressInInt32
+}
+
+function evalRTN($rtn, $msg) {
+	switch ($rtn.returnvalue){ 
+		0  { $msg; }
+		64 { Throw &quot;Method not supported on this platform &quot;; }
+		65 { Throw &quot;Unknown failure &quot;; }
+		66 { Throw &quot;Invalid Subnet Mask&quot;; }
+		68 { Throw &quot;Invalid Input Parameter &quot;; }
+		70 { Throw &quot;Invalid IP&quot;; }
+		71 { Throw &quot;Invalid gateway IP address&quot;; }
+		73 { Throw &quot;Invalid domain name&quot;; }
+		74 { Throw &quot;Invalid host name&quot;; }
+		81 { Throw &quot;Unable to configure DHCP service&quot;; }
+		82 { Throw &quot;Unable to renew DHCP lease&quot;; }
+		83 { Throw &quot;Unable to release DHCP lease&quot;; }
+		84 { Throw &quot;IP not enabled on adapter&quot;; }
+		91 { Throw &quot;Access denied&quot;; }
+		96 { Throw &quot;Unable to contact DNS server&quot;; }
+		100 { Throw &quot;DHCP is not enabled on adapter&quot;; }
+		DEFAULT { Throw &quot;An Error occurred: $($rtn.returnvalue)&quot;; }
+	}
+};
+$ConfirmPreference=&apos;none&apos;;
+
+$myInterfaceIndex=&apos;${interfaceIndex}&apos;;
+$myInterfaceAlias=&apos;${interfaceAlias}&apos;;
+$myIPVersion=&apos;${ipVersion}&apos;;
+$myEnableDhcp=&apos;${enableDhcp}&apos;;
+$myIPAddress=&apos;${ip}&apos;;
+$myDefaultGateway=&apos;${gateway}&apos;;
+$myDNSString=&apos;${dns}&apos;;
+$myDNS=$myDNSString.split(&quot;,&quot;);
+$myPrefixLength=&apos;${subnetPrefixMask}&apos;;
+
+$emptyIPAddress = [string]::IsNullOrEmpty($myIPAddress);
+$emptyGateway = [string]::IsNullOrEmpty($myDefaultGateway);
+$emptyPrefixLength = [string]::IsNullOrEmpty($myPrefixLength);
+$emptyDNS = [string]::IsNullOrEmpty($myDNS);
+$emptyInterfaceIndex = [string]::IsNullOrEmpty($myInterfaceIndex);
+$emptyInterfaceAlias = [string]::IsNullOrEmpty($myInterfaceAlias);
+$emptyEnableDhcp = [string]::IsNullOrEmpty($myEnableDhcp);
+
+if ($emptyIPAddress -and $emptyGateway -and $emptyDNS -and $emptyEnableDhcp) {
+	Throw &quot;the ip, gateway, dns and enableDhcp inputs cannot all be empty&quot;;
+}
+$argumentSilentlyContinue = @{ErrorAction = &apos;SilentlyContinue&apos;};
+$argumentAddressFamily = @{};
+if (-Not [string]::IsNullOrEmpty($myIPVersion)) {
+	$argumentAddressFamily.AddressFamily = &quot;IPv$myIPVersion&quot;;
+} else {
+	$argumentAddressFamily.AddressFamily = &apos;IPv4&apos;;
+};
+$argumentDefaultGateway = @{};
+if (-Not $emptyGateway) {$argumentDefaultGateway.DefaultGateway = $myDefaultGateway};	
+$argumentPrefixLength = @{};
+if (-Not $emptyPrefixLength) {$argumentPrefixLength.PrefixLength = [int]::Parse($myPrefixLength)};	
+if (-Not [string]::IsNullOrEmpty($myEnableDhcp)) {
+	if ($myEnableDhcp -ieq &apos;true&apos;) {
+		$myDHCP=&apos;Enabled&apos;;
+	}
+	if ($myEnableDhcp -ieq &apos;false&apos;) {
+		$myDHCP=&apos;Disabled&apos;;
+	}
+}
+if ($emptyInterfaceIndex -and $emptyInterfaceAlias) {
+	Throw &quot;interfaceIndex and interfaceAlias cannot both be empty&quot;;
+}
+if (($argumentAddressFamily.AddressFamily -ieq &apos;IPv4&apos;) -and ($myEnableDhcp -ieq &apos;true&apos;) -and (-Not $emptyIPAddress)) {
+	Throw &quot;for IPv4 you cannot enable DHCP and set a static IP at the same time&quot;;
+}
+
+if ($argumentAddressFamily.AddressFamily -ieq &apos;IPv4&apos;) {
+	if ($emptyInterfaceIndex) {
+		$myInterfaceIndex=(Get-WmiObject -Class Win32_NetworkAdapter |where {$_.NetConnectionID -eq $myInterfaceAlias}).InterfaceIndex;
+	}
+    $objWmi = Get-WmiObject -Class Win32_NetworkAdapterConfiguration|where {$_.InterfaceIndex -eq $myInterfaceIndex}
+	if ($objWmi -eq $null){
+		Throw &quot;Could not find network adapter&quot;;
+	}
+	if (-not $emptyIPAddress){
+		if (-not $emptyPrefixLength){
+			$mask = New-IPv4fromBin(New-CidrToBin($myPrefixLength));
+			$ipResult = $objWmi.enablestatic($myIPAddress,&quot;$mask&quot;);
+			evalRTN $ipResult &quot;ip set to $myIPAddress with mask $mask&quot;;
+		} else{
+			Throw &quot;If an IP is specified the Subnet Mask should be specified also&quot;;
+		}
+	}
+	if (-not $emptyGateway) {
+		$metric = 1;
+		$gatewayResult = $objWmi.setgateways($myDefaultGateway, $metric)
+		evalRTN $gatewayResult &quot;gateway set to $myDefaultGateway with metric $metric&quot;;
+	}
+	if (-not $emptyDNS) {
+	    $dnsResult = $objWmi.setdnsserversearchorder($myDNS);
+		evalRTN $dnsResult &quot;dns set to $myDNSString&quot;;
+	}
+	if ($myEnableDhcp -ieq &apos;true&apos;) {
+		$dnsResult = $objWmi.setdnsserversearchorder();
+		evalRTN $dnsResult &quot;removed dns servers&quot;;
+		$dhcpResult = $objWmi.enableDHCP();
+		evalRTN $dhcpResult &quot;enabled DHCP&quot;;
+	}
+}
+
+if ($argumentAddressFamily.AddressFamily -ieq &apos;IPv6&apos;) {
+	if ([string]::IsNullOrEmpty($myInterfaceIndex)) {
+		$myInterfaceIndex=(Get-NetIPInterface -InterfaceAlias $myInterfaceAlias @argumentAddressFamily).InterfaceIndex;
+	}
+	if ($myDHCP -ieq &apos;Disabled&apos;) {
+		Set-NetIPInterface -InterfaceIndex $myInterfaceIndex -Dhcp $myDHCP @argumentAddressFamily;
+		if ($?) {Write-Output &quot;disabled DHCP&quot;;}
+	}
+	Remove-NetIPAddress -InterfaceIndex $myInterfaceIndex -PolicyStore ActiveStore @argumentAddressFamily @argumentSilentlyContinue -Confirm:$false;
+	if ($?) {Write-Output &quot;removed ActiveStore IPAddresses&quot;;}
+	Remove-NetIPAddress -InterfaceIndex $myInterfaceIndex -PolicyStore PersistentStore @argumentAddressFamily @argumentSilentlyContinue -Confirm:$false;
+	if ($?) {Write-Output &quot;removed PersistentStore IPAddresses&quot;;}
+	if (-Not $emptyGateway -or $myDHCP -ieq &apos;Enabled&apos;) {
+		Remove-NetRoute -InterfaceIndex $myInterfaceIndex -PolicyStore ActiveStore @argumentAddressFamily @argumentSilentlyContinue -Confirm:$false;
+		if ($?) {Write-Output &quot;removed ActiveStore NetRouts&quot;;}
+		Remove-NetRoute -InterfaceIndex $myInterfaceIndex -PolicyStore PersistentStore @argumentAddressFamily @argumentSilentlyContinue -Confirm:$false;
+		if ($?) {Write-Output &quot;removed PersistentStore NetRouts&quot;;}
+	}
+	if (-not $emptyIPAddress) {
+		New-NetIPAddress -InterfaceIndex $myInterfaceIndex -IPAddress $myIPAddress @argumentPrefixLength -SkipAsSource $False @argumentDefaultGateway -Type Unicast @argumentAddressFamily;
+		if ($?) {Write-Output &quot;ip set to $myIPAddress&quot;;}
+	}
+	if (-not $emptyDNS) {
+		Set-DnsClientServerAddress -InterfaceIndex $myInterfaceIndex -ServerAddresses $myDNS;
+		if ($?) {Write-Output &quot;dns set to $myDNS&quot;;}
+	}
+	if ($myDHCP -ieq &apos;Enabled&apos;) {
+		Set-DnsClientServerAddress -InterfaceIndex $myInterfaceIndex -ResetServerAddresses @argumentSilentlyContinue
+		if ($?) {Write-Output &quot;removed dns servers&quot;;}
+		Set-NetIPInterface -InterfaceIndex $myInterfaceIndex -Dhcp $myDHCP @argumentAddressFamily;
+		if ($?) {Write-Output &quot;enabled DHCP&quot;;}
+		#uncomment following to restart adapter
+		#Get-NetAdapter -InterfaceIndex $myInterfaceIndex|Restart-NetAdapter
+	}
+}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d43ec27d-97c0-4cd6-8d17-47f8df0c3f3e">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>interfaceIndex</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>23</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6d49071e-ad8a-4f8a-8ba9-0881027cd6a9">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>interfaceAlias</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d0a9f00a-dbb1-4835-b92f-e940bfebb31c">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ipVersion</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>4</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c7921e24-5eef-4ad9-b9b1-a00ce3de9111">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>enableDhcp</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="60446425-9e78-405e-8630-d70ca268c898">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ip</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>41f3ceee-e18a-43d0-87aa-9df70dd1a44e.60446425-9e78-405e-8630-d70ca268c898.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="657fee72-c40f-42ff-a7e0-96743c4811ef">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>subnetPrefixMask</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>24</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="435b0eda-453d-444f-bf6d-106247391ff7">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>gateway</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>192.168.1.1</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ef62db60-810e-4938-ad33-824c94c407f4">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>dns</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>8.8.8.8</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="02d953a8-21b7-4c8b-a0b1-32b9c862d74e">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>8877838c-c3d3-46bd-9c42-91e9b4c211cb</refId>
+          </destination>
+          <source>
+            <refId>6171f2df-5815-41cd-87a4-1b8c12b4d2a1</refId>
+          </source>
+          <positions>
+            <point>
+              <x>275.0</x>
+              <y>34.0</y>
+            </point>
+            <point>
+              <x>240.0</x>
+              <y>279.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="8e97e743-f55d-4eee-8ccc-1c8618d8f4ca">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>562eccef-f694-4135-a1ff-e8a506a1ef5b</refId>
+          </destination>
+          <source>
+            <refId>6171f2df-5815-41cd-87a4-1b8c12b4d2a1</refId>
+          </source>
+          <positions>
+            <point>
+              <x>627.0</x>
+              <y>34.0</y>
+            </point>
+            <point>
+              <x>764.0</x>
+              <y>135.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>7e508e72-0e89-421f-90d1-0245c02aaa91</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="5d26d1e5-9fc4-479c-ab67-f24a7dc121e7">
+      <annotation>41f3ceee-e18a-43d0-87aa-9df70dd1a44e.5d26d1e5-9fc4-479c-ab67-f24a7dc121e7.description</annotation>
+      <name>PowerShell Script</name>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="361f1585-1473-4b9d-ba42-97758318a17b">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>192.168.1.42</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f09ea732-38de-42b4-b377-b7898e6a6abb">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>URI</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="639c2b56-af0b-4bf4-8f15-2ea7e7c4f2b4">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>shellURI</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ee14d3f7-711d-4b75-bffc-23797d2b81b6">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>administrator</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7436e970-38f2-4ca6-8fe4-af1831a3fc3b">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}nnfuPcMjqIE3+07tT5UJTA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="42763c7d-a08d-48c0-83c0-cfa057d9913c">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>configurationName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fa562db5-f67c-4663-a5f5-21e9a1460812">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>authType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Default</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8ca3dbec-7975-4069-9eb6-0df323d48f79">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>connectionTimeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="29c76ab1-0eb5-41dc-8b71-ec70834593dd">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>scriptTimeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8a4fdcd5-6166-49e8-8db1-50c3c983dcfb">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>useSSL</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="001952ea-e764-41b2-9a29-6debb96723a0">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>skipCACheck</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e328cb34-a4cf-446c-99d8-419a8c6849ef">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>skipCNCheck</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7f4d729e-e8bc-40b2-ab8f-a778fded392b">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>port</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a70bbf06-c6bb-4293-b62a-53f8a421b0bb">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keepSessionAlive</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a9b26654-6ced-4d32-acb9-f82db795cda6">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>enablePiping</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="22bd4528-6514-4951-b1d4-8f2192d631b9">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>runspaceID</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="80996397-daad-4def-9131-b5d17f3e39ff">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>modules</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="aaf2cceb-edf5-43cd-ac0b-d286cce66740">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>snapins</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="959e6006-f1d4-4a59-8800-c59958dd545b">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>script</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Get-NetAdapter</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="75d5c1fb-abe5-4f14-8624-a8c6e753b4bc">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>cmdlet</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7d8fb43d-578a-4090-b23e-827ef9f30b23">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>returnTable</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="dd827561-9a41-4056-a5a5-a4e8718bd5ed">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>delimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="32adbc13-8f83-4bfa-b95b-3e5c5023793a">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>colDelimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="0c809d48-8a8c-4cfc-804f-0d0171eabaa2">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>rowDelimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="ba73d6a7-b286-4d8d-9ba7-7b9b8e18fd93">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>572de965-446a-4069-9d47-85748a920c09</refId>
+          </destination>
+          <source>
+            <refId>5d26d1e5-9fc4-479c-ab67-f24a7dc121e7</refId>
+          </source>
+          <positions>
+            <point>
+              <x>142.0</x>
+              <y>34.0</y>
+            </point>
+            <point>
+              <x>357.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="a506eecf-4a5e-4775-bdac-de8754cc3256">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>8877838c-c3d3-46bd-9c42-91e9b4c211cb</refId>
+          </destination>
+          <source>
+            <refId>5d26d1e5-9fc4-479c-ab67-f24a7dc121e7</refId>
+          </source>
+          <positions>
+            <point>
+              <x>142.0</x>
+              <y>34.0</y>
+            </point>
+            <point>
+              <x>327.0</x>
+              <y>314.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f0b2afd2-5733-47e4-80ba-7f2387cc66d5</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="562eccef-f694-4135-a1ff-e8a506a1ef5b">
+      <annotation>41f3ceee-e18a-43d0-87aa-9df70dd1a44e.562eccef-f694-4135-a1ff-e8a506a1ef5b.description</annotation>
+      <name>Get Adapter Configuration</name>
+      <bounds>
+        <x>819.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="fa14e139-ce8c-447f-9a1e-fd1cb72231d6">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ea8cd6ec-e001-4f43-b2e8-b9190c6941ff">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5c3c7bdf-d7c6-4040-9d19-e9c6ab6e156a">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f748d9e8-91fb-4126-89b1-cbfa75c6d10a">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>adapterName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="8dcc44a4-ba56-4db7-b2f9-15555e78adf0">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>1768eddf-7651-4765-a842-c37739167f39</refId>
+          </destination>
+          <source>
+            <refId>562eccef-f694-4135-a1ff-e8a506a1ef5b</refId>
+          </source>
+          <positions>
+            <point>
+              <x>764.0</x>
+              <y>135.0</y>
+            </point>
+            <point>
+              <x>998.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="1d20413d-ad54-4039-8deb-aa9624b4b083">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>8877838c-c3d3-46bd-9c42-91e9b4c211cb</refId>
+          </destination>
+          <source>
+            <refId>562eccef-f694-4135-a1ff-e8a506a1ef5b</refId>
+          </source>
+          <positions>
+            <point>
+              <x>764.0</x>
+              <y>135.0</y>
+            </point>
+            <point>
+              <x>363.0</x>
+              <y>316.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>788d0a1d-f80f-4a61-9da6-7d44eae8b7f9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="18826a97-d12d-4d96-b0ed-d998441fe144">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>returnResult</contextKey>
+          <expression id="b9641668-7e9a-40c2-8b45-1d151d990934">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>e4faf017-9bad-4398-b209-0016b5ab8194</startSteps>
+</flow>
