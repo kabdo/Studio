@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="c373014c-c5dc-483e-957c-f3d2e1fb8908">
+  <descriptionCdata><![CDATA[c373014c-c5dc-483e-957c-f3d2e1fb8908.00f3af80-273a-40fa-942a-2afec891f60f.prompt=Provide the hostname of Central server
+c373014c-c5dc-483e-957c-f3d2e1fb8908.4f6a5abf-26af-4d41-8b50-9875e9eda8c0.description=<pre>This flow gathers data from central and generates a series of reports for a given time period.\n\nInputs\:\ncentralProtocol - the protocol on which to connect to central.\n\ncentralHost -the FQDN or IP of the server on which central is installed.\n\ncentralPort - the port on which to connect to central.\n\ncentralUsername - the username of a central user capable of viewing all executions for a period.\n\ncentralPassword - the password of the central user capable of viewing all executions for a period.\n\nperiodType - a selection list from which to chose the period for the report.\n\nstartTime - the start time of the period for which the report is generated. This input must be filled in only if in the period type the user chooses "Custom Range" on the input  periodType.  The valid format for this input is yyyy-MM-dd HH\:mm\:ss-z\n\nendTime - the end time of the period for which the report is generated.This input must be filled in only if in the period type the user chooses "Custom Range" on the input  periodType.  The valid format for this input is yyyy-MM-dd HH\:mm\:ss-z\n\nreportPath - the folder in which the report is to be saved. In case this is not provided the default Path of C\:\\CentralReports will be used.\n\nreportName - the name of the file including extension to generate the report in. If left blank it will default to Central_Usage_Monitor.xls\n\nreportType - a selection of the type of report to be generated\:\n\t-Raw Only  - fetches only the raw data for the period and writes it to the excel file\n\t- Raw and Fromated data - fetches the raw data and formats it  in order to provide more details about the data. The raw and formated data will be stored on separate sheets.\n\t- Statistics - Generates both raw and formated data as well as some statistics related to that period. The raw data, formated data and statistics will be generated on spearate sheets. In addition to the previous mentioned sheets in order to provide the statistics a sheet containing the unique data from the various collumns of the raw and formated data sheets. The flow also activates the formulas, generates the statistics and activates the formulas for the statistics as well. The statistics shows the number of runs for unique flows (total and split between the various statuses for each flow), runs by user (again total and status split), and total runs of each type.\n\t- Complete - On top of the statistics report type this also generates a new sheet where the flow inputs and outputs are presented for each run.\n\n\nBased on the report type the generated excel file will contain data related to the executions performed on central during the period specified.\n\nValid date format example\:\n2015-05-21 14\:44\:02-GMT+02\:00\nyyyy-MM-dd HH\:mm\:ss-z\nThe time zone format accepts all time zone formats accepted by Java. (GMT,PST,EAT,EET,EEST,CET,CEST,...). The hour difference for time zone must always be written as hh\:mm. Having the time zone given as GMT+2 will be invalid while GMT+02\:00 will be valid.\nWarning\: the time provided in the startTime and endTime  will be converted to the worker's local time zone, therefore when working with centrals and RAS from different time zones this will skew the results for that specific time period.\nWarning\: the times in the final excel document are also presented as GMT.\n\nThis flow uses PowerShell to activate the formulas and clean up the excel report, because of this the following limitations apply\:\n\t- studio/central must be run with administrator privileges\n\t- Microsoft Excel needs to be installed on the server on which the flow is run (in order for powershell to have access to the excel comandlets)\n\t- the basic powershell settings for running cmdltes must be made (at minimum winrm -quickconfig)\n\t\n\nBecause the flows require to run on windows always all flows have been setup with default values for overrideNRAS/JRAS with the value centralMonitorWorker. In central assign only one windows worker to this group in order to ensure the proper working of the flows. \n</pre>
+c373014c-c5dc-483e-957c-f3d2e1fb8908.a8041b8e-132f-4e14-b71e-4fd6c27a34ed.prompt=Provide the Central Protocol
+c373014c-c5dc-483e-957c-f3d2e1fb8908.a99d7b27-3285-498d-a989-2abf6be37152.prompt=Select the period for which to generate the report
+c373014c-c5dc-483e-957c-f3d2e1fb8908.dc709a76-eeaa-449d-97ee-5cc763a69343.prompt=Provide the password for the Central user
+c373014c-c5dc-483e-957c-f3d2e1fb8908.description=<pre>\nUse this template when you are creating a new flow. You should remove the Success or Failure step.\n\nResponses\:\n    success - the flow completed successfully.\n    failure - the flow completed unsuccessfully.\n</pre>
+c373014c-c5dc-483e-957c-f3d2e1fb8908.f3ff82e2-47a2-493e-9e18-d4b1b52651ce.prompt=Provide the central port
+c373014c-c5dc-483e-957c-f3d2e1fb8908.f5930e2e-ec27-47cb-88c2-b5bab81efc36.prompt=Provide user capable of seeing Run History
+c373014c-c5dc-483e-957c-f3d2e1fb8908.f684cd52-d904-4723-948f-452761008c58.prompt=Choose the type of report you want
+]]></descriptionCdata>
+  <annotation>c373014c-c5dc-483e-957c-f3d2e1fb8908.description</annotation>
+  <name>Blank Flow</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="020e08ef-3446-41c8-9b2d-2c785a87b66e">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="7e9dc12b-0590-4595-8912-e5c3b3bb207e">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="d831bb68-670f-43b2-a12d-1b6418f15dfc">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="04193e74-3d4a-4f53-87c1-36606f699a57">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="4f6a5abf-26af-4d41-8b50-9875e9eda8c0">
+      <annotation>c373014c-c5dc-483e-957c-f3d2e1fb8908.4f6a5abf-26af-4d41-8b50-9875e9eda8c0.description</annotation>
+      <name>Central Usage Monitor Report Generation</name>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <userInputBinding id="a8041b8e-132f-4e14-b71e-4fd6c27a34ed">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>centralProtocol</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>c373014c-c5dc-483e-957c-f3d2e1fb8908.a8041b8e-132f-4e14-b71e-4fd6c27a34ed.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="00f3af80-273a-40fa-942a-2afec891f60f">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>centralHost</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>c373014c-c5dc-483e-957c-f3d2e1fb8908.00f3af80-273a-40fa-942a-2afec891f60f.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="f3ff82e2-47a2-493e-9e18-d4b1b52651ce">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>centralPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>c373014c-c5dc-483e-957c-f3d2e1fb8908.f3ff82e2-47a2-493e-9e18-d4b1b52651ce.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="f5930e2e-ec27-47cb-88c2-b5bab81efc36">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>centralUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>c373014c-c5dc-483e-957c-f3d2e1fb8908.f5930e2e-ec27-47cb-88c2-b5bab81efc36.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="dc709a76-eeaa-449d-97ee-5cc763a69343">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>centralPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>c373014c-c5dc-483e-957c-f3d2e1fb8908.dc709a76-eeaa-449d-97ee-5cc763a69343.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="a99d7b27-3285-498d-a989-2abf6be37152">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>periodType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>c373014c-c5dc-483e-957c-f3d2e1fb8908.a99d7b27-3285-498d-a989-2abf6be37152.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <link>
+            <refId>8b510cbb-c9a1-4bc5-98af-2ffc9fb709d9</refId>
+            <refName>selectTimeRange</refName>
+          </link>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="0bd3fe34-62d7-4903-b1e1-cc888e405dbe">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>startTime</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3139d90c-eabb-4ab4-a386-a2abcf7003b2">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>endTime</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="88ffdf4b-f070-4e84-95b7-7f7473b77dfb">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>reportPath</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d26789e9-e40c-4d32-9567-e5f52d148f8a">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>reportName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="f684cd52-d904-4723-948f-452761008c58">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>reportType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>c373014c-c5dc-483e-957c-f3d2e1fb8908.f684cd52-d904-4723-948f-452761008c58.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <link>
+            <refId>ec15d189-f43c-4bd5-87c4-f1e7f8e6bdc7</refId>
+            <refName>selectReportType</refName>
+          </link>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+      </bindings>
+      <transitions>
+        <transition id="0427aeff-1fb7-44e9-bb85-eabed886b164">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>29e22054-f109-4672-9e48-6ec8e73b38d6</refId>
+          </destination>
+          <source>
+            <refId>4f6a5abf-26af-4d41-8b50-9875e9eda8c0</refId>
+          </source>
+          <positions>
+            <point>
+              <x>72.0</x>
+              <y>42.0</y>
+            </point>
+            <point>
+              <x>50.0</x>
+              <y>194.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="21dc3000-3e4c-4c86-b98b-e5cb856a92be">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>8bafe48c-12c0-4048-a12e-c25b1e90bd4b</refId>
+          </destination>
+          <source>
+            <refId>4f6a5abf-26af-4d41-8b50-9875e9eda8c0</refId>
+          </source>
+          <positions>
+            <point>
+              <x>72.0</x>
+              <y>42.0</y>
+            </point>
+            <point>
+              <x>225.0</x>
+              <y>34.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>99dbdda2-fb66-4129-80cc-296ef883e89e</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="8bafe48c-12c0-4048-a12e-c25b1e90bd4b">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>175.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="d1a2c8db-40ad-48cb-b6e6-c6bc11f77500">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>8bafe48c-12c0-4048-a12e-c25b1e90bd4b</refId>
+          </destination>
+          <source>
+            <refId>8bafe48c-12c0-4048-a12e-c25b1e90bd4b</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="29e22054-f109-4672-9e48-6ec8e73b38d6">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>169.0</x>
+        <y>108.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="7c784100-362b-40ef-a8bb-ac9557cb5cdc">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>29e22054-f109-4672-9e48-6ec8e73b38d6</refId>
+          </destination>
+          <source>
+            <refId>29e22054-f109-4672-9e48-6ec8e73b38d6</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>4f6a5abf-26af-4d41-8b50-9875e9eda8c0</startSteps>
+</flow>

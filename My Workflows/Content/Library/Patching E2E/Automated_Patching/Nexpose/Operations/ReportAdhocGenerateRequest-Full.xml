@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="4417fec9-21f4-47ba-98ba-016fbd018b02">
+  <descriptionCdata><![CDATA[4417fec9-21f4-47ba-98ba-016fbd018b02.71f416ed-fe0e-4b60-bdbb-d6f33aed2857.description=<pre>\nService to perform HTTP POST using the Java HTTP Client.\n\nInputs\:\n    url - The URL where to send the HTTP POST request.\n    username - The user name used for URL authentication. For NTLM authentication, the required format is 'domain\\user'.\n    password - The password used for URL authentication.\n    authType - The type of authentication used by this operation when trying to execute the request on the target server.\nValid values\: basic, form, springForm, digest, ntlm, kerberos, anonymous (no authentication).\nDefault value\: anonymous - authentication not used when executing the request.\n    kerberosConfFile - The  path to the Kerberos configuration file. If this input is empty, the <kdc> (Key Distribution Center) and <realm> get their values from the full domain name obtained from the web server URL.\n    timeout - The time to wait for a connection to be established, in  milliseconds. This input needs a value greater than or equal to zero. A <timeout> value of '0' represents an infinite timeout.\nDefault value\: 0\nuseCookies - Specifies whether to enable cookie tracking or not. Cookies are stored between consecutive calls. If you specify a non-Boolean value, the default value is used.\nValid values\: true, false\nDefault value\: true\n    proxy - The proxy server used to access the web site.\n    proxyPort - The proxy server port.\n    proxyusername - The user name used when connecting to the proxy server.\n    proxyPassword - The proxy server password associated with the <proxyUsername> input value.\n    encodeURL - Specifies whether to encode the URL. If you specify a non-Boolean value, the default value is used.\nValid values\: true, false\nDefault value\: false\n    file - The file to be posted by this operation using the HTTP POST method. This should be a path to a file/document on the disk.\n    string - The raw text to be posted by this operation using the HTTP POST method.\n    contentType - The content type that should be set in the request header, representing the MIME-type of the data in the message body.\nExamples\: "text/html", "text/html; charset\=UTF-8", "application/x-www-form-urlencoded".\n    characterSet - The character encoding of the text to be posted. If not specified this will be taken from the 'charset' field that can be specified in the <contentType> input. If the 'charset' field is absent, it will be set to 'ISO-8859-1' by default.\n    trustAllRoots - Specifies whether to enable weak security over SSL. A SSL certificate is trusted even if no trusted certification authority issued it.\nValid values\: true, false\nDefault value\: false\n    keystore - The location of the KeyStore file - a URL or the local path to it. This input is empty if no HTTPS client authentication is used.\nExample\: %JAVA_HOME%/jre/lib/security/cacerts\n    keystorePassword - The password associated with the KeyStore file.\n    trustKeystore - The location of the TrustStore file - a URL or the local path to it. This input is empty if no HTTPS server authentication is used.\nExample\: %JAVA_HOME%/jre/lib/security/cacerts\n    trustPassword - The password associated with the TrustStore file.\n    headerNamesList - The list containing the header names to use for the request.\nExample\: Accept,Content-Type\n    headerValuesList - The list containing the header values to use for the request. \nExample\: text/plain,application/x-www-form-urlencoded\n    queryNamesList - The list containing the names of the query parameters to use for the request. \nExample\: parameterName1,parameterName2 \n    queryValuesList - The list containing the values of the query parameters to use for the request. \nExample\: parameterValue1,parameterValue2\n    delimiter - The delimiter used to separates list elements.\nDefault value\: ','\n\nResults\: \n    returnCode - This is the primary output. A code used to determine the operation response, specifying whether the operation is successful or not.\n    resultText - The raw result of the operation.\n    document - The complete document returned by the Http Client Post Raw operation.\n    URL - The URL used for the HTTP request.\n    pageLoadTimeInMS - The number of milliseconds taken for the page to load.\n    responseTimeInMS - The number of milliseconds taken before the server responded.\n    errorMessage - An informational message that can help determine the cause of error, if an error occurred.\n    httpResult - The descrition of the HTTP response returned by the web server for the request sent by this operation. This result contains the HTTP response status (for example, SUCCESS, PAGE_NOT_FOUND, UNAUTHORIZED, FORBIDDEN and so on) or GENERAL_ERROR if the HTTP request could not be executed.\n    responseHeaders - The list containing the headers of the response message, separated by <delimiter>.\n    status - The HTTP response code.\nExample\: HTTP/1.1 200 OK\n    exception - If an error occurred, the stack trace of the thrown error.\n\nResponses\:\n    success - The operation completed as stated in the description.\n    PAGE_NOT_FOUND - The URL specified to POST from was not found.\n    INFORMATIONAL - The POST was not fully processed, the server responded with an informational response.\n    REDIRECTION - The specified URL has moved.\n    failure - The operation completed unsuccessfully.\n\nNotes\:\n1. You can use KeyTool to import a SSL certificate in a KeyStore. For example, to import a certificate in the Java cacerts KeyStore, run\: keytool -import -file c\:/../<your_cert>.cer -alias <your_alias> -keystore %JAVA_HOME%/jre/lib/security/cacerts -keystorepass changeit. If the KeyStore does not exist, the command tries to create a new one containing only your certificate.\n2. You can use KeyTool to create a certificate chain through the following command\: \n   keytool -genkey -dname "cn\=Mark Jones, ou\=JavaSoft, o\=Sun, c\=US" \n      -alias business -keypass kpi135 -keystore C\:\\working\\mykeystore \n      -storepass ab987c -validity 180\nIt creates a certificate chain in a new keystore containing only one certificate.\n3. If the value assigned to the <trustAllRoots> input is 'false' and <trustKeystore> is empty, the operation tries to use the default trust store, using the password "changeit". \n4. If the authentication type is Kerberos, you might need to add an SPN (Service Principal Name) for the web server's computer account.  In order to do this, you can use ADUC (Active Directory Users and Computers) with enabled 'Advanced Features'. Go to the web server's computer account (example\: CN\=<web_server_name>,CN\=Computers,DC\=domain,DC\=com), open the 'Properties' window and press the 'Attribute Editor' tab. Observe the values of the 'servicePrincipalName' attribute and add your SPN if not present. For example, HTTP/<web_server_FQDN>\:port.\n5. If you need to specify query parameters when making the request, use the <queryNamesList> and <queryValuesList> inputs. The operation also accepts including query parameters in the URL. For example, http\://hostname\:80/page.asp?parameterName1\=parameterValue1&parameterName2\=parameterValue2. If you specify the same query parameter both through the <queryNamesList> and the <url> inputs, the used value is the one from the <queryValuesList>, not the one included in the <url>.\n6. Apache Tomcat is currently the only supported application server when using form-based authentication.\n7. This operation uses chunked transfer encoding, which may cause failures when using HTTP servers and proxies that do not support HTTP/1.1 protocol.\n</pre>
+4417fec9-21f4-47ba-98ba-016fbd018b02.98366407-7a2b-4f1c-9769-e3858d600a5a.description=<pre>\nThis operation decodes a Base64-encoded string into a clear string.\n\nInputs\:\n    data - The encoded data string in Base64 encoding. \nExamples\: 44OV44Kh44Kk44Or6Kqt44KA5pu444GP, aGVsbG8\=\n\n    characterSet - The character encoding used for the data string. If you do not specify a value for this input, it uses the system's default character encoding which depends on the RAS system.\nExamples\: UTF-8, ISO-8859-1, US-ASCII, or Shift_JIS.\n\nResults\:\n    returnResult - The decoded clear text. For example, \u30D5\u30A1\u30A4\u30EB\u8AAD\u3080\u66F8\u304F, hello which corresponds to the data input examples. \n\nResponses\:\n    success - The operation completed successfully. \n    failure - The operation failed. \n\n</pre>
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>ReportAdhocGenerateRequest-Full</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="92a1d7d9-0e1c-435e-b3bb-f8cc55e71f16">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>scan-id</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="4f854333-23ea-4760-a979-f9e44a1d3d9d">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>session-id</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="40a0f822-fa07-4c57-a4e1-55f459be9361">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>nexposeserver</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="75041fb3-18ac-4a42-94e2-9b3b7722d9e7">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions>
+    <expression id="e79d9b31-45c8-46c6-8df9-204a7d23d123">
+      <annotation></annotation>
+      <name>Document.html</name>
+      <fieldName>Document.html</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters/>
+    </expression>
+  </availableResultExpressions>
+  <resultExpression id="75597c9d-c932-45af-83fe-672a92f646c1">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="de629c6f-00fc-487c-8d94-9a85ef2211c6">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="71f416ed-fe0e-4b60-bdbb-d6f33aed2857">
+      <annotation>4417fec9-21f4-47ba-98ba-016fbd018b02.71f416ed-fe0e-4b60-bdbb-d6f33aed2857.description</annotation>
+      <name>Http Client Post Raw</name>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>true</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="090d18c2-7daf-49e0-a816-ccc42b2a1f41">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>url</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>https://${nexposeserver}:3780/api/1.1/xml</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="90e9f4e5-457a-4d82-8781-6407027963f6">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>builtXML</fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>string</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;ReportAdhocGenerateRequest session-id=&quot;${session-id}&quot;&gt;&lt;AdhocReportConfig template-id=&quot;audit-report&quot; format=&quot;html&quot;&gt;&lt;Filters&gt;&lt;filter type=&quot;scan&quot; id=&quot;${scan-id}&quot;&gt;&lt;/filter&gt;&lt;/Filters&gt;&lt;/AdhocReportConfig&gt;&lt;/ReportAdhocGenerateRequest&gt;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6a8c69c8-9eb0-4d07-a394-a035733c8d30">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>contentType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>text/xml</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="23901444-9e0a-477b-b001-3201a080979b">
+          <annotation></annotation>
+          <name>done</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>done</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>98366407-7a2b-4f1c-9769-e3858d600a5a</refId>
+          </destination>
+          <source>
+            <refId>71f416ed-fe0e-4b60-bdbb-d6f33aed2857</refId>
+          </source>
+          <positions>
+            <point>
+              <x>210.0</x>
+              <y>366.0</y>
+            </point>
+            <point>
+              <x>527.0</x>
+              <y>266.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>0a7e26dc-bdbd-4b5b-b45a-27067dda369f</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="2d2d1ccf-91e4-48bb-b77a-99698f4d6e3a">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Document.html</contextKey>
+          <expression id="ecc82d97-e259-4b6e-bc23-50f876d535c8">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="f46af7e6-0a82-4ff4-a758-0bbbbc380aea">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: text/html; name=Document.html</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="06d7ee01-cd8e-46c3-9d0a-2ceeb7817fe5">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="ef8487a6-f5d0-4b49-9e94-d918682d5de9">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <scriptletFilter id="45088893-cade-4a97-9e10-f7a1d92ce622">
+                <annotation></annotation>
+                <name>Scriptlet</name>
+                <scriptlet id="d19ae532-d014-4aff-97f1-de3bc5919be0">
+                  <annotation></annotation>
+                  <name>default</name>
+                  <script>scriptletResult = scriptletInput.replace(/\n/g,&quot;&quot;);</script>
+                  <type>RHINO</type>
+                </scriptlet>
+              </scriptletFilter>
+              <scriptletFilter id="c98d1d87-2ebb-4213-b7ea-ccc2fe27568e">
+                <annotation></annotation>
+                <name>Scriptlet</name>
+                <scriptlet id="9640444d-097a-4f8f-b1d4-1d84b7d563da">
+                  <annotation></annotation>
+                  <name>default</name>
+                  <script>scriptletResult = scriptletInput.replace(/\r/g,&quot;&quot;);</script>
+                  <type>RHINO</type>
+                </scriptlet>
+              </scriptletFilter>
+              <stripWhitespaceFilter id="6a346c05-9114-4c71-997c-ac3a7b7ccd54">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="781442b6-40db-46d4-8344-1905e861842d">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000001.gif</contextKey>
+          <expression id="c71d4d3e-1b15-493f-b170-c199d3612778">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="92b1fb84-97eb-4361-abdd-388e0e566b08">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000001.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="86e320de-50eb-4dda-9c89-96a044a37528">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="de0a7b41-5ce8-401d-b7b0-f80a545c2989">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="56785285-241e-4ce8-a000-44e5dfe97f66">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="f7f3c7fd-6e60-4e9a-943c-88aa4575a665">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000002.gif</contextKey>
+          <expression id="9ee1db0d-13dd-4b39-b241-204a4b4b30f0">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="4825516a-04a7-496b-a417-9951beb3935c">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000002.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="98953479-b0b7-45b3-b323-23115ba3ea1b">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="a23fe3be-4882-4058-beec-57a520a1b391">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="15aecdd5-7777-47b8-945d-fe0f4af708af">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="7d54caf7-9a7c-448f-8090-a9d94f9b91ef">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000003.gif</contextKey>
+          <expression id="39b52abd-858b-47b1-8ed7-be2dbc97fd7e">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="859f9bcd-6e91-4b49-a5cc-c08ade37b81d">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000003.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="aa5517f3-5418-469a-b3d9-e737e251bb63">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="07a36366-301a-455e-b763-1ed58197adbe">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="d483c68b-3428-41e0-8eed-22be9bc0b181">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="957a4831-773b-45fe-84b3-bf5f378b3178">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000004.gif</contextKey>
+          <expression id="73698dea-5dc8-4db6-9d39-d3be13e5558a">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="79b93ba0-ee4f-4547-89ae-468777bf0ab6">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000004.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="093cfe22-9c7f-4a5f-8a15-02351cc2db71">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="ad498a94-7437-445a-a2ad-26897507caa8">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="ef298e5c-157e-4f25-85b9-1c3ce0d6753f">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="3fdd8ecc-162a-4909-aeff-f1a1755ccd56">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000005.gif</contextKey>
+          <expression id="95923d14-d26c-4626-8230-08840613f529">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="516d0cfa-3ca4-4ff2-8ec1-990ae7ffd079">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000005.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="90e9c0d4-f089-4699-b0e2-e2b7a971985e">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="171a39c9-32cc-4e8a-a555-e1283479ee81">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="9ae28ea0-af75-4c6b-94d2-ad1c1fc38285">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="c1059689-9eff-4435-80b9-e95b3defdad1">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000006.gif</contextKey>
+          <expression id="fe5e4453-f479-49d6-9720-260c9dc15a87">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="f71ea8b8-5094-4f66-aa8d-62a91e576e40">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000006.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="aa999795-4b69-4d46-9f8c-6cc2a4887eae">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="12aae6b6-50a0-4a56-ab74-9a8865ac63fb">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="13b233fc-d29e-4629-99fb-70ca3ac64c7c">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="f86657d0-53f4-4208-bec8-10752657e4fd">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000007.gif</contextKey>
+          <expression id="a9c463cc-cafa-4bd0-b862-ddc92c1c845e">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="ccd4d342-5f7c-432d-900e-ac30e2105f3d">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000007.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="2912145e-f03a-458e-bfbc-d1ec47a42d97">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="5aacc555-61ed-475c-b61c-1449ab423908">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="6c564127-70c3-4999-abf6-092cc183489b">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="bc3d8ef7-24a6-4e72-ab4b-7fe38818dc9f">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000008.gif</contextKey>
+          <expression id="e4c639d9-5c19-4f3b-aa92-a13461228059">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="52aa07d1-f0c7-4911-9a95-eef91ae963c0">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000008.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="f577f4c7-7f5b-40a4-ba20-a7a8521b3ebb">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="9b97f27c-29a1-487c-a72d-53515f6a9d9c">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="51bb15c7-e6fb-432e-99af-35eb2ee0c50a">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="7742bee0-c0a3-4259-9d0d-84d370432c66">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000009.gif</contextKey>
+          <expression id="9030c3ae-b5ea-4ced-ae59-d3cb70851d30">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="fbb3111f-3d2d-4a8f-af3a-8fca7be4fc45">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000009.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="61e0edf9-4e44-4efd-9c6d-48cebd377f78">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="7471e3cf-df5d-43b1-9ee4-4b1798f3adba">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="ff865865-c1b6-4f93-b73f-5b0926295be0">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="06f663ff-bdb3-4ac5-a0ee-f2f96065d848">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Chart00000010.gif</contextKey>
+          <expression id="dfea06cd-45ed-4cd6-b6b3-34aad2df4df0">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="bde7c0e5-3c74-4340-9754-67e5f4b9bd27">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Type: image/gif; name=Chart00000010.gif</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="38d3bcf4-5562-4700-8837-2b94d7d58c90">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>Content-Transfer-Encoding: base64</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="04aa995b-efaa-4bb4-9dc7-09096b5d8fa6">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>--</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripWhitespaceFilter id="cfe86e87-a4c3-4400-ae46-a6ef0ada3a07">
+                <annotation></annotation>
+                <name>Strip Whitespace</name>
+              </stripWhitespaceFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="0e720909-b32c-44eb-873a-269696525b5a">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>329.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="cb46eeb3-f9c1-4d7a-82d0-90b94020f350">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>0e720909-b32c-44eb-873a-269696525b5a</refId>
+          </destination>
+          <source>
+            <refId>0e720909-b32c-44eb-873a-269696525b5a</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="98366407-7a2b-4f1c-9769-e3858d600a5a">
+      <annotation>4417fec9-21f4-47ba-98ba-016fbd018b02.98366407-7a2b-4f1c-9769-e3858d600a5a.description</annotation>
+      <name>Base64 Decoder</name>
+      <bounds>
+        <x>182.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>true</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="34cad7cc-40a2-4d32-bf4f-7bf8f833087a">
+          <annotation></annotation>
+          <toContextKey>Chart00000001.gif</toContextKey>
+          <fromContextKey>Document.html</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>data</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${Document.html}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2488f6b4-da90-4c23-9b64-2ce466b38d34">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>characterSet</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>UTF-8</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="023c779b-020d-469b-a137-a05a76b7105c">
+          <annotation></annotation>
+          <name>done</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>done</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>0e720909-b32c-44eb-873a-269696525b5a</refId>
+          </destination>
+          <source>
+            <refId>98366407-7a2b-4f1c-9769-e3858d600a5a</refId>
+          </source>
+          <positions>
+            <point>
+              <x>527.0</x>
+              <y>266.0</y>
+            </point>
+            <point>
+              <x>921.0</x>
+              <y>269.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ff9e0840-dc95-4bc3-9194-8eae6bdf71ea</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="9b4811db-fc7f-44ac-a8ec-3517728e42fc">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>Document.html</contextKey>
+          <expression id="712a853c-aa5b-4c8b-b32b-884c1697d18f">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="1fdeede5-7773-4588-aae8-c809bdfe345f">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000001.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000001.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="dcf279ab-1d70-48da-bfee-bd49308593d1">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000002.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000002.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="6d840f1b-1442-4d91-96cb-140e2d47c571">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000003.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000003.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="1b82b4da-4f2d-4eef-9eba-f7aad0d873d0">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000004.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000004.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="2818006a-5a63-46a1-a820-785f60ec4b90">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000005.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000005.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="36f4c470-fa2e-4f43-afa5-5a1d5fbf09bc">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000006.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000006.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="b401061a-f9e3-459d-9cff-dcd71287c368">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000007.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000007.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="27aeec6c-b269-4fe5-b73e-6b829ad200b6">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000008.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000008.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="b51bd879-341f-4e8f-bdfd-e63d779fa293">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000009.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000009.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="2ef4a199-d59c-4dfa-abb7-99234011640c">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>Chart00000010.gif</searchString>
+                <replaceString>data:multipart/mixed;base64,${Chart00000010.gif}</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>71f416ed-fe0e-4b60-bdbb-d6f33aed2857</startSteps>
+</flow>

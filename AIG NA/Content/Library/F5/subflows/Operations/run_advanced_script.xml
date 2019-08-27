@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="c967e146-f66b-46fc-9e72-b6b2e22861fc">
+  <descriptionCdata><![CDATA[c967e146-f66b-46fc-9e72-b6b2e22861fc.464758df-56f0-4848-bf9b-189445eb7d8c.description=<pre>Invokes web service methods.  This operation should not be used directly\!  Please use the wizard to build flows that use this operation.\n\nInputs\:\n    xmlTemplate - The template of the soap request to make.\n    inputMap - A map used to map between template names and user-friendly names. The tamplate names are pipe-delimited xpaths of the xmltemplate location, with a numerical element for lists.\n    url - The url to Post to. \n    header_SOAPAction - The SOAPAction http header field, defined by many web services for indicating the intent of the request\n    wswAuthenticationType - The authentication type to use for the username and password input.\nDefault value\: http\nValid values\: http, ntlm, ws-security digest, ws-security text\n    WSSecuritySignRequest - Should the SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityEncryptRequest - Should the entire SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityTimestampRequest - Should the Timestamp attribute be added to the WS-Security header\nDefault value\: false\nValid values true, false\n    WSSecurityKeystore - Keystore to use for encrypting and signing requests.\n    WSSecurityKeystoreType - The type of WSSecurityKeystore.\n    WSSecurityKeystorePassword - The password for WSSecurityKeystore.\n    contentType - Value to be used in the Content-Type HTTP header.\n    characterSet - The character set for HTTP Get request and response.\nDefault value\: UTF-8\n    username - The username to use for authenticating with the web service. For NTLM authentication, the required format is domain\\user.\n    password - The password to use for authenticating with the web service.\n    trustAllRoots - Enables weak security over SSL. A SSH certificate is trusted even if no trusted CA issued it.\nDefault value\: false\nValid values\: true, false\n    useCookies - Enables cookie tracking. Cookies will be stored between consecutive calls.\nDefault value\: false\nValid values\: true, false\n    usesJSON - Use JSON arrays for the SOAP Request for all Array types.\nDefault value\: false\nValid values\: true, false\n    timeout - a timeout after which the connection should be terminated or 0 for no timeout.\n    socketTimeout - The time to wait for data to be retrieved, in milliseconds. This input needs a value greater than or equal to zero. A &lt;socketTimeout&gt; value of '0' represents an infinite timeout.\nDefault value\: 0\n    proxy - A proxy to use when accessing the web service.\n    proxyPort - A port on the proxy to connect to.\n    proxyUsername - A username to use when connecting to the proxy.\n    proxyPassword - A password to use when connecting to the proxy.\n    keystore - The path to the keystore to use for SSL Client Certificates when using http authentication.\n    keystorePassword - The password for the keystore when using http authentication.\n    ICONCLUDE_WSW_VERSION - This value is used internally by the operation.\n    returnXMLRequest - If this input is set to true, a new output named rawXMLRequest is returned from the operation which contains the text of the SOAP request that will be sent. This can be very valuable in troubleshooting.\nDefault value\: false\nValid values\: true, false\n\nResponses\:\n    success - SOAP request completed successfully.\n    failure - Something went wrong.\n\nReturns\:\n    document - Raw XML response.\n    documentStripped - Raw XML response stripped of namespaces for ease in parsing with XML XPath operations.\n    jsonStripped - Raw XML response stripped of namespaces for ease in parsing with JSON operations, input usesJSON must be set to true for this to be populated.\n\nNotes\:\n1.If wswAuthenticationType\=ws-security text then this operation transmits passwords in clear-text.\n2.Any additional inputs that follow these are added by the Web Service Wizard, and they are specific to the particular web service method being called.\n3.If you add new step-level inputs with the name header_&lt;headername&gt;, where &lt;headername&gt; is the name of an html header, then that html header will be set to the given value in the HTTP request.\n\n</pre>
+c967e146-f66b-46fc-9e72-b6b2e22861fc.6b19722c-8788-411f-8498-0a0d40475126.description=<pre>\n\n</pre>
+c967e146-f66b-46fc-9e72-b6b2e22861fc.976d2031-219d-4901-9b81-84d5ec90a530.description=<pre>\n\n</pre>
+c967e146-f66b-46fc-9e72-b6b2e22861fc.description=<pre>\nThis subflow was created by the Web Services Wizard to invoke the run_advanced_script operation on C\:\\kits\\api.wsdl.axis2. Note that the inputs to this flow which correspond to web service inputs are optional inputs.  This is due to the fact that web services definitions usually incorrectly indicate that too many inputs are required, and mirroring those settings in the flow would force you to enter unused values when running the flow.  The xmlTemplate input on the Invoke Method 2 step of this flow contains a template of the xml message to be sent, and the fields preceded by the comment "<\!--Optional\:-->" or "<\!--zero or more repetitions-->" are those which the web service indicates are optional; all others are indicated to be required.\n\nInputs\:\n    webserviceHost - The host that is running the web service\n    webservicePort - The port on the host running the web service\n    RequestHeader.DropNullElements - The input named RequestHeader|DropNullElements of the complex type\: RequestHeader\n    run_advanced_script.parameters.comment - The input named run_advanced_script|parameters|comment of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.deviceid - The input named run_advanced_script|parameters|deviceid of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.fqdn - The input named run_advanced_script|parameters|fqdn of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.group - The input named run_advanced_script|parameters|group of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.host - The input named run_advanced_script|parameters|host of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.ip - The input named run_advanced_script|parameters|ip of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.name - The input named run_advanced_script|parameters|name of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.nowait - The input named run_advanced_script|parameters|nowait of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.parameters - The input named run_advanced_script|parameters|parameters of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.postsnapshot - The input named run_advanced_script|parameters|postsnapshot of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.presnapshot - The input named run_advanced_script|parameters|presnapshot of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.priority - The input named run_advanced_script|parameters|priority of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.rep - The input named run_advanced_script|parameters|rep of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.runmode - The input named run_advanced_script|parameters|runmode of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.sessionid - The input named run_advanced_script|parameters|sessionid of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.sessionlog - The input named run_advanced_script|parameters|sessionlog of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.start - The input named run_advanced_script|parameters|start of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.stoponfailure - The input named run_advanced_script|parameters|stoponfailure of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.sync - The input named run_advanced_script|parameters|sync of the complex type\: run_advanced_script|parameters\n    run_advanced_script.parameters.variables - The input named run_advanced_script|parameters|variables of the complex type\: run_advanced_script|parameters\n\nResults\:\n    document - The raw XML response of the web service\n    documentStripped - The XML response of the web service stripped of namespaces\n    ResultSet - The output given by the XPath\: /Envelope/Body/run_advanced_scriptResponse/Result/ResultSet\n    StackTrace - The output given by the XPath\: /Envelope/Body/run_advanced_scriptResponse/Result/StackTrace/text()\n    Status - The output given by the XPath\: /Envelope/Body/run_advanced_scriptResponse/Result/Status/text()\n    Text - The output given by the XPath\: /Envelope/Body/run_advanced_scriptResponse/Result/Text/text()\n\nResponses\:\n    success - The SOAP command was accepted by the web service\n    failure - Something went wrong while making the SOAP request\n</pre>
+]]></descriptionCdata>
+  <annotation>c967e146-f66b-46fc-9e72-b6b2e22861fc.description</annotation>
+  <name>run_advanced_script</name>
+  <categories/>
+  <inputs>
+    <staticBinding id="52fc076a-0c2e-4cc2-84f5-ebe32da01303">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webserviceHost</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Na_wsdl_WebService_Host}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="e3cd8442-9b0a-47c0-bf6b-426def0a10d5">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webservicePort</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Na_wsdl_WebService_Port}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="fdd0f1e4-c019-4dbf-9681-076009d405e3">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>RequestHeader.DropNullElements</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="9e56a04b-c9e0-458f-8a67-2caf250ea60f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.comment</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="ec3d14cb-b7ec-4d0b-8490-cc1187f0b09c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.deviceid</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d9b51a50-1aed-48ce-a2b6-773571e087a3">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.fqdn</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="348db08a-1f00-4c67-b30a-f6de396ab772">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.group</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="c3dc8ec3-ce95-483d-869d-668c7f76e4cc">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.host</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="371703c7-bf57-4dce-b3c3-85945a894fdb">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.ip</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="fdf7a7d5-a1ed-48ee-ac4c-bcb92f19c0f9">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.name</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d6036ce4-efac-4291-94d0-aa7a1852583f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.nowait</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="c42652a9-1e50-4e90-bd73-b910faa2ac32">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.parameters</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="168f504a-a1c2-4178-b3ab-2d12305c0351">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.postsnapshot</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="601d4ced-4f32-48a1-ad94-c4a0d941c550">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.presnapshot</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="c7004beb-d065-4e55-b6f6-23c48d52c194">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.priority</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="b5b8f9a3-1a20-4ad1-90f0-3765efcf9abb">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.rep</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="197b3b65-b2b4-413c-a499-cb424002cd14">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.runmode</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="c514ab61-aef2-4988-afe9-a786d5f12592">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.sessionid</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="e12d5154-ecff-4780-8e0c-fe500eabd2ef">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.sessionlog</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="8b3cf144-d444-437b-90a6-c8f8d78763a2">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.start</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="f7860c6a-763c-4408-b65d-f9172adda99b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.stoponfailure</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="b5d23013-e9eb-474a-8e7f-0343c45e20ea">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.sync</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="7a89c9aa-d878-4e70-b151-79aab5a4ca3f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>run_advanced_script.parameters.variables</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="de4fcfaa-27d5-4734-9cb9-7c79657a89bc">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="b167e13d-b431-4f92-b727-9c5acc5ad149">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="b1b5e641-7315-40fe-b75c-9fc71c39e103">
+    <annotation></annotation>
+    <name>document</name>
+    <fieldName>document</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="1fdb950e-b3f7-48b5-9a58-5ca840a09c40">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>false</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>false</historyCheckPointFlow>
+  <steps>
+    <step id="464758df-56f0-4848-bf9b-189445eb7d8c">
+      <annotation>c967e146-f66b-46fc-9e72-b6b2e22861fc.464758df-56f0-4848-bf9b-189445eb7d8c.description</annotation>
+      <name>Invoke Method 2</name>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>Invoke Method 2</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="2a01d016-bd52-46ef-86c5-b2754cdb926a">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>url</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>https://${webserviceHost}:${webservicePort}/soap</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7b8adb29-fa6f-49a7-bc31-adc948527180">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>xmlTemplate</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:g=&quot;http://hp.com/nas/10/g&quot;&gt;
+   &lt;soapenv:Header&gt;
+      &lt;g:RequestHeader&gt;
+         &lt;g:DropNullElements&gt;?&lt;/g:DropNullElements&gt;
+      &lt;/g:RequestHeader&gt;
+   &lt;/soapenv:Header&gt;
+   &lt;soapenv:Body&gt;
+      &lt;g:run_advanced_script&gt;
+         &lt;parameters&gt;
+            &lt;g:sessionid&gt;?&lt;/g:sessionid&gt;
+            &lt;g:name&gt;?&lt;/g:name&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:stoponfailure&gt;?&lt;/g:stoponfailure&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:nowait&gt;?&lt;/g:nowait&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:ip&gt;?&lt;/g:ip&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:variables&gt;?&lt;/g:variables&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:sessionlog&gt;?&lt;/g:sessionlog&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:runmode&gt;?&lt;/g:runmode&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:start&gt;?&lt;/g:start&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:sync&gt;?&lt;/g:sync&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:priority&gt;?&lt;/g:priority&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:presnapshot&gt;?&lt;/g:presnapshot&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:parameters&gt;?&lt;/g:parameters&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:group&gt;?&lt;/g:group&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:postsnapshot&gt;?&lt;/g:postsnapshot&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:comment&gt;?&lt;/g:comment&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:rep&gt;?&lt;/g:rep&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:host&gt;?&lt;/g:host&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:fqdn&gt;?&lt;/g:fqdn&gt;
+            &lt;!--Optional:--&gt;
+            &lt;g:deviceid&gt;?&lt;/g:deviceid&gt;
+         &lt;/parameters&gt;
+      &lt;/g:run_advanced_script&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ecb39776-abf9-480a-a1ab-74974f5c4bd1">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>header_SOAPAction</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9626978a-4a67-4c94-b313-750ad2305396">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>inputMap</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>RequestHeader|DropNullElements=RequestHeader.DropNullElements
+run_advanced_script|parameters|comment=run_advanced_script.parameters.comment
+run_advanced_script|parameters|deviceid=run_advanced_script.parameters.deviceid
+run_advanced_script|parameters|fqdn=run_advanced_script.parameters.fqdn
+run_advanced_script|parameters|group=run_advanced_script.parameters.group
+run_advanced_script|parameters|host=run_advanced_script.parameters.host
+run_advanced_script|parameters|ip=run_advanced_script.parameters.ip
+run_advanced_script|parameters|name=run_advanced_script.parameters.name
+run_advanced_script|parameters|nowait=run_advanced_script.parameters.nowait
+run_advanced_script|parameters|parameters=run_advanced_script.parameters.parameters
+run_advanced_script|parameters|postsnapshot=run_advanced_script.parameters.postsnapshot
+run_advanced_script|parameters|presnapshot=run_advanced_script.parameters.presnapshot
+run_advanced_script|parameters|priority=run_advanced_script.parameters.priority
+run_advanced_script|parameters|rep=run_advanced_script.parameters.rep
+run_advanced_script|parameters|runmode=run_advanced_script.parameters.runmode
+run_advanced_script|parameters|sessionid=run_advanced_script.parameters.sessionid
+run_advanced_script|parameters|sessionlog=run_advanced_script.parameters.sessionlog
+run_advanced_script|parameters|start=run_advanced_script.parameters.start
+run_advanced_script|parameters|stoponfailure=run_advanced_script.parameters.stoponfailure
+run_advanced_script|parameters|sync=run_advanced_script.parameters.sync
+run_advanced_script|parameters|variables=run_advanced_script.parameters.variables</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3a17ef89-e6f1-413b-9530-649ff1a55fa6">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>usesJSON</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="783b24e0-62a4-4dde-b008-82ebb970affc">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>wswAuthenticationType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2afa497c-5ca9-4d65-83d2-b501a5962a46">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecuritySignRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e8a28096-8643-4fd0-bb00-cf35f0daefcf">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityEncryptRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c4f7bcd4-7607-4f7a-a368-f08bd9becd55">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityTimestampRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ec8542d7-1128-4311-9c59-6d91d00841d0">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="0fc55c97-5b31-431e-b7b6-9115145bc9cc">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystoreType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="547deb86-47da-4d1a-98bf-5d0dc2d0c5a9">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="83e9e7ed-83a9-45bd-96fc-a9b8773ff6d2">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>contentType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>text/xml</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3de201a0-5487-4a77-963b-b2fabd57b589">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>characterSet</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>UTF-8</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="aa83a883-161a-4994-b738-b5a6cd96afef">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7f10d458-3f05-4628-b222-ca101a708540">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c293f4f9-b4c4-4c96-9068-bc71ac8098fe">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>trustAllRoots</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f6710efb-c994-4993-aa6d-b7d10b12d319">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>useCookies</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c535dc9f-0fd7-43c4-a804-ec6e4e44e995">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="86256314-a9f8-4063-9a1d-e1661528fa02">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>socketTimeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="62bdad76-39ac-4a77-89f7-acf92a24c9ac">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxy</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5a7a089c-f115-4c92-ab99-84ca373e880e">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="82026079-40a2-4bcd-8127-a51031d282bf">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="db4ff0c2-6608-47c7-8b67-ae5291e98ec5">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="42f5c749-fc68-472e-8783-fce0206f1a7d">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a1ab12d2-9162-43ad-a8fe-e1841e33af35">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7a4f4696-71c9-4545-898b-0725806ec876">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>ICONCLUDE_WSW_VERSION</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>2</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a7ccb464-5cbb-4337-9268-93dc0b4a944f">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>returnXMLRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b92a5c98-a4f3-4226-90d1-fbc87a33ccaf">
+          <fromContextKey>RequestHeader.DropNullElements</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>RequestHeader.DropNullElements</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="40bd4981-0ef2-4af4-b9ff-6b59fbf598a1">
+          <fromContextKey>run_advanced_script.parameters.comment</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.comment</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="deee993d-7d0f-4233-8f62-0fd3577e44f5">
+          <fromContextKey>run_advanced_script.parameters.deviceid</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.deviceid</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="0a6f9051-6856-4534-ad8e-620b0ecd62b6">
+          <fromContextKey>run_advanced_script.parameters.fqdn</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.fqdn</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="899dd943-6703-443f-b314-28a7e9e65f23">
+          <fromContextKey>run_advanced_script.parameters.group</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.group</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d4cd9c3e-e947-4f92-ac66-775181526c3f">
+          <fromContextKey>run_advanced_script.parameters.host</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="0d3a0ef6-f90b-4f10-874d-edbd1e7e88bb">
+          <fromContextKey>run_advanced_script.parameters.ip</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.ip</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2f5d03a0-f8a7-47ac-8d58-2a1e687dc5d3">
+          <fromContextKey>run_advanced_script.parameters.name</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.name</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f40b23d0-258a-42a1-b8bb-6359bceafed7">
+          <fromContextKey>run_advanced_script.parameters.nowait</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.nowait</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c40d856e-5b2e-418d-aa4f-5713534677b1">
+          <fromContextKey>run_advanced_script.parameters.parameters</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.parameters</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8c2f7e74-f8a4-49a9-b617-c5691bd5ec36">
+          <fromContextKey>run_advanced_script.parameters.postsnapshot</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.postsnapshot</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="05770643-afd8-4e1b-a1e0-970c5b2673f5">
+          <fromContextKey>run_advanced_script.parameters.presnapshot</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.presnapshot</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cf2fbb69-bb99-4930-b86e-030c025d74bd">
+          <fromContextKey>run_advanced_script.parameters.priority</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.priority</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="bb2c1c3d-abf0-4f7e-9fbd-9eed64b81f85">
+          <fromContextKey>run_advanced_script.parameters.rep</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.rep</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="45d4542e-e791-4936-bc34-3dd15b6d7d1e">
+          <fromContextKey>run_advanced_script.parameters.runmode</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.runmode</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e5319fa1-eb6b-4dcf-be73-bafc0f420e3a">
+          <fromContextKey>run_advanced_script.parameters.sessionid</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.sessionid</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4153acbb-f7f2-4556-9d5b-7dd21e5cd7f5">
+          <fromContextKey>run_advanced_script.parameters.sessionlog</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.sessionlog</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="89c28dab-2274-4630-badc-564145a3df54">
+          <fromContextKey>run_advanced_script.parameters.start</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.start</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="bd451a75-d6f7-4732-b9ed-ef747269d6ba">
+          <fromContextKey>run_advanced_script.parameters.stoponfailure</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.stoponfailure</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="62892fb1-3763-47d9-bb78-5c1046969448">
+          <fromContextKey>run_advanced_script.parameters.sync</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.sync</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="022f6cb8-11ca-444b-8cc1-d1d5b916c210">
+          <fromContextKey>run_advanced_script.parameters.variables</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>run_advanced_script.parameters.variables</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="b72e7c78-e3df-4546-9b11-e57e18458720">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>976d2031-219d-4901-9b81-84d5ec90a530</refId>
+          </destination>
+          <source>
+            <refId>464758df-56f0-4848-bf9b-189445eb7d8c</refId>
+          </source>
+          <positions/>
+        </transition>
+        <transition id="1b1f9abe-e5be-431f-a698-dcc83e23a18a">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>6b19722c-8788-411f-8498-0a0d40475126</refId>
+          </destination>
+          <source>
+            <refId>464758df-56f0-4848-bf9b-189445eb7d8c</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>962ffbf8-4105-46bb-8c71-84f037c4de61</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="2fe8fe25-bf15-4594-bd31-cdc853e9742c">
+          <annotation></annotation>
+          <name>document</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>document</contextKey>
+          <expression id="edc35b18-4ef4-438a-9e16-6225e4832b2c">
+            <annotation></annotation>
+            <name>document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="3a11aef7-8237-46e3-bfbd-67d6c11287c8">
+          <annotation></annotation>
+          <name>documentStripped</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>documentStripped</contextKey>
+          <expression id="0f660f1a-c88b-4a07-9fe7-1f1e5678917e">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="f36e172a-aa4d-4cd4-a8eb-d41d59dceac1">
+          <annotation></annotation>
+          <name>ResultSet</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>ResultSet</contextKey>
+          <expression id="3e001635-fcc7-49b3-b333-74885d97f9d6">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="95c40180-d147-4ed7-8c61-cae2cd188043">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/run_advanced_scriptResponse/Result/ResultSet</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="93a2894e-d96b-49d0-bdb9-9ef64a47c965">
+          <annotation></annotation>
+          <name>StackTrace</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>StackTrace</contextKey>
+          <expression id="2fe98928-801f-47bf-9cef-dd325236c106">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="24ef1d71-ada0-472a-a154-6b4f535e6777">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/run_advanced_scriptResponse/Result/StackTrace/text()</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="dedef070-41fb-4d88-9530-a6a706cb1b01">
+          <annotation></annotation>
+          <name>Status</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>Status</contextKey>
+          <expression id="b4bcd245-9e07-4a87-b4f2-ec68d9f9c25b">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="53c744b7-51a3-41de-b7d1-56ec57125a87">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/run_advanced_scriptResponse/Result/Status/text()</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="d15b52ed-40d2-45f6-a904-467a491c5456">
+          <annotation></annotation>
+          <name>Text</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>Text</contextKey>
+          <expression id="4cbb68e6-5e15-4a5b-b133-7b2aab504d72">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="46388d78-3391-4b07-a47c-fd7cf41531b7">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/run_advanced_scriptResponse/Result/Text/text()</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="6b19722c-8788-411f-8498-0a0d40475126">
+      <annotation>c967e146-f66b-46fc-9e72-b6b2e22861fc.6b19722c-8788-411f-8498-0a0d40475126.description</annotation>
+      <name>ERROR : failure</name>
+      <bounds>
+        <x>150.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>ERROR : failure</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="02a0dc5e-2f05-4e19-ac8e-7d18911ae748">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>6b19722c-8788-411f-8498-0a0d40475126</refId>
+          </destination>
+          <source>
+            <refId>6b19722c-8788-411f-8498-0a0d40475126</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="976d2031-219d-4901-9b81-84d5ec90a530">
+      <annotation>c967e146-f66b-46fc-9e72-b6b2e22861fc.976d2031-219d-4901-9b81-84d5ec90a530.description</annotation>
+      <name>RESOLVED : success</name>
+      <bounds>
+        <x>0.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>RESOLVED : success</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="aa981849-e3be-4788-9e37-55859fd7e30b">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>976d2031-219d-4901-9b81-84d5ec90a530</refId>
+          </destination>
+          <source>
+            <refId>976d2031-219d-4901-9b81-84d5ec90a530</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>464758df-56f0-4848-bf9b-189445eb7d8c</startSteps>
+</flow>

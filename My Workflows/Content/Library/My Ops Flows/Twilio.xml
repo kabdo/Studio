@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="64c6e5b0-9e19-4c0a-a86a-04597957ca2f">
+  <descriptionCdata><![CDATA[64c6e5b0-9e19-4c0a-a86a-04597957ca2f.0e495e10-ad08-4d61-8eed-5e202d61d033.description=<pre>\nSend SMS Messages \nThis operation sends an SMS message \nSMS messages are sent/received using the Twilio service. \n\nFor details, see\: https\://www.twilio.com/  \n\n\n\n Inputs\: \n\t accountSid - Get your Account Sid and Token at twilio.com/user/account\n\t authenticationToken - Get your Account Sid and Token at twilio.com/user/account\n\t from - Message will be sent from this Twillo number\n\t\t Format\: internationally-standardized format for all phone numbers, E.164 number formatting [http\://en.wikipedia.org/wiki/E.164]\n\t\t\t [+][country code][subscriber number including area code] for example\: +14804055101\n\t\t\t https\://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally\n\t to - Message will be sent to this number\n\t\t Format - same as "from"\t \n\t textMessage - The SMS text message\n\t mediaURL - The URL of the media you wish to send out with the message. gif, png and jpeg such as\: http\://www.example.org/image.jpg\n\n\nOutputs\: \n\t returnResult\n\t returnCode\n\t errorMessage\n\t errorCode\n\t status\n\t sid\n\t price\n\t priceUnit\t \n\t direction\n\t dateCreated\n\n\nNotes\: \n\t Twilio note\: For the 3rd party Twillo error message explanations use the Twilio URL\: https\://www.twilio.com/docs/errors/[error_code] \n\t For example\: https\://www.twilio.com/docs/errors/21612 \n\t Twilio sdk version\: [twilio-java-sdk\=3.4.5]\n \t Twilio security note\: https\://www.twilio.com/docs/security \n </pre>
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Twilio</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="51b3c960-be41-4893-b78b-32e891693e95">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="ae39c73c-5272-4f97-89bc-a9a91d68ca6a">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="796ef92f-a00d-423c-8791-023aa06b5940">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="c029b7ab-2c8f-4fd6-97a8-fe95b4305a60">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="0e495e10-ad08-4d61-8eed-5e202d61d033">
+      <annotation>64c6e5b0-9e19-4c0a-a86a-04597957ca2f.0e495e10-ad08-4d61-8eed-5e202d61d033.description</annotation>
+      <name>Send SMS</name>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="256247e7-6d63-400b-938b-e8fcadc4cf9d">
+          <annotation>Get your Account Sid and Token at twilio.com/user/account</annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>accountSid</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>AC673965ed662ca95f9df0b74a02192a61</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3dbc43eb-97f1-464d-8421-98813f58a8f1">
+          <annotation>Get your Account Sid and Token at twilio.com/user/account</annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>authenticationToken</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}kdEIajW6fhSM9IH4pf/4VxoYwrOA1VOLqtgXovPvYkm0VDamdZgpAIYuef/ks/Og</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3d9b2dd4-f33b-49e7-bedc-67d4952bfe0a">
+          <annotation>Message will be sent from this Twillo number</annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>from</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>+16154578396</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2f494cfd-97c9-4834-9bdc-e350f353773b">
+          <annotation>Message will be sent to this number</annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>to</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>+17182880535</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ea66c3ae-9d46-4abf-80d7-ddc791522a4b">
+          <annotation>The SMS text message</annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>textMessage</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Hey test Twilio</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b0b5fdf6-0726-484f-8c9d-96476c2c8859">
+          <annotation>The URL of the media you wish to send out with the message. gif , png and jpeg such as: http://www.example.org/image.jpg</annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>mediaURL</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="3e25d8b0-1bcf-407d-bd59-5e5da7e954f9">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>65fddd79-1d29-462d-bea5-ca8572f9dd7c</refId>
+          </destination>
+          <source>
+            <refId>0e495e10-ad08-4d61-8eed-5e202d61d033</refId>
+          </source>
+          <positions>
+            <point>
+              <x>230.0</x>
+              <y>184.0</y>
+            </point>
+            <point>
+              <x>424.0</x>
+              <y>168.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="dc3a95bb-bd5c-4d80-8982-6a281bf2acd0">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>2843fb45-454d-458b-9190-be6923d58d80</refId>
+          </destination>
+          <source>
+            <refId>0e495e10-ad08-4d61-8eed-5e202d61d033</refId>
+          </source>
+          <positions>
+            <point>
+              <x>230.0</x>
+              <y>184.0</y>
+            </point>
+            <point>
+              <x>280.0</x>
+              <y>299.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>36853aa0-0daf-4842-8b8a-3769a2417af4</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="d6700b63-b188-4d92-9de0-0bdd37c69215">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>returnResult</contextKey>
+          <expression id="3b45b24e-5c2d-425b-ad2c-0735264e5312">
+            <annotation></annotation>
+            <name>Result Field: Result</name>
+            <fieldName>Result</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="73620a92-c7e9-4e1f-9ae4-b528f360cbff">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>FailureMessage</contextKey>
+          <expression id="4075f4c7-d8fa-4483-8357-ecc31de71d99">
+            <annotation></annotation>
+            <name>Result Field: FailureMessage</name>
+            <fieldName>FailureMessage</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="65fddd79-1d29-462d-bea5-ca8572f9dd7c">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>203.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="aff73c6b-bb47-43ba-857c-efc330513454">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>65fddd79-1d29-462d-bea5-ca8572f9dd7c</refId>
+          </destination>
+          <source>
+            <refId>65fddd79-1d29-462d-bea5-ca8572f9dd7c</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="2843fb45-454d-458b-9190-be6923d58d80">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>0.0</x>
+        <y>199.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="3451eeff-5caa-4ecf-971a-cb5889f3aba6">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>2843fb45-454d-458b-9190-be6923d58d80</refId>
+          </destination>
+          <source>
+            <refId>2843fb45-454d-458b-9190-be6923d58d80</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>0e495e10-ad08-4d61-8eed-5e202d61d033</startSteps>
+</flow>

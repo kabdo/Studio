@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="1e22df78-2f6d-4e39-8e9c-79ba2f79ac01">
+  <descriptionCdata><![CDATA[1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.09503c3e-c8af-49bd-98e5-23075707fdc3.prompt=Username\:
+1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.399bbf63-4668-49c9-b262-4fd0f020e5c0.prompt=Name of the Command / Script\:
+1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.972e756e-3713-4267-a0ef-fd449dd2b4f9.prompt=NAS Core\:
+1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.b78c9a5a-0464-440f-84f2-25a192061f03.prompt=Password\:
+1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.description=<pre>\nRuns an existing script, specified by name, against a device or group of devices. The proper variant of the script will be applied to each device. If no variant of the script supports a given device, that device will be skipped. The script is run as a system task.\n\nInputs\:\n    coreHost - The DNS name or IP Address of your NAS core.\n    corePort - The port to connect to your NAS core on.\n    coreProtocol - The protocol to connect to your NAS core with.\nValid values\: http, https\n    coreUsername - The username for the NAS core.\n    corePassword - The password for the NAS user.\n    scriptName - Script / command name\n    isAdvanced - Should the command be an advanced script?\nValid values\: True, False\nDefault value\: False\n    ip - The IP address of the network device.\n    variables - A list of variables to be replaced in the script. These are provided as a list of name\=value pairs, separated by commas. Values can be surrounded in single-quotes ('). Within a quoted value, a single-quote can be embedded with two single-quote characters. \nExamples\: "variable1\=value1, varable2\='this is ''value 2'''"\n    returnImmediately - A boolean value which controls how the command script is run. A value of true, 0, or yes, will cause the operation to return once the command script is scheduled. A value of false, 1, or no, will cause the operation to wait until the script has been run before it returns.\n    parameters - Command line parameters for the script to run. Ignored for regular command scripts.\n    lineByLine - Prefer to deploy line by line rather than file-based deployment. Ignored for advanced scripts, required by regular command scripts.\n    startDate - Date of the start of the task.\n    groupName - The group name of a list of networked devices.\n    repeat - (\#min | \#\:\# | \#days | \#weeks | \#months) where \# is a positive integer. \#\:\# is hours\:minutes; The two integers do not have to be the same.\n    comment - The comment to tie to this action.\n    presnapshot - Possible values\: true or false. If false, this indicates that the snapshot that runs before the script should be skipped.\n    postsnapshot - Possible valuse\: true, false or task. If false, this indicates that the snapshot that runs after the script should be skipped. If "task", this indicates that snapshot after the script should run as a separate task.\n    timeout - Time in milliseconds to wait for the command to complete.\nDefault value\: 90000 (90 seconds).\n\nResponses\:\n    success - The operation completed successfully.\n    failure - Something went wrong.\n\nReturns\:\n    returnResult - Text result of NAS script run\n    commandStatus - The status of the NAS command.\n    text - The response text of the NAS command.\n    stackTrace - The stack trace (If any) of the NAS command.\n\nNotes\:\n1) Start date must be in one of the following formats\: \nYYYY-MM-DD HH\:MM\:SS     e.g. 2002-09-06 12\:30\:00 \nYYYY-MM-DD HH\:MM        e.g. 2002-09-06 12\:30\nYYYY-MM-DD              e.g. 2002-09-06 \nYYYY/MM/DD              e.g. 2002/09/06 \nYYYY\:MM\:DD\:HH\:MM        e.g. 2002\:09\:06\:12\:30\nOr, one of\: now, today, yesterday, tomorrow \nOr, in the format\: "  " e.g. "3 days ago"  is a positive integer; is one of\: seconds, minutes, hours, days, weeks, months, years; is one of\: ago, before, later, after.\n</pre>
+1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.f918dd57-7195-4fb4-bf5e-1a39fd1e934b.prompt=Advanced Script\:
+]]></descriptionCdata>
+  <annotation>1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.description</annotation>
+  <name>Run Command Script</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="972e756e-3713-4267-a0ef-fd449dd2b4f9">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>coreHost</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.972e756e-3713-4267-a0ef-fd449dd2b4f9.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <staticBinding id="a2eda280-c7c5-4d89-b56a-148ad1a0c642">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>corePort</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>443</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="f38f17b0-46ce-41d3-b6ab-80a5bdfe102b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>coreProtocol</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>https</value>
+      <record>false</record>
+    </staticBinding>
+    <userInputBinding id="09503c3e-c8af-49bd-98e5-23075707fdc3">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>coreUsername</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.09503c3e-c8af-49bd-98e5-23075707fdc3.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="b78c9a5a-0464-440f-84f2-25a192061f03">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>ENCRYPTED</inputType>
+      <recordKey></recordKey>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>corePassword</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.b78c9a5a-0464-440f-84f2-25a192061f03.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="399bbf63-4668-49c9-b262-4fd0f020e5c0">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>scriptName</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.399bbf63-4668-49c9-b262-4fd0f020e5c0.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="f918dd57-7195-4fb4-bf5e-1a39fd1e934b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>isAdvanced</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>1e22df78-2f6d-4e39-8e9c-79ba2f79ac01.f918dd57-7195-4fb4-bf5e-1a39fd1e934b.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <link>
+        <refId>96a1ed25-cdc9-4ff6-8fba-e9c044c5ca53</refId>
+        <refName>Boolean - False Default</refName>
+      </link>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="78948f71-85e7-42ee-a536-f790552f69c5">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>startDate</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="23139e83-5ca8-40d3-9d17-e62992d78525">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>groupName</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="871dcfa0-a041-4a0d-9bb1-a83437aec299">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>lineByLine</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="e820097b-9f31-47ed-8b5d-e5fbbf4e4f9c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>repeat</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="504f1d18-043d-4a4b-8ece-c84c8b2e9f48">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>ip</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="97284b55-cb3e-4b95-a466-1d50f06c8cac">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>variables</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="ee53c720-5cd7-4551-b4be-dd36f60482d6">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>returnImmediately</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="80be180c-55e2-4d24-9631-ff0a3be5171a">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>parameters</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="c4b05d5f-c8d0-4d30-8958-a30f400d9837">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>comment</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="46d5365e-7139-4bbe-b786-ccafe0805eec">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>presnapshot</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="6f1db311-043a-425f-a915-d88fdd66cf82">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>postsnapshot</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="a55789fc-e9d8-4537-b517-ce35765a57a8">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>timeout</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="f116bd72-1e7e-45f9-a4da-7b770cd26a3a">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="db521d5a-653b-4603-80e0-21e7f3f58be6">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="7c6600cf-2316-4b8c-ba93-cc24b23dca3f">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>-1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="258e6da8-189f-458f-aa7f-bcd056dbd8de">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="54b26de6-2f80-4bc7-a646-a08ebd4c595e">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="9b321cb1-2e7d-4a73-afdf-833b23719ab0">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>0</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="016aa6ba-3054-4083-9f62-f37c206ced4c">
+    <annotation></annotation>
+    <name>returnCode</name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="dbc13dd3-c447-44e7-929f-4a16de286954">
+    <baseIcon>application_j2ee.png</baseIcon>
+    <basePath>/Application/</basePath>
+    <readOnly>false</readOnly>
+    <layers>
+      <iconSpec id="68e06a60-8830-426b-9fb2-ee5c11023b25">
+        <baseIcon>online.png</baseIcon>
+        <basePath>/Annotations/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+    </layers>
+  </iconSpec>
+  <opRef>
+    <refId>6b3ebf5c-682d-41aa-94c4-d309705763a3</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>

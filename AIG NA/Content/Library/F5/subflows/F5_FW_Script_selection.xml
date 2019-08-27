@@ -1,0 +1,2774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="49eb0739-e0cd-49cd-ba6b-2e77515160b9">
+  <descriptionCdata><![CDATA[49eb0739-e0cd-49cd-ba6b-2e77515160b9.02913e04-db3d-428b-bd9e-868f0024e5c8.description=<pre>\nChecks to see if a string matches another string using a specific rule. Input toMatch is the actual string to check to see if it matches the matchTo expression.\n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex\nDefault value\: Exact Match\n    toMatch - The string to check if matches another string.\n    matchTo - The string to match against. \nExamples\: If the matchType is RegEx, the input matchTo is the regular expression like \: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Boolean value for whether or not to ignore case during match.\nValid values\: False, True\nDefault value\: False\n\nResponses\:\n    success - The String matched.\n    failure - The string did not match, or something went wrong.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.06c5f3b3-8b8d-41e2-a7a3-ad5afbfa9b5f.description=<pre>\nThis operation does not do anything. It is useful to filter flow variables by feeding them as inputs and filtering them on the results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. The value of the "field1", as it was specified at input or filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.0702dbc4-e633-4bea-a63f-4cc00a0fbbb3.description=<pre>\nThis operation does not do anything. It is useful to filter flow variables by feeding them as inputs and filtering them on the results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. The value of the "field1", as it was specified at input or filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.1e434e9f-7b10-4e29-a9ae-51c2263914ec.description=<pre>\nThis operation does not do anything. It is useful to filter flow variables by feeding them as inputs and filtering them on the results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. The value of the "field1", as it was specified at input or filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.3077fa7b-9d56-429e-8f02-4786ec4dd532.description=<pre>\nChecks to see if a string matches another string using a specific rule. Input toMatch is the actual string to check to see if it matches the matchTo expression.\n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex\nDefault value\: Exact Match\n    toMatch - The string to check if matches another string.\n    matchTo - The string to match against. \nExamples\: If the matchType is RegEx, the input matchTo is the regular expression like \: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Boolean value for whether or not to ignore case during match.\nValid values\: False, True\nDefault value\: False\n\nResponses\:\n    success - The String matched.\n    failure - The string did not match, or something went wrong.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.3e1d2252-979a-498d-8b99-a89357a4ce65.description=<pre>\nThis operation does not do anything. It is useful to filter flow variables by feeding them as inputs and filtering them on the results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. The value of the "field1", as it was specified at input or filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.4489743f-50e8-4322-a8a6-45e534b0c3a8.description=<pre>\nThis operation does not do anything. It is useful to filter flow variables by feeding them as inputs and filtering them on the results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. The value of the "field1", as it was specified at input or filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.790b3946-8d90-41a9-bc66-56599420b849.description=<pre>This is an operation that does nothing. It can be used for filtering flow variables by feeding them in as inputs and filtering them on the results tab.\n\nInputs\:\nfield1 - optional input that can be used for filtering flow variables.\nfield2 - optional input that can be used for filtering flow variables.\nfield3 - optional input that can be used for filtering flow variables.\nfield4 - optional input that can be used for filtering flow variables.\n\nResponses\:\nsuccess - this operation never fails.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.922b1848-63e6-43f5-804d-987850ee813c.description=<pre>\nChecks to see if a string matches another string using a specific rule. Input toMatch is the actual string to check to see if it matches the matchTo expression.\n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex\nDefault value\: Exact Match\n    toMatch - The string to check if matches another string.\n    matchTo - The string to match against. \nExamples\: If the matchType is RegEx, the input matchTo is the regular expression like \: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Boolean value for whether or not to ignore case during match.\nValid values\: False, True\nDefault value\: False\n\nResponses\:\n    success - The String matched.\n    failure - The string did not match, or something went wrong.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.9c715bb9-77e3-4c02-857d-fa4cb60e8fc6.description=<pre>\nChecks to see if a string matches another string using a specific rule. Input toMatch is the actual string to check to see if it matches the matchTo expression.\n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex\nDefault value\: Exact Match\n    toMatch - The string to check if matches another string.\n    matchTo - The string to match against. \nExamples\: If the matchType is RegEx, the input matchTo is the regular expression like \: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Boolean value for whether or not to ignore case during match.\nValid values\: False, True\nDefault value\: False\n\nResponses\:\n    success - The String matched.\n    failure - The string did not match, or something went wrong.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.9da99c68-cecd-4004-ae59-0fbe06c55914.description=<pre>\nChecks to see if a string matches another string using a specific rule. Input toMatch is the actual string to check to see if it matches the matchTo expression.\n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex\nDefault value\: Exact Match\n    toMatch - The string to check if matches another string.\n    matchTo - The string to match against. \nExamples\: If the matchType is RegEx, the input matchTo is the regular expression like \: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Boolean value for whether or not to ignore case during match.\nValid values\: False, True\nDefault value\: False\n\nResponses\:\n    success - The String matched.\n    failure - The string did not match, or something went wrong.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.a38f3464-7734-4c22-914f-4489deaaa87c.description=<pre>\nChecks to see if a string matches another string using a specific rule. Input toMatch is the actual string to check to see if it matches the matchTo expression.\n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex\nDefault value\: Exact Match\n    toMatch - The string to check if matches another string.\n    matchTo - The string to match against. \nExamples\: If the matchType is RegEx, the input matchTo is the regular expression like \: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Boolean value for whether or not to ignore case during match.\nValid values\: False, True\nDefault value\: False\n\nResponses\:\n    success - The String matched.\n    failure - The string did not match, or something went wrong.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.a8d0cc4f-62d3-47de-84f7-a2b3eb16c417.description=<pre>\nThis operation does not do anything. It is useful to filter flow variables by feeding them as inputs and filtering them on the results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. The value of the "field1", as it was specified at input or filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.cd19f0e9-2e40-40de-9117-4d70c3204018.description=<pre>\nChecks to see if a string matches another string using a specific rule. Input toMatch is the actual string to check to see if it matches the matchTo expression.\n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex\nDefault value\: Exact Match\n    toMatch - The string to check if matches another string.\n    matchTo - The string to match against. \nExamples\: If the matchType is RegEx, the input matchTo is the regular expression like \: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Boolean value for whether or not to ignore case during match.\nValid values\: False, True\nDefault value\: False\n\nResponses\:\n    success - The String matched.\n    failure - The string did not match, or something went wrong.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.e36fc7d7-6cc3-44c7-a470-cce007db692e.description=<pre>\nThis operation does not do anything. It is useful to filter flow variables by feeding them as inputs and filtering them on the results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. The value of the "field1", as it was specified at input or filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+49eb0739-e0cd-49cd-ba6b-2e77515160b9.e663731c-0b66-4961-9c8d-7ba6712d559a.description=<pre>\nThis operation does not do anything. It is useful to filter flow variables by feeding them as inputs and filtering them on the results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. The value of the "field1", as it was specified at input or filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>F5_FW_Script_selection</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="1951c741-c86d-4a01-bbca-aea9fdf35784">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>acl_entry</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="c4462258-5410-4f2e-b1d3-f34cbe04dd86">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>order</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="44cd47de-b25b-4827-9513-4d486c2c702b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>acl_protocol</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="afce11eb-32c4-4557-87da-ddbd24ef75fa">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>acl_dest_port</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="92066051-2bbe-4f57-8608-24fa0a352ece">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>acl_dest_address</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="99a4e70a-28c3-4c18-9e0e-41eeb0ce9de8">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>acl_source_address</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="a5ec03e5-bbb4-48bc-8271-dca30808b41a">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions>
+    <expression id="fe24a28a-a0e8-48d2-9042-644f5f4448ed">
+      <annotation></annotation>
+      <name>script_name</name>
+      <fieldName>script_name</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters/>
+    </expression>
+    <expression id="0eda9b58-71ba-48f8-9615-56e1bf4c4c1d">
+      <annotation></annotation>
+      <name>script_variables</name>
+      <fieldName>script_variables</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters/>
+    </expression>
+  </availableResultExpressions>
+  <resultExpression id="dc29d7a2-43a7-493f-986c-8cbf004e354a">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="6d923891-7517-4f3c-b415-f60eceab2f8a">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="790b3946-8d90-41a9-bc66-56599420b849">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.790b3946-8d90-41a9-bc66-56599420b849.description</annotation>
+      <name>Get Input</name>
+      <bounds>
+        <x>63.0</x>
+        <y>35.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="2d1f177f-32de-4c44-9c6f-eb62fc80fde1">
+        <baseIcon>display_report.png</baseIcon>
+        <basePath>Utilities/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <scriptlet id="67a416f0-60c5-4fcc-bab1-11fe6bcbd89a">
+        <annotation></annotation>
+        <name>Step Get Input in Flow F5_FW_Script_selection (790b3946-8d90-41a9-bc66-56599420b849)</name>
+        <script></script>
+        <type>RHINO</type>
+      </scriptlet>
+      <bindings>
+        <staticBinding id="310efac2-38c9-44c1-b66c-e96028631a22">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <recordKey></recordKey>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>acl_entry</inputSymbol>
+          <listDelimiter></listDelimiter>
+          <value>${acl_entry}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5002c5aa-cd3b-4a4c-830c-b73ff1540e53">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>acl_protocol</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_protocol}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="dba6e3c8-3b23-4e5d-8e14-c52215389f77">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>acl_dest_address</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_dest_address}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="abab350d-8c2a-4413-9eda-aef47968d372">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>acl_source_address</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_source_address}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ec75ffd9-1881-441a-a8f9-9088f0425cd4">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>acl_dest_port</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_dest_port}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5f668506-c1e0-4bb3-969c-1d7c4c38a831">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>order</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${order}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="58f89ff3-9836-40aa-8212-eee69f990c90">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>flow_name</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>F5_FW_add_rule</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="7e88169a-6b20-492d-b9c5-8e6770a88b56">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>9da99c68-cecd-4004-ae59-0fbe06c55914</refId>
+          </destination>
+          <source>
+            <refId>790b3946-8d90-41a9-bc66-56599420b849</refId>
+          </source>
+          <positions>
+            <point>
+              <x>113.0</x>
+              <y>69.0</y>
+            </point>
+            <point>
+              <x>293.0</x>
+              <y>63.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="360298b0-90b1-4dd5-96c0-402df19e95e0">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>flow_name</contextKey>
+          <expression id="e0217e14-5a31-40ba-b42c-8d5535f7fb61">
+            <annotation></annotation>
+            <name>Input: flow_name</name>
+            <fieldName>flow_name</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="50e9de68-52e9-446b-bfca-1a6642d76778">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>acl_dest_port</contextKey>
+          <expression id="072236b0-d9d6-4e8e-b2b1-1892991096f3">
+            <annotation></annotation>
+            <name>Input: acl_dest_port</name>
+            <fieldName>acl_dest_port</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="58b0ea71-7456-49b7-a68c-c9aad7ba689c">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>acl_source_address</contextKey>
+          <expression id="7327f08a-cabe-4e39-9c11-c691547fb517">
+            <annotation></annotation>
+            <name>Input: acl_source_address</name>
+            <fieldName>acl_source_address</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="ac358217-a50c-4331-8f17-38231b523338">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>acl_dest_address</contextKey>
+          <expression id="ffde9d12-742f-4c99-b28c-10883370d294">
+            <annotation></annotation>
+            <name>Input: acl_dest_address</name>
+            <fieldName>acl_dest_address</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="32b6146b-1cbd-423d-b3d9-73d0b87c68ee">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>acl_protocol</contextKey>
+          <expression id="b4b1ad3a-1494-4352-9039-51b6d6fb12a6">
+            <annotation></annotation>
+            <name>Input: acl_protocol</name>
+            <fieldName>acl_protocol</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="103b547d-304b-47a5-ba04-1de0b81954af">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>acl_entry</contextKey>
+          <expression id="5a5d9ae3-f051-4a1e-ac9c-219d95878141">
+            <annotation></annotation>
+            <name>Input: acl_entry</name>
+            <fieldName>acl_entry</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="9da99c68-cecd-4004-ae59-0fbe06c55914">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.9da99c68-cecd-4004-ae59-0fbe06c55914.description</annotation>
+      <name>Is sourceIP or Network</name>
+      <bounds>
+        <x>509.0</x>
+        <y>35.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="c8dcfe02-b2a3-42b8-9c2b-c142e31ebe20">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="a83958fa-8c82-4d8c-b53f-ff3fc56032ac">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Contains</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cb0127a0-36d0-4f4b-9514-46d9a6936fa9">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>toMatch</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_source_address}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="524506c0-33eb-475f-aa88-7c2eabcbb9ec">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchTo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>/</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="916b89ba-b93f-47db-85b3-5832236035e4">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="02ffb8bd-836e-49a6-b94c-ce4c61ad78c8">
+          <annotation></annotation>
+          <name>singleIP</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>922b1848-63e6-43f5-804d-987850ee813c</refId>
+          </destination>
+          <source>
+            <refId>9da99c68-cecd-4004-ae59-0fbe06c55914</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1118.0</x>
+              <y>88.0</y>
+            </point>
+            <point>
+              <x>1012.0</x>
+              <y>192.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="0a7d3ec4-6b0d-4211-a15f-35aeb98c5cb6">
+          <annotation></annotation>
+          <name>network</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>3077fa7b-9d56-429e-8f02-4786ec4dd532</refId>
+          </destination>
+          <source>
+            <refId>9da99c68-cecd-4004-ae59-0fbe06c55914</refId>
+          </source>
+          <positions>
+            <point>
+              <x>559.0</x>
+              <y>69.0</y>
+            </point>
+            <point>
+              <x>724.0</x>
+              <y>202.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="6b2385eb-e18a-4dd9-8719-9c259ae8b90e">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>mask_no</contextKey>
+          <expression id="f3cf40b2-2eab-42d8-88f1-6479ef750d07">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="b3490999-bb2e-4b5a-8813-fe32784e6a33">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="109d2e4b-2dc5-4661-85a2-ee156eb07c55">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>net_ip</contextKey>
+          <expression id="15dccd6f-081b-4f0c-85fd-44164397e9eb">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="fb9ef6a2-2c19-4dc5-ad58-9d124b6ddc24">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="e663731c-0b66-4961-9c8d-7ba6712d559a">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.e663731c-0b66-4961-9c8d-7ba6712d559a.description</annotation>
+      <name>ACL: network source, network destination, range port</name>
+      <bounds>
+        <x>1080.0</x>
+        <y>417.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="02223f21-1c08-4b69-bfb0-3aa49dd34cea">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>x</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="b2de822d-acd0-4abf-89ae-9fa550b9c9e1">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>7aef9079-c029-4aa5-a17a-f2e6465149cb</refId>
+          </destination>
+          <source>
+            <refId>e663731c-0b66-4961-9c8d-7ba6712d559a</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1130.0</x>
+              <y>450.0</y>
+            </point>
+            <point>
+              <x>874.0</x>
+              <y>629.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="e80598c1-e82f-46b5-b1b3-debb207d3d44">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_name</contextKey>
+          <expression id="1c699e9d-66fa-4327-a5b0-3958e38ce956">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="11f0d1de-4139-4150-8dd0-5a91d7af83fb">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>F5_add_packet_filter_network_source_network_destination_range_port</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="25a6e1b3-7f75-4449-bc4d-34527b6fb4ea">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_variables</contextKey>
+          <expression id="973bb42d-8f75-4de4-b99f-4d90938c0674">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="4e4495d6-d771-4978-8b8b-bb83f6b2c791">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>filter_name=${acl_entry},order=${order},protocol=${acl_protocol},source=${acl_source_address},destination=${acl_dest_address},low_port=${low_port},high_port=${high_port}</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="a8d0cc4f-62d3-47de-84f7-a2b3eb16c417">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.a8d0cc4f-62d3-47de-84f7-a2b3eb16c417.description</annotation>
+      <name>ACL:host source, host destination, single port</name>
+      <bounds>
+        <x>25.0</x>
+        <y>417.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="3bc09deb-39a7-47e4-946a-65d759a1b20c">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>x</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="7c9547b6-e065-4871-8a68-ecf7d369a9d1">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>530fdd62-1023-44ee-a8a9-77358e03806f</refId>
+          </destination>
+          <source>
+            <refId>a8d0cc4f-62d3-47de-84f7-a2b3eb16c417</refId>
+          </source>
+          <positions>
+            <point>
+              <x>75.0</x>
+              <y>451.0</y>
+            </point>
+            <point>
+              <x>280.0</x>
+              <y>643.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="71980a75-a09f-4732-a404-74bdecc7258e">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_name</contextKey>
+          <expression id="2d4d2f3e-0a85-4c67-8fbf-de7a6b9642ff">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="92bcaeb0-f70a-4c96-b52b-ff94f1030a2a">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>F5_add_packet_filter_host_source_host_destination_single_port</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="704e4e33-95da-407d-95c3-039c249afe20">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_variables</contextKey>
+          <expression id="3673e68d-0014-46b7-9951-8ea74e4cbb6a">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="bc14d71d-a702-40c2-94ce-212cafcca584">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>filter_name=${acl_entry},order=${order},protocol=${acl_protocol},source=${acl_source_address},destination=${acl_dest_address},port=${acl_dest_port}</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="7aef9079-c029-4aa5-a17a-f2e6465149cb">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>816.0</x>
+        <y>595.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="cc5025fb-52ed-413b-98e6-3b1e6fae1dc4">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>7aef9079-c029-4aa5-a17a-f2e6465149cb</refId>
+          </destination>
+          <source>
+            <refId>7aef9079-c029-4aa5-a17a-f2e6465149cb</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="0702dbc4-e633-4bea-a63f-4cc00a0fbbb3">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.0702dbc4-e633-4bea-a63f-4cc00a0fbbb3.description</annotation>
+      <name>ACL:host source, network destination, range port</name>
+      <bounds>
+        <x>448.0</x>
+        <y>417.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="faa85b44-84a7-4c8b-9016-b7e2eac7b971">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>x</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="b99a183a-0624-4a05-bd5a-1bd390d743e2">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>530fdd62-1023-44ee-a8a9-77358e03806f</refId>
+          </destination>
+          <source>
+            <refId>0702dbc4-e633-4bea-a63f-4cc00a0fbbb3</refId>
+          </source>
+          <positions>
+            <point>
+              <x>498.0</x>
+              <y>456.0</y>
+            </point>
+            <point>
+              <x>280.0</x>
+              <y>643.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="0892e0cb-2cc4-49ee-9f5a-a0097313ee30">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_name</contextKey>
+          <expression id="55592648-6c63-469d-8548-b562d9a441bb">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="ef2a82ac-939c-4e5a-b1d1-4265729b77b4">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>F5_add_packet_filter_host_source_network_destination_range_port</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="1966975b-f334-452a-b43f-97d7c6261f1b">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_variables</contextKey>
+          <expression id="4ba97ceb-9b07-4f2b-81b9-e1f5f6c7b203">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="8cd81317-a4fb-44bd-bc07-57a6950a8a77">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>filter_name=${acl_entry},order=${order},protocol=${acl_protocol},source=${acl_source_address},destination=${acl_dest_address},low_port=${low_port},high_port=${high_port}</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="3e1d2252-979a-498d-8b99-a89357a4ce65">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.3e1d2252-979a-498d-8b99-a89357a4ce65.description</annotation>
+      <name>ACL:network source, network destination, single port</name>
+      <bounds>
+        <x>750.0</x>
+        <y>417.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="278b4564-b2d3-4266-8be5-c8620270e1c3">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>x</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="7f1fac3c-784f-418d-af75-145ebbe5802f">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>7aef9079-c029-4aa5-a17a-f2e6465149cb</refId>
+          </destination>
+          <source>
+            <refId>3e1d2252-979a-498d-8b99-a89357a4ce65</refId>
+          </source>
+          <positions>
+            <point>
+              <x>800.0</x>
+              <y>460.0</y>
+            </point>
+            <point>
+              <x>874.0</x>
+              <y>629.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="5f2f16e8-9c03-4a92-8494-b6c4e12b6a30">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_name</contextKey>
+          <expression id="964a2026-d6ab-4c06-8e1c-fc8eb1b38c8a">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="c9f6f716-5a13-497e-ab1e-7974f6eeae68">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>F5_add_packet_filter_network_source_network_destination_single_port</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="0baaba43-297b-4fab-87f6-96c5ecc51714">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_variables</contextKey>
+          <expression id="c1cb369b-62cb-4b17-b497-1b8a0f171353">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="f1a2a58b-3228-4505-9cd8-9a5182bf03f4">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>filter_name=${acl_entry},order=${order},protocol=${acl_protocol},source=${acl_source_address},destination=${acl_dest_address},port=${acl_dest_port}</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="06c5f3b3-8b8d-41e2-a7a3-ad5afbfa9b5f">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.06c5f3b3-8b8d-41e2-a7a3-ad5afbfa9b5f.description</annotation>
+      <name>ACL:host source, host destination, range port</name>
+      <bounds>
+        <x>312.0</x>
+        <y>417.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="4c0ee9dc-b1e1-467c-887e-df2acdb45ee7">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>x</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="a208b7a1-3075-4455-b21e-57ae35c706c6">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>530fdd62-1023-44ee-a8a9-77358e03806f</refId>
+          </destination>
+          <source>
+            <refId>06c5f3b3-8b8d-41e2-a7a3-ad5afbfa9b5f</refId>
+          </source>
+          <positions>
+            <point>
+              <x>362.0</x>
+              <y>458.0</y>
+            </point>
+            <point>
+              <x>280.0</x>
+              <y>643.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="66b6db78-094c-4957-9070-4a11052118b2">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_name</contextKey>
+          <expression id="12e6edec-5176-46a2-8bcf-c77b52d50b67">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="1280e0f5-71ec-4899-b969-73d2a4631168">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>F5_add_packet_filter_host_source_host_destination_range_port</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="4321aae3-3ae0-43ea-9592-1abbbadca95c">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_variables</contextKey>
+          <expression id="f775fa38-7d1f-4ad7-98d3-e4491f60323c">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="0163cf14-65a5-4914-b1c9-06cfcc664314">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>filter_name=${acl_entry},order=${order},protocol=${acl_protocol},source=${acl_source_address},destination=${acl_dest_address},low_port=${low_port},high_port=${high_port}</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="3077fa7b-9d56-429e-8f02-4786ec4dd532">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.3077fa7b-9d56-429e-8f02-4786ec4dd532.description</annotation>
+      <name>Is dest port or range</name>
+      <bounds>
+        <x>816.0</x>
+        <y>163.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="1876bdb7-7c99-4c8b-9112-022d1acdad54">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="6bd88171-6197-4783-aaca-89d8d88263b7">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Contains</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="eebcd147-ac82-434d-8b73-0d0117e01749">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>toMatch</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_dest_port}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="943dfb6d-bda6-446d-a6b5-4813619f079f">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchTo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>-</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a55b722f-236f-4799-bdf7-1cdec47ad911">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="dab7601a-a86a-49ad-bf2d-63fc9095977e">
+          <annotation></annotation>
+          <name>singlePort</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>9c715bb9-77e3-4c02-857d-fa4cb60e8fc6</refId>
+          </destination>
+          <source>
+            <refId>3077fa7b-9d56-429e-8f02-4786ec4dd532</refId>
+          </source>
+          <positions>
+            <point>
+              <x>724.0</x>
+              <y>202.0</y>
+            </point>
+            <point>
+              <x>606.0</x>
+              <y>297.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="e4b27235-737a-425b-b2c2-1713cadc895f">
+          <annotation></annotation>
+          <name>rangePort</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>02913e04-db3d-428b-bd9e-868f0024e5c8</refId>
+          </destination>
+          <source>
+            <refId>3077fa7b-9d56-429e-8f02-4786ec4dd532</refId>
+          </source>
+          <positions>
+            <point>
+              <x>724.0</x>
+              <y>202.0</y>
+            </point>
+            <point>
+              <x>844.0</x>
+              <y>334.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="f506e1ee-28ef-4c2a-8488-5c9700e56993">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>high_port</contextKey>
+          <expression id="a7a10f9b-7732-4713-95a9-3f516baad21f">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="eb1cb649-ba17-43f8-a6ad-bcb5d39b8e4b">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>-</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="d0ad8e1a-0dcf-4028-a749-077d1f93a845">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>low_port</contextKey>
+          <expression id="0082c116-5288-47c2-9280-c3081548eb1c">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="fa20916e-2d1e-4899-8a51-5fa576b31110">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>-</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="922b1848-63e6-43f5-804d-987850ee813c">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.922b1848-63e6-43f5-804d-987850ee813c.description</annotation>
+      <name>Is dest port or range</name>
+      <bounds>
+        <x>228.0</x>
+        <y>161.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="6e2a9044-db1d-43ff-904f-6c763a35a0b2">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="842e5b93-0b04-4d8d-91bb-aaaba20d1f29">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Contains</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="78e2b46d-4a13-4c14-ba7e-4ba9061845e2">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>toMatch</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_dest_port}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="008aba92-1ffb-474e-8d61-91271b6fca95">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchTo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>-</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b2408d5c-4041-4919-b7e8-5f0140c4e291">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="a7c0ca47-b3f0-4c77-983b-5b92807b7841">
+          <annotation></annotation>
+          <name>rangePort</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>cd19f0e9-2e40-40de-9117-4d70c3204018</refId>
+          </destination>
+          <source>
+            <refId>922b1848-63e6-43f5-804d-987850ee813c</refId>
+          </source>
+          <positions>
+            <point>
+              <x>302.0</x>
+              <y>188.0</y>
+            </point>
+            <point>
+              <x>411.0</x>
+              <y>342.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="2e888f18-996e-4b41-bfe8-5f24452d59ed">
+          <annotation></annotation>
+          <name>singlePort</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>a38f3464-7734-4c22-914f-4489deaaa87c</refId>
+          </destination>
+          <source>
+            <refId>922b1848-63e6-43f5-804d-987850ee813c</refId>
+          </source>
+          <positions>
+            <point>
+              <x>302.0</x>
+              <y>188.0</y>
+            </point>
+            <point>
+              <x>127.0</x>
+              <y>315.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="a4652e95-d452-43fd-91ba-f17602b43f84">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>high_port</contextKey>
+          <expression id="cef141c6-fc06-41c1-86b4-eacfb27dbc6e">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="7130bb7e-4ff3-48e6-9759-549d5a574cea">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>-</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="ed33d358-cb84-4c5d-9ac2-5fda85e643a6">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>low_port</contextKey>
+          <expression id="7e108317-f343-42ba-9f10-042fc56fc387">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="8e178c86-4ebd-4802-895d-2c90d133fe31">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>-</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="cd19f0e9-2e40-40de-9117-4d70c3204018">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.cd19f0e9-2e40-40de-9117-4d70c3204018.description</annotation>
+      <name>Is destinationIP or Network</name>
+      <bounds>
+        <x>360.0</x>
+        <y>281.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="acc6198a-2064-4c08-b2e7-de891f5ed374">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="ac2f2997-1e8a-4959-ac39-2416c69d9dbf">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Contains</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e2249f91-5485-41a3-843a-1735587a620c">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>toMatch</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_dest_address}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="dd6e1d34-a95f-49c1-a149-3bb253141018">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchTo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>/</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5b8ec478-026e-45a0-be14-15375315815b">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="bfa32b3c-e132-40ac-ab5b-7c6d570ec015">
+          <annotation></annotation>
+          <name>singleIP</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>06c5f3b3-8b8d-41e2-a7a3-ad5afbfa9b5f</refId>
+          </destination>
+          <source>
+            <refId>cd19f0e9-2e40-40de-9117-4d70c3204018</refId>
+          </source>
+          <positions>
+            <point>
+              <x>410.0</x>
+              <y>315.0</y>
+            </point>
+            <point>
+              <x>362.0</x>
+              <y>458.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>283.4331960093267</x>
+            <y>1.650010789671051</y>
+          </labelPosition>
+        </transition>
+        <transition id="cdf70651-cca2-4f7a-99f0-f63087106886">
+          <annotation></annotation>
+          <name>network</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>0702dbc4-e633-4bea-a63f-4cc00a0fbbb3</refId>
+          </destination>
+          <source>
+            <refId>cd19f0e9-2e40-40de-9117-4d70c3204018</refId>
+          </source>
+          <positions>
+            <point>
+              <x>410.0</x>
+              <y>315.0</y>
+            </point>
+            <point>
+              <x>498.0</x>
+              <y>456.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="2d0f4171-4d71-4a8b-ab17-5793c9289756">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>mask_no</contextKey>
+          <expression id="6181c4ee-684a-47b3-b229-015948f68e45">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="1e6549e4-50d6-413d-8349-83810fcc874d">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="b8f5a887-61ce-41f4-8d9b-c43721a8ae42">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>net_ip</contextKey>
+          <expression id="d5f6d62a-80b0-409e-a2cb-8c5edf0d1cfa">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="8290b9cb-048f-46bf-9c1c-3dd210cd24c2">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="9c715bb9-77e3-4c02-857d-fa4cb60e8fc6">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.9c715bb9-77e3-4c02-857d-fa4cb60e8fc6.description</annotation>
+      <name>Is destinationIP or Network</name>
+      <bounds>
+        <x>667.0</x>
+        <y>281.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="ead3fe16-4110-4866-810c-d63b25a0df4b">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="1ee586e6-6994-49b7-8437-205803db9137">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Contains</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ed9f6764-ca57-493c-9a68-e90c2b281879">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>toMatch</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_dest_address}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="49fadc42-c473-43c5-96ad-6a11021c8936">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchTo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>/</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8ab1f4f0-a5ef-4ccf-afa0-f2a3584df7ae">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="d721203d-4c5b-4acf-9d22-ed880970e78b">
+          <annotation></annotation>
+          <name>singleIP</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>4489743f-50e8-4322-a8a6-45e534b0c3a8</refId>
+          </destination>
+          <source>
+            <refId>9c715bb9-77e3-4c02-857d-fa4cb60e8fc6</refId>
+          </source>
+          <positions>
+            <point>
+              <x>606.0</x>
+              <y>315.0</y>
+            </point>
+            <point>
+              <x>638.0</x>
+              <y>448.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="de026a68-82a6-4f86-b50f-fb29949c2c1a">
+          <annotation></annotation>
+          <name>network</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>3e1d2252-979a-498d-8b99-a89357a4ce65</refId>
+          </destination>
+          <source>
+            <refId>9c715bb9-77e3-4c02-857d-fa4cb60e8fc6</refId>
+          </source>
+          <positions>
+            <point>
+              <x>717.0</x>
+              <y>313.0</y>
+            </point>
+            <point>
+              <x>800.0</x>
+              <y>460.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="2633e783-71d5-421b-b203-15dff46e665f">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>mask_no</contextKey>
+          <expression id="53a221d9-6e4e-40c2-8bda-21a52e66c01e">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="b0a2a7e0-e1df-4388-bdeb-5c0a435e5e8a">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="bdd3296d-d585-4360-93c2-6da5d228f419">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>net_ip</contextKey>
+          <expression id="332201c2-dda4-4142-90d5-f8506f690c9c">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="9d1d50f4-9a8a-43f6-89d3-c8ccbe25b8a7">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="1e434e9f-7b10-4e29-a9ae-51c2263914ec">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.1e434e9f-7b10-4e29-a9ae-51c2263914ec.description</annotation>
+      <name>ACL:network source, host destination, range port</name>
+      <bounds>
+        <x>907.0</x>
+        <y>417.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="90568fc7-e68c-47b1-841f-a54d36a81fbb">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>x</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="5fbd02a0-787d-4e48-a9d2-9d324f592f02">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>7aef9079-c029-4aa5-a17a-f2e6465149cb</refId>
+          </destination>
+          <source>
+            <refId>1e434e9f-7b10-4e29-a9ae-51c2263914ec</refId>
+          </source>
+          <positions>
+            <point>
+              <x>957.0</x>
+              <y>455.0</y>
+            </point>
+            <point>
+              <x>874.0</x>
+              <y>629.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="2bf3bdfc-c48e-446f-a137-0db5d2ca9531">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_name</contextKey>
+          <expression id="9b97b69d-1201-4e0b-9c75-135b26f80a64">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="dc06a8dc-c84d-4b7c-ae7b-7fd3e0ccad67">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>F5_add_packet_filter_network_source_host_destination_range_port</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="57fa2def-8daf-4f17-837a-a536a03a4352">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_variables</contextKey>
+          <expression id="dbac6c84-749c-4945-9109-9b36674e5034">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="d6f5c1a5-1ace-433f-a51e-e9f69d76ddea">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>filter_name=${acl_entry},order=${order},protocol=${acl_protocol},source=${acl_source_address},destination=${acl_dest_address},low_port=${low_port},high_port=${high_port}</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="e36fc7d7-6cc3-44c7-a470-cce007db692e">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.e36fc7d7-6cc3-44c7-a470-cce007db692e.description</annotation>
+      <name>ACL:host source, network destination, single port</name>
+      <bounds>
+        <x>174.0</x>
+        <y>417.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="11a7e170-4b05-47ba-81ae-b361508d3a22">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>x</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="4dd9877a-376e-4e1d-8821-a47494e6a9c6">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>530fdd62-1023-44ee-a8a9-77358e03806f</refId>
+          </destination>
+          <source>
+            <refId>e36fc7d7-6cc3-44c7-a470-cce007db692e</refId>
+          </source>
+          <positions>
+            <point>
+              <x>224.0</x>
+              <y>452.0</y>
+            </point>
+            <point>
+              <x>280.0</x>
+              <y>643.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="a6ce08f9-8d5c-4a8f-9e98-1af07bbb50ef">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_name</contextKey>
+          <expression id="2b74b317-8006-4bd0-aa5b-514696c10ed4">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="640bca44-7795-4577-b853-f894211074e3">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>F5_add_packet_filter_host_source_network_destination_single_port</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="11a51ffc-deb0-480c-bafa-514cda33e3ac">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_variables</contextKey>
+          <expression id="a806031a-32c7-438a-a2c5-a57fa42fd5c1">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="8e515f7d-8f52-454b-9e02-a58be0e1b951">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>filter_name=${acl_entry},order=${order},protocol=${acl_protocol},source=${acl_source_address},destination=${acl_dest_address},port=${acl_dest_port}</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="4489743f-50e8-4322-a8a6-45e534b0c3a8">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.4489743f-50e8-4322-a8a6-45e534b0c3a8.description</annotation>
+      <name>ACL: network source, host destination, single port</name>
+      <bounds>
+        <x>588.0</x>
+        <y>417.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="3644b6af-8be1-461a-9d1a-e74f926e918b">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>x</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="c73fd541-e8fe-465f-a035-a4969f79a8fb">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>7aef9079-c029-4aa5-a17a-f2e6465149cb</refId>
+          </destination>
+          <source>
+            <refId>4489743f-50e8-4322-a8a6-45e534b0c3a8</refId>
+          </source>
+          <positions>
+            <point>
+              <x>638.0</x>
+              <y>448.0</y>
+            </point>
+            <point>
+              <x>874.0</x>
+              <y>629.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="1909f437-8095-4b0d-b391-8ef3baf51c8b">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_name</contextKey>
+          <expression id="f2f61bdc-da56-4829-ba4b-f85c2ba9b8cf">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="5e232d83-4c78-485b-a98c-ceef2d96a9b1">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>F5_add_packet_filter_network_source_host_destination_single_port</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="0cb4a5d2-a431-4fd8-8fbf-3a5e279b4864">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>script_variables</contextKey>
+          <expression id="d4a47418-f97c-4cfa-aa5b-a8c01912a294">
+            <annotation></annotation>
+            <name>Result Field: Field_1</name>
+            <fieldName>Field_1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="88748cfa-9231-4383-a46c-931633811f5a">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>filter_name=${acl_entry},order=${order},protocol=${acl_protocol},source=${acl_source_address},destination=${acl_dest_address},port=${acl_dest_port}</text>
+                <position>REPLACE</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="02913e04-db3d-428b-bd9e-868f0024e5c8">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.02913e04-db3d-428b-bd9e-868f0024e5c8.description</annotation>
+      <name>Is destinationIP or Network</name>
+      <bounds>
+        <x>969.0</x>
+        <y>281.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="c2b0285d-3baf-437c-bf79-148a5b294fb9">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="061380ac-28ce-4845-bac3-4bcd0d6044f3">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Contains</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ce96b7ab-4a71-417c-9796-7fc6c7c4e528">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>toMatch</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_dest_address}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8b3b202b-0488-409a-977d-32c360a55422">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchTo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>/</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="84744891-a42e-40c0-880c-d83e3d3d000b">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="f7c32516-7100-4997-8eba-1a997d118535">
+          <annotation></annotation>
+          <name>singleIP</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>1e434e9f-7b10-4e29-a9ae-51c2263914ec</refId>
+          </destination>
+          <source>
+            <refId>02913e04-db3d-428b-bd9e-868f0024e5c8</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1019.0</x>
+              <y>306.0</y>
+            </point>
+            <point>
+              <x>957.0</x>
+              <y>455.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="54d108ea-789b-4b8a-9cb1-aaebf4eca20f">
+          <annotation></annotation>
+          <name>network</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e663731c-0b66-4961-9c8d-7ba6712d559a</refId>
+          </destination>
+          <source>
+            <refId>02913e04-db3d-428b-bd9e-868f0024e5c8</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1019.0</x>
+              <y>306.0</y>
+            </point>
+            <point>
+              <x>1130.0</x>
+              <y>450.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="9f3616a7-ad51-4d13-9935-e0d9c99fa7c1">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>mask_no</contextKey>
+          <expression id="38989998-07f9-4391-b2df-cedbbb3d62fe">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="53a00d04-03d2-49a1-ad4b-30a8e946355c">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="bc7712a0-3614-4a19-a576-e0eb6934e5f4">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>net_ip</contextKey>
+          <expression id="e376c464-a4de-4c88-8b2e-ecfbd51a5fff">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="b42c80a9-fca3-4c63-9902-341868ff9ae4">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="530fdd62-1023-44ee-a8a9-77358e03806f">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>228.0</x>
+        <y>609.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="8c71f334-d89d-42d0-ac3d-7483cc8f8655">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>530fdd62-1023-44ee-a8a9-77358e03806f</refId>
+          </destination>
+          <source>
+            <refId>530fdd62-1023-44ee-a8a9-77358e03806f</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="a38f3464-7734-4c22-914f-4489deaaa87c">
+      <annotation>49eb0739-e0cd-49cd-ba6b-2e77515160b9.a38f3464-7734-4c22-914f-4489deaaa87c.description</annotation>
+      <name>Is destinationIP or Network</name>
+      <bounds>
+        <x>77.0</x>
+        <y>281.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="bfbf753d-29d6-4c46-a109-05406f73067f">
+        <baseIcon>compare.png</baseIcon>
+        <basePath>Utilities</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="d3ba6229-9b87-407e-994c-cd79e7604a72">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Contains</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3f71f0bb-58a3-4bfc-a085-c1f094cfcb71">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>toMatch</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${acl_dest_address}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8f6d1a21-b1d8-4f1a-ac85-c06fd5174145">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchTo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>/</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a21f7a89-6b94-42a5-9abc-04412765161e">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="771efaf3-3cb9-4653-a124-81b54b1b00fd">
+          <annotation></annotation>
+          <name>singleIP</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>a8d0cc4f-62d3-47de-84f7-a2b3eb16c417</refId>
+          </destination>
+          <source>
+            <refId>a38f3464-7734-4c22-914f-4489deaaa87c</refId>
+          </source>
+          <positions>
+            <point>
+              <x>127.0</x>
+              <y>315.0</y>
+            </point>
+            <point>
+              <x>75.0</x>
+              <y>451.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="d6ecdb5e-04b9-497b-a62c-ad3984bfa54c">
+          <annotation></annotation>
+          <name>network</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e36fc7d7-6cc3-44c7-a470-cce007db692e</refId>
+          </destination>
+          <source>
+            <refId>a38f3464-7734-4c22-914f-4489deaaa87c</refId>
+          </source>
+          <positions>
+            <point>
+              <x>127.0</x>
+              <y>315.0</y>
+            </point>
+            <point>
+              <x>224.0</x>
+              <y>452.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>330.7027171426725</x>
+            <y>-4.280697181127204</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="b7283f83-8053-4c6f-9574-41b85f2fa144">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>mask_no</contextKey>
+          <expression id="ffd8d07e-c68c-418f-ac1a-50f5de726806">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="d009e989-c2ec-4aa7-98d1-872d55558375">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="6854bf58-60a2-42cb-bb9c-10eca358d51e">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>net_ip</contextKey>
+          <expression id="a63f1aa1-51cc-4d31-b45b-2f4da4e8d114">
+            <annotation></annotation>
+            <name>Input: toMatch</name>
+            <fieldName>toMatch</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters>
+              <stripTrailingFilter id="5538206b-dcbc-4ebc-bd1b-113c481e4b33">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>/</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>790b3946-8d90-41a9-bc66-56599420b849</startSteps>
+</flow>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selectionList id="b96d69e0-6b95-4088-a39a-273670399f2d">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>AD_Dynamic</name>
+  <storage>
+    <string>${group}</string>
+  </storage>
+</selectionList>

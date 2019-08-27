@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="20f4dba7-97e8-4fd2-8f4c-6f59b219e426">
+  <descriptionCdata><![CDATA[20f4dba7-97e8-4fd2-8f4c-6f59b219e426.2231fae3-18db-4497-ba13-674620fd1c2a.prompt=Enter the username\:
+20f4dba7-97e8-4fd2-8f4c-6f59b219e426.4ed98eb2-f749-4f46-9f35-922c7c742573.description=<pre>\nCreates a new AWS secret access key and a corresponding AWS access key ID for the specified user. The default status for new keys is 'Active'. If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request.\n\nInputs\:\n    username - The name of the user for whom credentials are created.\n    accessKeyId - The ID of the secret access key associated with your Amazon AWS or IAM account.\n    accessKey - The secret access key associated with your Amazon AWS or IAM account.\n    proxyHost - The proxy server used to connect to Amazon.\n    proxyPort - The proxy server port. You must either specify values for both <proxyHost> and <proxyPort> inputs or leave them both empty.\n    proxyUsername - The proxy server user name.\n    proxyPassword - The proxy server password associated with the <proxyUsername> input value.\n    serviceEndpoint - The endpoint to which requests are sent. \nDefault value\: iam.amazonaws.com\n\nResults\:\n    returnResult - This is the primary output. The ID of the secret access key associated with the specified IAM user.\n    username - The name used to identify the user.\n    accessKeyId - The ID of the secret access key associated with the specified IAM user.\n    accessKey - The secret access key associated with the specified IAM user.\n    status - The credentials status. \nValid values\: Active, Inactive\n    requestId - The ID of the request you sent to Amazon, using this operation.\n    returnCode - It is a code that determines the response that the operation uses. This specifies whether the operation is successful or fails.\n     \nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully. See the Notes for troubleshooting information.\n\nNote\:\nFor Region-Endpoint correspondence information, check all the service endpoints available at\: \nhttp\://docs.amazonwebservices.com/general/latest/gr/rande.html\#iam_region\n</pre>
+20f4dba7-97e8-4fd2-8f4c-6f59b219e426.7e60c01a-6184-4ffd-b540-c37a3435669a.prompt=Enter the Amazon secret Access Key\:
+20f4dba7-97e8-4fd2-8f4c-6f59b219e426.97d5f1a4-ab29-4d29-8d6c-2eb68f5884c6.prompt=Enter the Amazon Access Key ID\:
+20f4dba7-97e8-4fd2-8f4c-6f59b219e426.9b688665-f4ca-4d61-8439-16253fae14de.description=<pre>\nCreates a new user for your AWS account.\n\nInputs\:\n    username - The name of the user to create.\n    path - The path for the user name.\nDefault value\: '/'\n    accessKeyId - The ID of the secret access key associated with your Amazon AWS or IAM account.\n    accessKey - The secret access key associated with your Amazon AWS or IAM account.\n    proxyHost - The proxy server used to connect to Amazon.\n    proxyPort - The proxy server port. You must either specify values for both <proxyHost> and <proxyPort> inputs or leave them both empty.\n    proxyUsername - The proxy server user name.\n    proxyPassword - The proxy server password associated with the <proxyUsername> input value.\n    serviceEndpoint - The endpoint to which requests are sent. \nDefault value\: iam.amazonaws.com\n    generateCredentials - A Boolean value indicating whether credentials should be generated for this user or not.\nValid values\: true, false\nDefault value\: true.\n\nResults\:\n    returnResult - This is the primary output. The user ID - a stable and unique string identifying the user.\n    arn - The Amazon Resource Name (ARN) specifying the user.\n    path - The path to the user name.\n    username - The name identifying the user.\n    accessKeyId - The ID of the secret access key associated with the generated IAM user. If the <generateCredentials> input is 'false' this output is empty.\n    accessKey - The secret access key associated with the generated IAM user. If the <generateCredentials> input is 'false' this output is empty. \n    status - The credentials status, 'Active' or 'Inactive'.\n    requestId - The ID of the request you sent to Amazon, using this operation.\n    returnCode - It is a code that determines the response that the operation uses. This specifies whether the operation is successful or fails.\n          \nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully. See the Notes for troubleshooting information.\n\nNotes\:\n1. The IAM user created by using this operation does not have security credentials if the <generatedCredentials> input is 'false'. To generate or manage credentials for this user, use the operations from the 'Security Credentials' folder.\n2. For Region-Endpoint correspondence information, check all the service endpoints available at\: \nhttp\://docs.amazonwebservices.com/general/latest/gr/rande.html\#iam_region \n</pre>
+20f4dba7-97e8-4fd2-8f4c-6f59b219e426.b0ff45da-9331-4243-9f58-a3412189d112.description=<pre>\nAdds or updates a policy document associated with the specified user.\n\nInputs\:\n    username - The name of the user to associate the policy with.\n    policyName - The name of the policy document.\n    policyDocument - The policy document. This needs to be in JSON format, defined according to the 'Access Policy Language'. Check the notes \#1, \#2 and \#3 for more details about this.\nExample\: The following policy document allows the user to do any action on any resource\:\n{\n    "Statement"\: [{\n        "Effect"\:"Allow",\n        "Action"\:"*",\n        "Resource"\:"*"\n    }]\n}\n    accessKeyId - The ID of the secret access key associated with your Amazon AWS or IAM account.\n    accessKey - The secret access key associated with your Amazon AWS or IAM account.\n    proxyHost - The proxy server used to connect to Amazon.\n    proxyPort - The proxy server port. You must either specify values for both <proxyHost> and <proxyPort> inputs or leave them both empty.\n    proxyUsername - The proxy server user name.\n    proxyPassword - The proxy server password associated with the <proxyUsername> input value.\n    serviceEndpoint - The endpoint to which requests are sent. \nDefault value\: iam.amazonaws.com\n\nResults\:\n    returnResult - This is the primary output. If the operation is successful, the result is 'true'. Otherwise, you receive an error.\n    requestId - The ID of the request you sent to Amazon, using this operation.\n    returnCode - It is a code that determines the response that the operation uses. This specifies whether the operation is successful or fails.\n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully. See the Notes for troubleshooting information.\n\nNotes\:\n1. The 'IAM Policy Document Template' selection list contains a list of the most commonly used policy documents. It contains the following templates\:\n    - Administrator Access - Provides full access to AWS services and resources.\n    - Power User Acess - Provides full access to AWS services and resources, but does not allow management of Users and groups.\n    - Read Only Access - Provides read-only access to AWS services and resources.\n    - Amazon IAM Full Access -Provides full access to Amazon IAM via the AWS Management Console.\n    - Amazon IAM Read Only Access - Provides read only access to Amazon IAM via the AWS Management Console.\n    - AWS Account Activity Access - Allows users to access the Account Activity page.\n    - AWS Account Usage Report Access - Allows users to access the Account Usage Report page.\nA list of more policy templates is available in AWS management console. To access this list, the user needs to\: navigate to IAM service, then to Users or Groups tab, select the user/group, go to Permissions tab and click Attach User Policy/Attach Another Policy button. As a result, the list of policy templates is displayed.\n2. A policy document generator is available at\: http\://awspolicygen.s3.amazonaws.com/policygen.html\n3. For more details on how to define policy documents, consult the documentation available at\: http\://docs.amazonwebservices.com/IAM/latest/UserGuide/AccessPolicyLanguage.html\n4. For Region-Endpoint correspondence information, check all the service endpoints available at\: \nhttp\://docs.amazonwebservices.com/general/latest/gr/rande.html\#iam_region\n</pre>
+20f4dba7-97e8-4fd2-8f4c-6f59b219e426.b9b9c148-f7c1-4669-b01a-a7f11c144316.prompt=Enter the Amazon Access Key ID\:
+20f4dba7-97e8-4fd2-8f4c-6f59b219e426.fe2b9174-5303-4288-8b20-f200a9a3f86e.prompt=Enter the Amazon secret Access Key\:
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Create_IAM_Acct</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="72938757-43f4-4252-a7cc-e8aaa24ce270">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="6c702035-eee8-4257-b2ca-2e962b84e029">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="9c277397-a3fd-489c-8c3d-1c42652e938b">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="ea398296-d32a-4518-ae34-3dcee7442fbe">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="9b688665-f4ca-4d61-8439-16253fae14de">
+      <annotation>20f4dba7-97e8-4fd2-8f4c-6f59b219e426.9b688665-f4ca-4d61-8439-16253fae14de.description</annotation>
+      <name>Create User</name>
+      <bounds>
+        <x>89.0</x>
+        <y>132.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="20b8aeed-daa0-4b02-bfea-793b1345654a">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>username</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>BauerK</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d0a7bebb-bd11-4e08-b329-9e9c0fd0cef1">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>path</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>path</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5f6b252e-43f9-4b83-8410-1a7b93123b54">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>accessKeyId</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>accessKeyId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>AKIAVFQH5IFNRLBID3VC</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a05b68a0-b54a-453c-a3c8-6c197829415a">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>accessKey</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>accessKey</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}Y+LM0gFm7DV78YPcszGz+xtl661xxovBcg+g8yTGxZzTf2rgG+nJBiWnVVii0QoU</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="0ec362b0-315a-4c9f-bfa2-35ca0539dd67">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyHost</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyHost</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3cc20347-5bac-4164-a28b-f9dcc8a02f94">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyPort</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1f5e4190-7495-4519-98fb-750a40824c86">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyUsername</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f7277478-1e3e-4d63-a542-8bc54f4a8330">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyPassword</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a6197917-b0a5-4bfc-9701-95b283895afb">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>serviceEndpoint</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>serviceEndpoint</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="0c92dd52-dc16-4d5f-8bf1-19e4179a9023">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>generateCredentials</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>generateCredentials</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="c7a29c47-f26f-4d9f-b4d8-059b73f0adb7">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>48fe8e6f-feaa-4c89-9f18-a9b88d2daa25</refId>
+          </destination>
+          <source>
+            <refId>9b688665-f4ca-4d61-8439-16253fae14de</refId>
+          </source>
+          <positions>
+            <point>
+              <x>139.0</x>
+              <y>166.0</y>
+            </point>
+            <point>
+              <x>362.0</x>
+              <y>311.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="2706d542-00d0-4287-a432-1e0f52e88d0b">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>4ed98eb2-f749-4f46-9f35-922c7c742573</refId>
+          </destination>
+          <source>
+            <refId>9b688665-f4ca-4d61-8439-16253fae14de</refId>
+          </source>
+          <positions>
+            <point>
+              <x>139.0</x>
+              <y>166.0</y>
+            </point>
+            <point>
+              <x>347.0</x>
+              <y>168.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>92676394-1274-4948-8754-bb0386ce3346</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="ec0a5b5e-98a2-4d6b-af80-b59798567ebb">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>arn</contextKey>
+          <expression id="c1cc0a54-2a75-45dc-95e0-a08d99a3a092">
+            <annotation></annotation>
+            <name>Result Field: arn</name>
+            <fieldName>arn</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="adaebfee-4bd0-4277-85d6-a9e617557895">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>status</contextKey>
+          <expression id="033647cf-eae7-4929-bcd2-1240c9b3ae11">
+            <annotation></annotation>
+            <name>Result Field: status</name>
+            <fieldName>status</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="dfdc1ad1-9552-4b1d-b7ed-bf71da887c0f">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Result</contextKey>
+          <expression id="e8397ed1-5c08-46fc-b00c-e1cb9ec47211">
+            <annotation></annotation>
+            <name>Result Field: Result</name>
+            <fieldName>Result</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="0f3fbac6-0d39-4c2a-adb2-59255bf493bc">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>arn</contextKey>
+          <expression id="61f64d0c-2adb-4b36-9ce4-8fcfd765738a">
+            <annotation></annotation>
+            <name>Result Field: arn</name>
+            <fieldName>arn</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="078440dd-c522-4198-8ced-433c64f4e1f4">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Credentials</contextKey>
+          <expression id="4f611053-3186-4a79-8098-53ebd2cb12f3">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="076b2cb8-ee86-4770-ab28-7c0737104e1a">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>username</contextKey>
+          <expression id="89539ded-4406-4d6f-869d-c688f42c015a">
+            <annotation></annotation>
+            <name>Result Field: username</name>
+            <fieldName>username</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="bd2a47e2-9caf-4549-9747-5c534b269b6a">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>692.0</x>
+        <y>134.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="dd71fc2a-0961-4445-b728-c0b06a261fd0">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>bd2a47e2-9caf-4549-9747-5c534b269b6a</refId>
+          </destination>
+          <source>
+            <refId>bd2a47e2-9caf-4549-9747-5c534b269b6a</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="48fe8e6f-feaa-4c89-9f18-a9b88d2daa25">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>300.0</x>
+        <y>284.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="cab0788f-8336-480a-9db7-dc178b70340c">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>48fe8e6f-feaa-4c89-9f18-a9b88d2daa25</refId>
+          </destination>
+          <source>
+            <refId>48fe8e6f-feaa-4c89-9f18-a9b88d2daa25</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="4ed98eb2-f749-4f46-9f35-922c7c742573">
+      <annotation>20f4dba7-97e8-4fd2-8f4c-6f59b219e426.4ed98eb2-f749-4f46-9f35-922c7c742573.description</annotation>
+      <name>Create Access Key</name>
+      <bounds>
+        <x>297.0</x>
+        <y>134.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="f66e9c24-52ed-4de2-91c2-5dba6672f520">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>username</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="b9b9c148-f7c1-4669-b01a-a7f11c144316">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>accessKeyId</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>accessKeyId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>20f4dba7-97e8-4fd2-8f4c-6f59b219e426.b9b9c148-f7c1-4669-b01a-a7f11c144316.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="fe2b9174-5303-4288-8b20-f200a9a3f86e">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>accessKey</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>accessKey</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>20f4dba7-97e8-4fd2-8f4c-6f59b219e426.fe2b9174-5303-4288-8b20-f200a9a3f86e.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="410ede06-3849-4d16-a269-46f3329806b8">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyHost</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyHost</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f38e07b0-ec42-47d1-affe-fd76a9137c93">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyPort</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1399e9ba-d4e6-444f-b526-97f3038cc837">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyUsername</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4614662e-a2bf-4d6d-8cf1-5348ae7948c7">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyPassword</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="916b78e2-744e-4be9-93dc-61379e3a6f5e">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>serviceEndpoint</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>serviceEndpoint</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="1dffc654-9e31-46c1-af50-fbce8e2884c3">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>48fe8e6f-feaa-4c89-9f18-a9b88d2daa25</refId>
+          </destination>
+          <source>
+            <refId>4ed98eb2-f749-4f46-9f35-922c7c742573</refId>
+          </source>
+          <positions>
+            <point>
+              <x>347.0</x>
+              <y>168.0</y>
+            </point>
+            <point>
+              <x>362.0</x>
+              <y>311.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="d107417e-a0fc-4851-af44-e6ecfab2ed5a">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b0ff45da-9331-4243-9f58-a3412189d112</refId>
+          </destination>
+          <source>
+            <refId>4ed98eb2-f749-4f46-9f35-922c7c742573</refId>
+          </source>
+          <positions>
+            <point>
+              <x>347.0</x>
+              <y>168.0</y>
+            </point>
+            <point>
+              <x>538.0</x>
+              <y>171.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>c9b3d328-fef7-4d02-b286-5640ad3de47d</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="2b3aaf20-e253-4b17-9346-40b4c7c4471a">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>username</contextKey>
+          <expression id="9909c1e2-c875-4bf6-8469-3316f0306ead">
+            <annotation></annotation>
+            <name>Result Field: accessKey</name>
+            <fieldName>accessKey</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="b0ff45da-9331-4243-9f58-a3412189d112">
+      <annotation>20f4dba7-97e8-4fd2-8f4c-6f59b219e426.b0ff45da-9331-4243-9f58-a3412189d112.description</annotation>
+      <name>Put User Policy</name>
+      <bounds>
+        <x>488.0</x>
+        <y>137.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <userInputBinding id="2231fae3-18db-4497-ba13-674620fd1c2a">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>20f4dba7-97e8-4fd2-8f4c-6f59b219e426.2231fae3-18db-4497-ba13-674620fd1c2a.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="78c007d7-c292-4c4a-8aa4-a4520d7535d3">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>policyName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>AmazonEC2FullAccess</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cbcc3e64-2041-4f7f-a2f7-666bbd887c9e">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>policyDocument</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Action&quot;: &quot;ec2:*&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;elasticloadbalancing:*&quot;,
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;cloudwatch:*&quot;,
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;autoscaling:*&quot;,
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;iam:CreateServiceLinkedRole&quot;,
+            &quot;Resource&quot;: &quot;*&quot;,
+            &quot;Condition&quot;: {
+                &quot;StringEquals&quot;: {
+                    &quot;iam:AWSServiceName&quot;: [
+                        &quot;autoscaling.amazonaws.com&quot;,
+                        &quot;ec2scheduled.amazonaws.com&quot;,
+                        &quot;elasticloadbalancing.amazonaws.com&quot;,
+                        &quot;spot.amazonaws.com&quot;,
+                        &quot;spotfleet.amazonaws.com&quot;,
+                        &quot;transitgateway.amazonaws.com&quot;
+                    ]
+                }
+            }
+        }
+    ]
+}</value>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="97d5f1a4-ab29-4d29-8d6c-2eb68f5884c6">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>accessKeyId</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>accessKeyId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>20f4dba7-97e8-4fd2-8f4c-6f59b219e426.97d5f1a4-ab29-4d29-8d6c-2eb68f5884c6.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="7e60c01a-6184-4ffd-b540-c37a3435669a">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>accessKey</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>accessKey</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>20f4dba7-97e8-4fd2-8f4c-6f59b219e426.7e60c01a-6184-4ffd-b540-c37a3435669a.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="d0c12e46-2aed-496a-8ebd-d8c1472a568d">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyHost</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyHost</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="00681430-7702-4846-8751-362e09aaa0bf">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyPort</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="44918a6c-84ee-44bb-ab3d-434798b2c1e0">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyUsername</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="180b2c9e-4bfa-42df-a856-a5a5e38291fb">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>proxyPassword</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="055e8c5e-4933-4f09-820a-ce33354f8597">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey>serviceEndpoint</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>serviceEndpoint</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="54872a58-fbca-4399-b925-1e518948e68a">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>48fe8e6f-feaa-4c89-9f18-a9b88d2daa25</refId>
+          </destination>
+          <source>
+            <refId>b0ff45da-9331-4243-9f58-a3412189d112</refId>
+          </source>
+          <positions>
+            <point>
+              <x>538.0</x>
+              <y>171.0</y>
+            </point>
+            <point>
+              <x>362.0</x>
+              <y>311.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="325115dc-a64b-46c6-8353-3a2e134185b8">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>bd2a47e2-9caf-4549-9747-5c534b269b6a</refId>
+          </destination>
+          <source>
+            <refId>b0ff45da-9331-4243-9f58-a3412189d112</refId>
+          </source>
+          <positions>
+            <point>
+              <x>538.0</x>
+              <y>171.0</y>
+            </point>
+            <point>
+              <x>742.0</x>
+              <y>168.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>1829428f-afde-4d3e-8491-1d8ab9eb8225</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>9b688665-f4ca-4d61-8439-16253fae14de</startSteps>
+</flow>

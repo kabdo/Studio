@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selectionList id="7d2152c8-93ed-4126-b2d8-45801ec7b563">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>vmPowerestate</name>
+  <storage>
+    <string>poweredOff</string>
+    <string>poweredOn</string>
+  </storage>
+</selectionList>

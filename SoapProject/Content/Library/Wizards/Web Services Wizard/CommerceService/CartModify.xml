@@ -1,0 +1,1324 @@
+<flow id="fc9a637e-6a1c-426f-9d7d-5a5481c440a6">
+  <descriptionCdata><![CDATA[fc9a637e-6a1c-426f-9d7d-5a5481c440a6.26bbf64c-4699-4331-ad77-c4dd64842bdf.description=<pre>\nThe operation invokes web service methods.  This operation should not be used directly\!  Please use the wizard to build flows that use this operation.\n\nInputs\:\n    xmlTemplate - The template of the soap request to make.\n    inputMap - A map used to map between template names and user-friendly names. The template names are pipe-delimited xpaths of the xmltemplate location, with a numerical element for lists.\nValue format\: A list of elements separated by the new line delimiter. Eache element hes the format\: <name>\=<new name>.\nExample\: A line in the "inputMap" could be\: "Request|Details|0|Input|x\=input0.x"\n    url - The url to Post to. \n    header_SOAPAction - The SOAPAction http header field, defined by many web services for indicating the intent of the request\n    wswAuthenticationType - The authentication type to use for the "username" and "password" input.\nDefault value\: http\nValid values\: http, ntlm, ws-security digest, ws-security text\n    WSSecuritySignRequest - Should the SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityEncryptRequest - Should the entire SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityTimestampRequest - Should the Timestamp attribute be added to the WS-Security header\nDefault value\: false\nValid values true, false\n    WSSecurityKeystore - Keystore to use for encrypting and signing requests.\n    WSSecurityKeystoreType - The type of "WSSecurityKeystore".\n    WSSecurityKeystorePassword - The password for "WSSecurityKeystore".\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept-Language\:en\n    contentType - Value to be used in the Content-Type HTTP header. If Content-Type header is also passed in "headers" input, the "contentType" input will override the value provided in "headers".\nDefault value\: text/xml\n    characterSet - The character set for HTTP Get request and response.\nDefault value\: UTF-8\n    username - The username to use for authenticating with the web service.\nValue format\: For NTLM authentication, the required format is domain\\user.\n    password - The password to use for authenticating with the web service.\n    trustAllRoots - Enables weak security over SSL. A SSH certificate is trusted even if no trusted CA issued it.\nDefault value\: false\nValid values\: true, false\n    useCookies - Enables cookie tracking. Cookies will be stored between consecutive calls.\nDefault value\: false\nValid values\: true, false\n    usesJSON - Use JSON arrays for the SOAP Request for all Array types.\nDefault value\: false\nValid values\: true, false\n    timeout - a timeout after which the connection should be terminated or 0 for no timeout.\n    socketTimeout - The time to wait for data to be retrieved, in milliseconds. This input needs a value greater than or equal to zero. A "socketTimeout" value of '0' represents an infinite timeout.\nDefault value\: 0\n    proxy - A proxy to use when accessing the web service.\n    proxyPort - A port on the proxy to connect to.\n    proxyUsername - A username to use when connecting to the proxy.\n    proxyPassword - A password to use when connecting to the proxy.\n    keystore - The path to the keystore to use for SSL Client Certificates when using http authentication.\n    keystorePassword - The password for the keystore when using http authentication.\n    ICONCLUDE_WSW_VERSION - This value is used internally by the operation.\n    returnXMLRequest - If this input is set to true, a new output named "rawXMLRequest" is returned from the operation which contains the text of the SOAP request that will be sent. This can be very valuable in troubleshooting.\nDefault value\: false\nValid values\: true, false\n\nResults\:\n    returnCode - This is the primary output. It contains the value 0 if the operation successfully completes and the value -1 otherwise.\n    document - Raw XML response.\n    documentStripped - Raw XML response stripped of namespaces for ease in parsing with XML XPath operations.\n    jsonStripped - Raw XML response stripped of namespaces for ease in parsing with JSON operations, input usesJSON must be set to true for this to be populated.\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\nExample\: Content-Type\: text/xml;charset\=utf-8\n              Transfer-Encoding\: chunked\n\nResponses\:\n    success - SOAP request completed successfully.\n    failure - Something went wrong.\n\nNotes\:\n1.If wswAuthenticationType\=ws-security text then this operation transmits passwords in clear-text.\n2.Any additional inputs that follow these are added by the Web Service Wizard, and they are specific to the particular web service method being called.\n3.If you add new step-level inputs with the name header_<headername>, where <headername> is the name of an html header, then that html header will be set to the given value in the HTTP request.\n4.This operation will not allow connection through secure transport layers below TLS 1.0.\n</pre>
+fc9a637e-6a1c-426f-9d7d-5a5481c440a6.description=<pre>\nThis subflow was created by the Web Services Wizard to invoke the CartModify operation on http\://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl. Note that the inputs to this flow which correspond to web service inputs are optional inputs.  This is due to the fact that web services definitions usually incorrectly indicate that too many inputs are required, and mirroring those settings in the flow would force you to enter unused values when running the flow.  The xmlTemplate input on the Invoke Method 2 step of this flow contains a template of the xml message to be sent, and the fields preceded by the comment "<\!--Optional\:-->" or "<\!--zero or more repetitions-->" are those which the web service indicates are optional; all others are indicated to be required.\n\nInputs\:\n    webserviceHost - The host that is running the web service\n    webservicePort - The port on the host running the web service\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept-Language\:en\n    CartModify.AWSAccessKeyId - The input named CartModify|AWSAccessKeyId of the complex type\: CartModify\n    CartModify.AssociateTag - The input named CartModify|AssociateTag of the complex type\: CartModify\n    CartModify.MarketplaceDomain - The input named CartModify|MarketplaceDomain of the complex type\: CartModify\n    CartModify.Request0.CartId - The input named CartModify|0|Request|CartId of the complex type\: CartModify|0|Request\n    CartModify.Request0.HMAC - The input named CartModify|0|Request|HMAC of the complex type\: CartModify|0|Request\n    CartModify.Request0.Items.Item0.Action - The input named CartModify|0|Request|Items|0|Item|Action of the complex type\: CartModify|0|Request|Items|0|Item\n    CartModify.Request0.Items.Item0.CartItemId - The input named CartModify|0|Request|Items|0|Item|CartItemId of the complex type\: CartModify|0|Request|Items|0|Item\n    CartModify.Request0.Items.Item0.Quantity - The input named CartModify|0|Request|Items|0|Item|Quantity of the complex type\: CartModify|0|Request|Items|0|Item\n    CartModify.Request0.MergeCart - The input named CartModify|0|Request|MergeCart of the complex type\: CartModify|0|Request\n    CartModify.Request0.ResponseGroup0 - The input named CartModify|0|Request|0|ResponseGroup of the complex type\: CartModify|0|Request|0\n    CartModify.Shared.CartId - The input named CartModify|Shared|CartId of the complex type\: CartModify|Shared\n    CartModify.Shared.HMAC - The input named CartModify|Shared|HMAC of the complex type\: CartModify|Shared\n    CartModify.Shared.Items.Item0.Action - The input named CartModify|Shared|Items|0|Item|Action of the complex type\: CartModify|Shared|Items|0|Item\n    CartModify.Shared.Items.Item0.CartItemId - The input named CartModify|Shared|Items|0|Item|CartItemId of the complex type\: CartModify|Shared|Items|0|Item\n    CartModify.Shared.Items.Item0.Quantity - The input named CartModify|Shared|Items|0|Item|Quantity of the complex type\: CartModify|Shared|Items|0|Item\n    CartModify.Shared.MergeCart - The input named CartModify|Shared|MergeCart of the complex type\: CartModify|Shared\n    CartModify.Shared.ResponseGroup0 - The input named CartModify|Shared|0|ResponseGroup of the complex type\: CartModify|Shared|0\n    CartModify.Validate - The input named CartModify|Validate of the complex type\: CartModify\n    CartModify.XMLEscaping - The input named CartModify|XMLEscaping of the complex type\: CartModify\n\nResults\:\n    document - The raw XML response of the web service\n    documentStripped - The XML response of the web service stripped of namespaces\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\nExample\: Content-Type\: text/xml;charset\=utf-8\n               Transfer-Encoding\: chunkedWebServiceWizard.repo.successDesc\=The SOAP command was accepted by the web service\n    CartModifyResponse - The output given by the XPath\: /Envelope/Body/CartModifyResponse\n    Arguments - The output given by the XPath\: /Envelope/Body/CartModifyResponse/OperationRequest/Arguments\n    Errors - The output given by the XPath\: /Envelope/Body/CartModifyResponse/OperationRequest/Errors\n    HTTPHeaders - The output given by the XPath\: /Envelope/Body/CartModifyResponse/OperationRequest/HTTPHeaders\n    RequestId - The output given by the XPath\: /Envelope/Body/CartModifyResponse/OperationRequest/RequestId/text()\n    RequestProcessingTime - The output given by the XPath\: /Envelope/Body/CartModifyResponse/OperationRequest/RequestProcessingTime/text()\n\nResponses\:\n    success - The SOAP command was accepted by the web service\n    failure - Something went wrong while making the SOAP request\n</pre>
+]]></descriptionCdata>
+  <annotation>fc9a637e-6a1c-426f-9d7d-5a5481c440a6.description</annotation>
+  <name>CartModify</name>
+  <categories/>
+  <inputs>
+    <staticBinding id="3ac99474-ad3e-4160-9fba-dba790bd5437">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webserviceHost</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Soapproject_WebService_Host}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="8ab73e29-597f-4bc8-93cc-931d9cdbeee7">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webservicePort</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Soapproject_WebService_Port}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="76625480-8386-4812-81d2-dfecf04fefec">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>headers</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="450ad03c-106e-4634-b14b-d2b29f2b4522">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.AWSAccessKeyId</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="cce163a6-d754-4e68-93c9-8ec07247c292">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.AssociateTag</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="5193367e-a354-4e89-92b3-fe506ac7ee7d">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.MarketplaceDomain</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="6a9e0365-9c67-4b80-8798-112e55eac3e5">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Request0.CartId</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="67115470-b7d4-4e6e-96cc-827d5c8bdbd6">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Request0.HMAC</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="2ac416d2-1b48-4cef-b185-dd6b7090f349">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Request0.Items.Item0.Action</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="3136726b-0854-4325-90da-0746f610f738">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Request0.Items.Item0.CartItemId</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="3e459944-bd30-433f-b39e-b9f295ee82d7">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Request0.Items.Item0.Quantity</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4dcf2ab5-d943-439e-8b53-b029d0d5c16a">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Request0.MergeCart</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="1da43a35-5288-4739-be5c-e6dc4dab1f25">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Request0.ResponseGroup0</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4113d150-b9a2-4ba4-bfa4-e275f0cdc0e1">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Shared.CartId</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="18574bfa-4d45-4f7b-b34e-c85f278b3f24">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Shared.HMAC</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="a8ba53c3-f34f-402e-a1a5-698b069e9d4c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Shared.Items.Item0.Action</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4460755d-c061-42d9-811b-3ca65df4b858">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Shared.Items.Item0.CartItemId</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="231810bd-d658-4c4a-b4b9-b6d5acedd6ff">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Shared.Items.Item0.Quantity</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="f5ca7f1a-5342-43be-a165-3d69b6e2ce38">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Shared.MergeCart</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="186e2781-93e7-48bd-bbec-b9d8a2d8e889">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Shared.ResponseGroup0</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="5ce7d95c-1ac6-4dc5-a7c7-179ec7aeb47c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.Validate</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d046c383-4b1a-4213-b51c-88177ad46102">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>CartModify.XMLEscaping</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="3bb3e620-51cf-4d28-b76b-b5ff0d10dcb9">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+    </opResponse>
+    <opResponse id="e49d05d3-c9da-4b67-a403-52dfea8253d8">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>ERROR</type>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="63e57168-df90-4fc0-9964-57eece3627b3">
+    <annotation></annotation>
+    <name>document</name>
+    <fieldName>document</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="6bfbef83-3539-44e1-875f-89c43a1552c7">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>false</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>false</historyCheckPointFlow>
+  <steps>
+    <step id="26bbf64c-4699-4331-ad77-c4dd64842bdf">
+      <annotation>fc9a637e-6a1c-426f-9d7d-5a5481c440a6.26bbf64c-4699-4331-ad77-c4dd64842bdf.description</annotation>
+      <name>Invoke Method 2</name>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>Invoke Method 2</resultContextKey>
+      <bindings>
+        <staticBinding id="022f1e31-0a7a-410d-b593-8c169f168c60">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>url</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>https://${webserviceHost}:${webservicePort}/onca/soap?Service=AWSECommerceService</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cd054510-aaf5-4aec-9f91-b5ff2b32a1f6">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>xmlTemplate</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ns=&quot;http://webservices.amazon.com/AWSECommerceService/2011-08-01&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ns:CartModify&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ns:MarketplaceDomain&gt;?&lt;/ns:MarketplaceDomain&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ns:AWSAccessKeyId&gt;?&lt;/ns:AWSAccessKeyId&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ns:AssociateTag&gt;?&lt;/ns:AssociateTag&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ns:Validate&gt;?&lt;/ns:Validate&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ns:XMLEscaping&gt;?&lt;/ns:XMLEscaping&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ns:Shared&gt;
+            &lt;!--Optional:--&gt;
+            &lt;ns:CartId&gt;?&lt;/ns:CartId&gt;
+            &lt;!--Optional:--&gt;
+            &lt;ns:HMAC&gt;?&lt;/ns:HMAC&gt;
+            &lt;!--Optional:--&gt;
+            &lt;ns:MergeCart&gt;?&lt;/ns:MergeCart&gt;
+            &lt;!--Optional:--&gt;
+            &lt;ns:Items&gt;
+               &lt;!--Zero or more repetitions:--&gt;
+               &lt;ns:Item&gt;
+                  &lt;!--Optional:--&gt;
+                  &lt;ns:Action&gt;?&lt;/ns:Action&gt;
+                  &lt;!--Optional:--&gt;
+                  &lt;ns:CartItemId&gt;?&lt;/ns:CartItemId&gt;
+                  &lt;!--Optional:--&gt;
+                  &lt;ns:Quantity&gt;?&lt;/ns:Quantity&gt;
+               &lt;/ns:Item&gt;
+            &lt;/ns:Items&gt;
+            &lt;!--Zero or more repetitions:--&gt;
+            &lt;ns:ResponseGroup&gt;?&lt;/ns:ResponseGroup&gt;
+         &lt;/ns:Shared&gt;
+         &lt;!--Zero or more repetitions:--&gt;
+         &lt;ns:Request&gt;
+            &lt;!--Optional:--&gt;
+            &lt;ns:CartId&gt;?&lt;/ns:CartId&gt;
+            &lt;!--Optional:--&gt;
+            &lt;ns:HMAC&gt;?&lt;/ns:HMAC&gt;
+            &lt;!--Optional:--&gt;
+            &lt;ns:MergeCart&gt;?&lt;/ns:MergeCart&gt;
+            &lt;!--Optional:--&gt;
+            &lt;ns:Items&gt;
+               &lt;!--Zero or more repetitions:--&gt;
+               &lt;ns:Item&gt;
+                  &lt;!--Optional:--&gt;
+                  &lt;ns:Action&gt;?&lt;/ns:Action&gt;
+                  &lt;!--Optional:--&gt;
+                  &lt;ns:CartItemId&gt;?&lt;/ns:CartItemId&gt;
+                  &lt;!--Optional:--&gt;
+                  &lt;ns:Quantity&gt;?&lt;/ns:Quantity&gt;
+               &lt;/ns:Item&gt;
+            &lt;/ns:Items&gt;
+            &lt;!--Zero or more repetitions:--&gt;
+            &lt;ns:ResponseGroup&gt;?&lt;/ns:ResponseGroup&gt;
+         &lt;/ns:Request&gt;
+      &lt;/ns:CartModify&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="300fec88-bfd2-4c1e-9c31-9596eaf6bd0a">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>header_SOAPAction</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http://soap.amazon.com/CartModify</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="14f689e7-02e8-4657-b259-859cc6545528">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>inputMap</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>CartModify|AWSAccessKeyId=CartModify.AWSAccessKeyId
+CartModify|AssociateTag=CartModify.AssociateTag
+CartModify|MarketplaceDomain=CartModify.MarketplaceDomain
+CartModify|*|Request|CartId=^CartModify.Request*.CartId$
+CartModify|*|Request|HMAC=^CartModify.Request*.HMAC$
+CartModify|*|Request|Items|*|Item|Action=^CartModify.Request*.Items.Item*.Action$
+CartModify|*|Request|Items|*|Item|CartItemId=^CartModify.Request*.Items.Item*.CartItemId$
+CartModify|*|Request|Items|*|Item|Quantity=^CartModify.Request*.Items.Item*.Quantity$
+CartModify|*|Request|MergeCart=^CartModify.Request*.MergeCart$
+CartModify|*|Request|*|ResponseGroup=^CartModify.Request*.ResponseGroup*$
+CartModify|Shared|CartId=CartModify.Shared.CartId
+CartModify|Shared|HMAC=CartModify.Shared.HMAC
+CartModify|Shared|Items|*|Item|Action=^CartModify.Shared.Items.Item*.Action$
+CartModify|Shared|Items|*|Item|CartItemId=^CartModify.Shared.Items.Item*.CartItemId$
+CartModify|Shared|Items|*|Item|Quantity=^CartModify.Shared.Items.Item*.Quantity$
+CartModify|Shared|MergeCart=CartModify.Shared.MergeCart
+CartModify|Shared|*|ResponseGroup=^CartModify.Shared.ResponseGroup*$
+CartModify|Validate=CartModify.Validate
+CartModify|XMLEscaping=CartModify.XMLEscaping</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="998c4393-a39f-4463-986c-4cac3569c195">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>usesJSON</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b85a1edf-caa4-4ef5-881e-68ba81e5e892">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>wswAuthenticationType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6de610f9-710c-424d-acdd-f6212cd72c42">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecuritySignRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="da366a64-ec40-4017-8c83-55877720ef6b">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityEncryptRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f448c6be-4102-4027-bceb-69baadcd0043">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityTimestampRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a92092e2-d690-4444-bfe4-be56a5e9eb24">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ba65feba-91b7-40d4-b695-782f5ee28cbb">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystoreType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="76026d8f-d99b-467b-91ff-b0d77e4b7caf">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ab5808aa-27f8-47e1-9aa9-5f0a38599b5b">
+          <fromContextKey>headers</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>headers</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="eb9346d7-1d29-4296-b4bb-2e7480805695">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>contentType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>text/xml</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8f9bc3ca-27d3-4ca6-b90a-726270728013">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>characterSet</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>UTF-8</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="60c20d78-1ad7-4e2d-9df3-431b294d8dc9">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ab970219-a1cd-4029-ac75-9a73b04bcc29">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="eb8846a7-8897-4605-9dd1-91948a158ac1">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>trustAllRoots</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ce5052e7-8fe9-4f70-8cb5-ddcf1e924a34">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>useCookies</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7ed7aa3c-2f25-410c-bb92-d46f7e5f06bf">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e0b77627-2b90-49d6-87c4-8a406215d47f">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>socketTimeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="31ccf4a9-30b9-4a1f-90e6-121f6dc35064">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxy</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f3ed27f9-f476-4a48-93f7-dda0fa3235e2">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="bb7d87d4-c0e9-4638-853f-8af63beb16a0">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="57fd40a7-01fa-4342-a518-d2f716516bbb">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cd0bdf40-9f3e-4a0b-911c-a7229b8f8713">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d02329b0-3ef5-4f6b-9f70-d6b66aa7ef03">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2bc7dd49-e105-4c1c-8723-7fb6aa25371e">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>ICONCLUDE_WSW_VERSION</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>2</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ceba6878-1103-4ebf-8bf8-06510768876e">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>returnXMLRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="37b413d5-ba3e-49b0-9a82-dfb1193238de">
+          <fromContextKey>CartModify.AWSAccessKeyId</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.AWSAccessKeyId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="33ee3e95-71d1-40d2-8283-8642c54e7794">
+          <fromContextKey>CartModify.AssociateTag</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.AssociateTag</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="acf57cfc-d0f6-4600-bc44-670ce65d1af5">
+          <fromContextKey>CartModify.MarketplaceDomain</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.MarketplaceDomain</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a1998bbe-15a6-437e-97f3-7d4f96c00850">
+          <fromContextKey>CartModify.Request0.CartId</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Request0.CartId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="aca196a0-56ad-4315-b3f6-54b52c2b7611">
+          <fromContextKey>CartModify.Request0.HMAC</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Request0.HMAC</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fccae373-83ff-4fdb-a5b5-33925973bcaf">
+          <fromContextKey>CartModify.Request0.Items.Item0.Action</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Request0.Items.Item0.Action</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b1ce7d2b-03ff-4e60-8684-cee0cb2539e6">
+          <fromContextKey>CartModify.Request0.Items.Item0.CartItemId</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Request0.Items.Item0.CartItemId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="809f19e6-0fcd-4bc8-b66b-57a134c8d647">
+          <fromContextKey>CartModify.Request0.Items.Item0.Quantity</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Request0.Items.Item0.Quantity</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="966ba860-7f2e-44c5-98e4-32072d3f8ab5">
+          <fromContextKey>CartModify.Request0.MergeCart</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Request0.MergeCart</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e30e325f-e043-4a62-9674-f7d41dd97238">
+          <fromContextKey>CartModify.Request0.ResponseGroup0</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Request0.ResponseGroup0</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="94074476-9e9c-485c-8fe9-b3ee2e152cba">
+          <fromContextKey>CartModify.Shared.CartId</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Shared.CartId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="478bd3a8-e7c0-4afc-9cb3-92d4f061072f">
+          <fromContextKey>CartModify.Shared.HMAC</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Shared.HMAC</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="07cc8ce4-3fe6-4ab6-8166-fb2375a16b61">
+          <fromContextKey>CartModify.Shared.Items.Item0.Action</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Shared.Items.Item0.Action</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="31f99864-d3e6-43ea-9d6d-2f1a40e5645d">
+          <fromContextKey>CartModify.Shared.Items.Item0.CartItemId</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Shared.Items.Item0.CartItemId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b8748db2-1725-42d6-8d52-3b28f5ee65df">
+          <fromContextKey>CartModify.Shared.Items.Item0.Quantity</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Shared.Items.Item0.Quantity</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d8b24118-3068-4fb0-a755-0ca721d0efbf">
+          <fromContextKey>CartModify.Shared.MergeCart</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Shared.MergeCart</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="203e71c8-b772-4561-903e-0303f1526ba9">
+          <fromContextKey>CartModify.Shared.ResponseGroup0</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Shared.ResponseGroup0</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8dfa1744-e899-4cc7-ade9-fcd5e1943fed">
+          <fromContextKey>CartModify.Validate</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.Validate</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fa789817-7c84-4f07-b149-d688aeeae26f">
+          <fromContextKey>CartModify.XMLEscaping</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>CartModify.XMLEscaping</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="87d2c27b-bfa8-4a33-98d5-290fc91b5772">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>68ef9880-fab7-4bcc-ba70-c73c9dbf1a94</refId>
+          </destination>
+          <source>
+            <refId>26bbf64c-4699-4331-ad77-c4dd64842bdf</refId>
+          </source>
+          <positions/>
+        </transition>
+        <transition id="70ddd436-3519-48f6-af86-2c2a1c3ca51d">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>08c2ca56-a989-46f7-bcf5-81cd0f418ca0</refId>
+          </destination>
+          <source>
+            <refId>26bbf64c-4699-4331-ad77-c4dd64842bdf</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>962ffbf8-4105-46bb-8c71-84f037c4de61</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="db290ec0-ebe1-432e-9a9e-e416fe4dc8b8">
+          <annotation></annotation>
+          <name>document</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>document</contextKey>
+          <expression id="90ef2c7d-1570-4038-a450-32f8dce6cd57">
+            <annotation></annotation>
+            <name>document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="8b299b14-b15d-4b46-8ff5-589e8424e5f0">
+          <annotation></annotation>
+          <name>documentStripped</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>documentStripped</contextKey>
+          <expression id="7d1e75a1-bae2-4606-af0e-1f32919128bc">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="56f05c43-5f08-42de-91df-113ed9e977eb">
+          <annotation></annotation>
+          <name>responseHeaders</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>responseHeaders</contextKey>
+          <expression id="f33fbf7f-c36b-449b-acbd-21cd78d871f2">
+            <annotation></annotation>
+            <name>responseHeaders</name>
+            <fieldName>responseHeaders</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="f6ac1c7a-4126-4af1-b618-65dadcee056a">
+          <annotation></annotation>
+          <name>CartModifyResponse</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>CartModifyResponse</contextKey>
+          <expression id="04979b29-1fbf-4c34-8222-ac2a9b6c218a">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="e8ad99b8-dfba-4f15-a1c2-2c67e4576903">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/CartModifyResponse</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="8ed8aa14-c927-419b-8b4b-59f908ef9b32">
+          <annotation></annotation>
+          <name>Arguments</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>Arguments</contextKey>
+          <expression id="6c703b74-bd09-43fb-9c2c-090d3b077e87">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="cafbced9-82e8-4b98-a7da-fe990a2ea169">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/CartModifyResponse/OperationRequest/Arguments</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="711b0ec8-8419-44c8-9532-579ccb9cb35e">
+          <annotation></annotation>
+          <name>Errors</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>Errors</contextKey>
+          <expression id="253b2bda-6b58-4d7b-a5be-e69f2ccfbcd7">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="64aa2523-1bf4-4084-b7ca-450874e81102">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/CartModifyResponse/OperationRequest/Errors</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="82371df4-7a6f-4d08-8603-7595533f3bd5">
+          <annotation></annotation>
+          <name>HTTPHeaders</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>HTTPHeaders</contextKey>
+          <expression id="5f8ec4cc-ff30-45b3-bdee-31dc0b7df65e">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="bc919efd-12ea-4150-b508-b44113bcecc5">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/CartModifyResponse/OperationRequest/HTTPHeaders</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="57229673-f093-4173-93c3-ca37f4b75fa6">
+          <annotation></annotation>
+          <name>RequestId</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>RequestId</contextKey>
+          <expression id="dd268ff6-8022-40bc-be40-9d9ac0749bb9">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="27b96e12-705c-415a-94e6-5d8f0bba4721">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/CartModifyResponse/OperationRequest/RequestId/text()</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="fbcf6692-ce78-47e0-bd27-b65b26ebaf24">
+          <annotation></annotation>
+          <name>RequestProcessingTime</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>RequestProcessingTime</contextKey>
+          <expression id="08d0057a-d8c1-479d-8948-4cf7064c27b3">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="609a4342-56ed-4c49-99c7-fd4938a14365">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/CartModifyResponse/OperationRequest/RequestProcessingTime/text()</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="68ef9880-fab7-4bcc-ba70-c73c9dbf1a94">
+      <annotation></annotation>
+      <name>RESOLVED : success</name>
+      <bounds>
+        <x>0.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>RESOLVED : success</resultContextKey>
+      <bindings/>
+      <transitions>
+        <transition id="7fd8f72f-33df-40ce-bb3d-ae67c9bed52c">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>68ef9880-fab7-4bcc-ba70-c73c9dbf1a94</refId>
+          </destination>
+          <source>
+            <refId>68ef9880-fab7-4bcc-ba70-c73c9dbf1a94</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="08c2ca56-a989-46f7-bcf5-81cd0f418ca0">
+      <annotation></annotation>
+      <name>ERROR : failure</name>
+      <bounds>
+        <x>150.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>ERROR : failure</resultContextKey>
+      <bindings/>
+      <transitions>
+        <transition id="0a2e247b-2b1d-4a0e-a52f-3aab695e827a">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>08c2ca56-a989-46f7-bcf5-81cd0f418ca0</refId>
+          </destination>
+          <source>
+            <refId>08c2ca56-a989-46f7-bcf5-81cd0f418ca0</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>26bbf64c-4699-4331-ad77-c4dd64842bdf</startSteps>
+</flow>

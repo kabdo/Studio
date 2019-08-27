@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selectionList id="682f4c5c-324d-470c-8412-cadd5f2c5d19">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>InstanceType</name>
+  <storage>
+    <string>t2.micro</string>
+    <string>t1.micro</string>
+  </storage>
+</selectionList>
